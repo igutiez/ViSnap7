@@ -97,16 +97,13 @@ Class VS7_RadioButton
 #End Region
 
 #Region "Control Events"
-    Public Sub RadioButtonClick(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Click
-        If sender.checked Then
-            sender.PLC_Value = True
 
-        Else
-            sender.PLC_Value = False
-        End If
+    Public Sub WriteBool(ByVal sender As Object, ByVal e As EventArgs) Handles Me.CheckedChanged
+        Me.pLC_Value = Me.Checked
         pendingWrite = True
 
     End Sub
+
 
 
 #End Region
@@ -148,16 +145,16 @@ Class VS7_RadioButton
         Select Case Me.PLC_DataArea
             Case DataArea.DB
                 WriteOnPlc(_Text, _PLC_Number, ViSnap7.S7AreaDB, _DataType, _DB, _Byte, _Bit, _Length)
-                Me.pLC_Value = Me.Checked
+
             Case DataArea.INPUT
                 WriteOnPlc(_Text, _PLC_Number, ViSnap7.S7AreaPE, _DataType, 0, _Byte, _Bit, _Length)
-                Me.pLC_Value = Me.Checked
+
             Case DataArea.MARK
                 WriteOnPlc(_Text, _PLC_Number, ViSnap7.S7AreaMK, _DataType, 0, _Byte, _Bit, _Length)
-                Me.pLC_Value = Me.Checked
+
             Case DataArea.OUTPUT
                 WriteOnPlc(_Text, _PLC_Number, ViSnap7.S7AreaPA, _DataType, 0, _Byte, _Bit, _Length)
-                Me.pLC_Value = Me.Checked
+
             Case Else
         End Select
 
