@@ -17,6 +17,7 @@
     Public Const KPlcBitLabel = "Bit N#"
     Public Const KPlcBitPictureTrue = "Picture when true"
     Public Const KPlcBitPictureFalse = "Picture when false"
+    Public Const KPlcBorderStyle = "Border Style"
 
     Public Const KPlcShapetypeLabel = "Shape type"
     Public Const KPlcTrueValueLabel = "Color if true"
@@ -38,6 +39,10 @@
     Public Const KPlcTipPlcBit = "Bit for boolean variable"
     Public Const KPlcTipPictureBoxTrue = "Picture for true value"
     Public Const KPlcTipPictureBoxFalse = "Picture for false value"
+    Public Const KPlcTipBorderStyle = "Border style"
+
+    Public Const KShowPictureFalseAsDefault = "Show false picture as default"
+    Public Const KShowPictureTrueAsDefault = "Show true picture as default"
 
     Public Const KPlcTipShapeType = "Shape type for led"
     Public Const KPlcTipTrueValue = "Color for true value"
