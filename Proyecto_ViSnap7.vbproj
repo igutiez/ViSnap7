@@ -106,6 +106,9 @@
     <Compile Include="ViSnap7\Controls\VisSnap Button.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ViSnap7\Controls\VisSnap PictureBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ViSnap7\Controls\VisSnap RadioButton.vb">
       <SubType>Component</SubType>
     </Compile>

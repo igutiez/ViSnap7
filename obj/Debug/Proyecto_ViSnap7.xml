@@ -27,6 +27,11 @@ Proyecto_ViSnap7
  PLC Button user control 
  </summary>
 </member>
+<member name="T:Proyecto_ViSnap7.VS7_PictureBox">
+ <summary>
+ PLC PictureBox control 
+ </summary>
+</member>
 <member name="T:Proyecto_ViSnap7.VS7_RadioButton">
  <summary>
  PLC Radio Button user control 
