@@ -19,6 +19,7 @@ Module General
         VS7_Checkbox
         VS7_Button
         VS7_ComboBox
+        VS7_RadioButton
     End Enum
 
     'Used in Controls properties
