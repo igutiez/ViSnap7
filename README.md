@@ -1,6 +1,6 @@
 # Visnap7
 Visnap7 Project
-ViSnap7 is a framework for an easy developing of PLC-Siemens HMI.
+ViSnap7 is a framework for an easy developing of PLC-Siemens HMI by Iñigo Gútiez (https://programacionsiemens.com)
 
 The ViSnap7 core is a fork of Sharp7 developed in C# by Davide Nardella.
 
