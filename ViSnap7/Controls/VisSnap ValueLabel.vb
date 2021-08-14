@@ -162,7 +162,7 @@ End Class
 
 
 
-#Region "PLCTextbox Smart tags"
+#Region "Label Smart tags"
 
 Public Class PLCValueLabelDesigner
     Inherits ControlDesigner

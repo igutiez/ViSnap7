@@ -274,7 +274,7 @@ End Class
 
 
 
-#Region "PLCTextbox Smart tags"
+#Region "PLCLed Smart tags"
 
 Public Class PLCLedDesigner
     Inherits ControlDesigner

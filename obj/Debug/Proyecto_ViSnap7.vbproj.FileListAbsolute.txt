@@ -20,4 +20,5 @@ C:\Users\iguti\source\repos\Framework\obj\Debug\Proyecto_ViSnap7.vbproj.CoreComp
 C:\Users\iguti\source\repos\Framework\obj\Debug\Proyecto_ViSnap7.exe
 C:\Users\iguti\source\repos\Framework\obj\Debug\Proyecto_ViSnap7.xml
 C:\Users\iguti\source\repos\Framework\obj\Debug\Proyecto_ViSnap7.pdb
+C:\Users\iguti\source\repos\Framework\obj\Debug\Proyecto_ViSnap7.Form2.resources
 C:\Users\iguti\source\repos\Framework\obj\Debug\Proyecto_ViSnap7.vbprojAssemblyReference.cache

@@ -213,7 +213,7 @@ End Class
 
 
 
-#Region "PLCTextbox Smart tags"
+#Region "RadioButton Smart tags"
 
 Public Class PLCRadioButtonDesigner
     Inherits ControlDesigner

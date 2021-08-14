@@ -216,7 +216,7 @@ End Class
 
 
 
-#Region "PLCTextbox Smart tags"
+#Region "PLCCheckbox Smart tags"
 
 Public Class PLCCheckboxDesigner
     Inherits ControlDesigner

@@ -19,7 +19,7 @@
 
     End Sub
 
-
+    'Custom culture
     Public culture As Globalization.CultureInfo
 
 
