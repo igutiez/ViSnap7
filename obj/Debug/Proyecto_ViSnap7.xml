@@ -90,6 +90,12 @@ Proyecto_ViSnap7
  Array data of bytes
  </summary>
 </member>
+<member name="M:Proyecto_ViSnap7.UpdateFormsTasks.ReadControls(System.Boolean)">
+ <summary>
+ It is used for reading/writing the control. 
+ </summary>
+ <param name="enable"></param>
+</member>
 <member name="M:Proyecto_ViSnap7.ViSnap7.S7Client.ReadDrvArea(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Byte[])">
  <summary>
  Data I/O main function: Read Drive Area
