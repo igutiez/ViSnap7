@@ -164,30 +164,30 @@ Class VS7_Button
 
 #End Region
 #Region "Plc reading and writing"
-    Public Sub UpdateValue(ByRef _PLC As PlcClient)
+    Public Sub UpdateControl(ByRef _PLC As PlcClient)
         'Reading if control is no pending and not write pending.
-        If FirstExecution Or (Not controlFocused And Not pendingWrite) Then
+        If firstExecution Or (Not controlFocused And Not pendingWrite) Then
 
 
 
             Select Case Me.PLC_DataArea
                 Case DataArea.DB
-                    Me.pLC_Value = TakeValue(_PLC.DBData(Me.PLC_DB), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
+                    Me.plc_Value = TakeValue(_PLC.dbData(Me.PLC_DB), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
 
                 Case DataArea.INPUT
-                    Me.pLC_Value = TakeValue(_PLC.InputData(0), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
+                    Me.plc_Value = TakeValue(_PLC.inputData(0), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
 
                 Case DataArea.MARK
-                    Me.pLC_Value = TakeValue(_PLC.MarksData(0), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
+                    Me.plc_Value = TakeValue(_PLC.marksData(0), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
 
                 Case DataArea.OUTPUT
-                    Me.pLC_Value = TakeValue(_PLC.OutputData(0), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
+                    Me.plc_Value = TakeValue(_PLC.outputData(0), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
 
                 Case Else
             End Select
 
             'Updating the button color
-            If CBool(Me.pLC_Value) Then
+            If CBool(Me.plc_Value) Then
                 Me.BackColor = _ColorTrue
             Else
                 Me.BackColor = _colorFalse
@@ -197,8 +197,8 @@ Class VS7_Button
         'Write in case of pendind write
         If pendingWrite Then
             pendingWrite = False
-            If PLC(PLC_Number).Connected And KGlobalConnectionEnabled Then
-                WriteValue(Me.pLC_Value, Me.PLC_Number, Me.PLC_DataArea, Me.PLC_DataType, Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_Length)
+            If plc(PLC_Number).connected And KGlobalConnectionEnabled Then
+                WriteValue(Me.plc_Value, Me.PLC_Number, Me.PLC_DataArea, Me.PLC_DataType, Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_Length)
             End If
 
         End If

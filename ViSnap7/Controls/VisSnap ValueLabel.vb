@@ -96,21 +96,21 @@ Class VS7_ValueLabel
 
 #End Region
 #Region "Plc reading and writing"
-    Public Sub UpdateValue(ByRef _PLC As PlcClient)
+    Public Sub UpdateControl(ByRef _PLC As PlcClient)
 
 
         Select Case Me.PLC_DataArea
             Case DataArea.DB
-                Me.Text = TakeValue(_PLC.DBData(Me.PLC_DB), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
+                Me.Text = TakeValue(_PLC.dbData(Me.PLC_DB), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
                 Me.pLC_Value = Me.Text
             Case DataArea.INPUT
-                Me.Text = TakeValue(_PLC.InputData(0), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
+                Me.Text = TakeValue(_PLC.inputData(0), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
                 Me.pLC_Value = Me.Text
             Case DataArea.MARK
-                Me.Text = TakeValue(_PLC.MarksData(0), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
+                Me.Text = TakeValue(_PLC.marksData(0), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
                 Me.pLC_Value = Me.Text
             Case DataArea.OUTPUT
-                Me.Text = TakeValue(_PLC.OutputData(0), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
+                Me.Text = TakeValue(_PLC.outputData(0), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
                 Me.pLC_Value = Me.Text
             Case Else
         End Select

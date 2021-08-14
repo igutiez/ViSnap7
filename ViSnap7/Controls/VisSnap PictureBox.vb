@@ -128,7 +128,7 @@ Class VS7_PictureBox
 
 #End Region
 #Region "Plc reading and writing"
-    Public Sub UpdateValue(ByRef _PLC As PlcClient)
+    Public Sub UpdateControl(ByRef _PLC As PlcClient)
 
 
         Select Case Me.PLC_DataArea

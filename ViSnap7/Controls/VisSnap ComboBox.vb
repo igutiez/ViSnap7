@@ -149,7 +149,7 @@ Class VS7_ComboBox
 
 #End Region
 #Region "Plc reading and writing"
-    Public Sub UpdateValue(ByRef _PLC As PlcClient)
+    Public Sub UpdateControl(ByRef _PLC As PlcClient)
 
         'Reading if control is no pending and not write pending.
         If firstExecution Or (Not controlFocused And Not pendingWrite) Then

@@ -8,7 +8,7 @@
         If enable Then
             For c = 0 To totalPlcNumber - 1
                 For Each ctr As Object In plc(c).controlsCollection
-                    ctr.UpdateValue(plc(0))
+                    ctr.UpdateControl(plc(0))
                 Next
 
             Next

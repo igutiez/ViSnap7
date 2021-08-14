@@ -224,22 +224,22 @@ Class VS7_Textbox
 
 #End Region
 #Region "Plc reading and writing"
-    Public Sub UpdateValue(ByRef _PLC As PlcClient)
+    Public Sub UpdateControl(ByRef _PLC As PlcClient)
 
         'Reading if control is no pending and not write pending.
-        If FirstExecution Or (Not controlFocused And Not pendingWrite) Then
+        If firstExecution Or (Not controlFocused And Not pendingWrite) Then
             Select Case Me.PLC_DataArea
                 Case DataArea.DB
-                    Me.Text = TakeValue(_PLC.DBData(Me.PLC_DB), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
+                    Me.Text = TakeValue(_PLC.dbData(Me.PLC_DB), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
                     Me.pLC_Value = Me.Text
                 Case DataArea.INPUT
-                    Me.Text = TakeValue(_PLC.InputData(0), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
+                    Me.Text = TakeValue(_PLC.inputData(0), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
                     Me.pLC_Value = Me.Text
                 Case DataArea.MARK
-                    Me.Text = TakeValue(_PLC.MarksData(0), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
+                    Me.Text = TakeValue(_PLC.marksData(0), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
                     Me.pLC_Value = Me.Text
                 Case DataArea.OUTPUT
-                    Me.Text = TakeValue(_PLC.OutputData(0), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
+                    Me.Text = TakeValue(_PLC.outputData(0), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
                     Me.pLC_Value = Me.Text
                 Case Else
             End Select
@@ -248,7 +248,7 @@ Class VS7_Textbox
         If pendingWrite Then
             If (Me.PLC_DataType = DataType.STR) Or (Me.PLC_DataType = DataType.CHR) Or IsNumeric(Me.Text) Then
                 pendingWrite = False
-                If PLC(PLC_Number).Connected And KGlobalConnectionEnabled Then
+                If plc(PLC_Number).connected And KGlobalConnectionEnabled Then
                     WriteValue(Me.Text, Me.PLC_Number, Me.PLC_DataArea, Me.PLC_DataType, Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_Length)
                 End If
 
