@@ -1,5 +1,7 @@
 ﻿Imports System.ComponentModel
-
+''' <summary>
+''' General module of communication
+''' </summary>
 Module General
 
     'Used for tasks that only should be executed at the loading of the main form.
@@ -10,14 +12,21 @@ Module General
     'Clients that connect to the PLC. See ViSnap7Setup
     Public plc(KMaxNumberOfPLC) As PlcClient
 
-    'Used in Controls properties
+
+    ''' <summary>
+    ''' Type of data area: used in Controls properties
+    ''' </summary>
     Public Enum DataArea
         MARK = 1
         DB = 2
         INPUT = 3
         OUTPUT = 4
     End Enum
-    'Used in controls properties
+
+
+    ''' <summary>
+    ''' Variable type: used in controls properties
+    ''' </summary>
     Public Enum DataType
         BOOL = 1
         UINT = 2
@@ -31,9 +40,10 @@ Module General
 
     'This starts the communication with PLC in the backgroud
     Public Sub LaunchCommunications()
+        'Flag to execute some instructions at the begining
         firstExecution = True
-        BackgroudTasksLaunch.CyclicLoop.WorkerReportsProgress = True
-        BackgroudTasksLaunch.CyclicLoop.RunWorkerAsync()
+        'Tasks to be performed recurrently
+        BackgroudTasksLaunch.cyclicLoop.RunWorkerAsync()
     End Sub
 
 

@@ -72,6 +72,40 @@ Proyecto_ViSnap7
  PLC Value Label user control 
  </summary>
 </member>
+<member name="F:Proyecto_ViSnap7.BackgroudTasksLaunch._CyclicLoop">
+ <summary>
+ Object that makes all communication task in the background
+ </summary>
+</member>
+<member name="M:Proyecto_ViSnap7.BackgroudTasksLaunch.CyclicLoop_DoWork(System.Object,System.ComponentModel.DoWorkEventArgs)">
+ <summary>
+ Tasks for loading data from PLC
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:Proyecto_ViSnap7.BackgroudTasksLaunch.CyclicLoop_RunWorkerCompleted(System.Object,System.ComponentModel.RunWorkerCompletedEventArgs)">
+ <summary>
+ Once the data from the PLCs has been read, the controls update tasks are carried out
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="T:Proyecto_ViSnap7.General">
+ <summary>
+ General module of communication
+ </summary>
+</member>
+<member name="T:Proyecto_ViSnap7.General.DataArea">
+ <summary>
+ Type of data area: used in Controls properties
+ </summary>
+</member>
+<member name="T:Proyecto_ViSnap7.General.DataType">
+ <summary>
+ Variable type: used in controls properties
+ </summary>
+</member>
 <member name="M:Proyecto_ViSnap7.General.GetPropertyByName(System.Object,System.String)">
  <summary>
  Used to set values into Controls from Smart Tags

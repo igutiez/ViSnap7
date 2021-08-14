@@ -1,62 +1,69 @@
 ﻿Module BackgroundTasks
     Public openFormsLastIteration As Integer
     Public totalPlcNumber As Integer = 0
+    Private minReference As Integer = 9999
+    Private maxReferece As Integer = -1
     Public Sub AccomodatePlcData()
         Dim i As Integer
         'It is just for execute at the loading of the main form.
         If firstExecution Then
-
+            'Apply Custom Culture
             ViSnap7Setup.CultureSelection()
+            'Adjust the desired PLC
             ViSnap7Setup.SetupPlc()
+
             'Check how many PLC are configured
             For c = 0 To plc.GetUpperBound(0)
                 If Not IsNothing(plc(c)) Then
                     totalPlcNumber = totalPlcNumber + 1
                 End If
             Next
-
+            'Create the Clients (one per PLC)
             CreateClients()
 
         End If
+
+
         'Update controls when Open/close forms 
-        If My.Application.OpenForms.Count <> OpenFormsLastIteration Then
+        'Only if number of openforms changes this is performed.
+        If My.Application.OpenForms.Count <> openFormsLastIteration Then
             'Clear all controls and data from PLC
 
-            For counter = 0 To TotalPlcNumber - 1
-                With PLC(counter)
+            For counter = 0 To totalPlcNumber - 1
+                With plc(counter)
 
-                    .ControlsCollection.Clear()
+                    .controlsCollection.Clear()
 
 
-                    If .DBData IsNot Nothing Then
-                        For i = 0 To .DBData.GetUpperBound(0) - 1
-                            ReDim .DBData(i).Data(0)
-                            .DBData(i).MaxByte = -1
-                            .DBData(i).MinByte = 99999
+                    If .dbData IsNot Nothing Then
+                        For i = 0 To .dbData.GetUpperBound(0) - 1
+                            ReDim .dbData(i).data(0)
+                            .dbData(i).maxByte = maxReferece
+                            .dbData(i).minByte = minReference
                         Next
                     End If
 
-                    If .InputData IsNot Nothing Then
-                        For i = 0 To .InputData.GetUpperBound(0) - 1
-                            ReDim .InputData(i).Data(0)
-                            .InputData(i).MaxByte = -1
-                            .InputData(i).MinByte = 99999
+                    If .inputData IsNot Nothing Then
+                        For i = 0 To .inputData.GetUpperBound(0) - 1
+                            ReDim .inputData(i).data(0)
+                            .inputData(i).maxByte = maxReferece
+                            .inputData(i).minByte = minReference
                         Next
                     End If
 
-                    If .OutputData IsNot Nothing Then
-                        For i = 0 To .OutputData.GetUpperBound(0) - 1
-                            ReDim .OutputData(i).Data(0)
-                            .OutputData(i).MaxByte = -1
-                            .OutputData(i).MinByte = 99999
+                    If .outputData IsNot Nothing Then
+                        For i = 0 To .outputData.GetUpperBound(0) - 1
+                            ReDim .outputData(i).data(0)
+                            .outputData(i).maxByte = maxReferece
+                            .outputData(i).minByte = minReference
                         Next
                     End If
 
-                    If .MarksData IsNot Nothing Then
-                        For i = 0 To .MarksData.GetUpperBound(0) - 1
-                            ReDim .MarksData(i).Data(0)
-                            .MarksData(i).MaxByte = -1
-                            .MarksData(i).MinByte = 99999
+                    If .marksData IsNot Nothing Then
+                        For i = 0 To .marksData.GetUpperBound(0) - 1
+                            ReDim .marksData(i).data(0)
+                            .marksData(i).maxByte = maxReferece
+                            .marksData(i).minByte = minReference
                         Next
                     End If
                 End With
@@ -186,8 +193,8 @@
                         plc(plcNum).outputData(plcDbNumber) = New PlcClient.ByteData
                         ReDim Preserve plc(plcNum).outputData(plcDbNumber).data(0)
 
-                        plc(plcNum).outputData(plcDbNumber).maxByte = -1
-                        plc(plcNum).outputData(plcDbNumber).minByte = 999999 'byte not reachable
+                        plc(plcNum).outputData(plcDbNumber).maxByte = maxReferece
+                        plc(plcNum).outputData(plcDbNumber).minByte = minReference  'byte not reachable
 
                     End If
                     If plcMinByte < plc(plcNum).outputData(plcDbNumber).minByte Then
@@ -207,8 +214,8 @@
                         plc(plcNum).marksData(plcDbNumber) = New PlcClient.ByteData
                         ReDim Preserve plc(plcNum).marksData(plcDbNumber).data(0)
 
-                        plc(plcNum).marksData(plcDbNumber).maxByte = -1
-                        plc(plcNum).marksData(plcDbNumber).minByte = 999999 'byte not reachable
+                        plc(plcNum).marksData(plcDbNumber).maxByte = maxReferece
+                        plc(plcNum).marksData(plcDbNumber).minByte = minReference  'byte not reachable
 
                     End If
                     If plcMinByte < plc(plcNum).marksData(plcDbNumber).minByte Then

@@ -22,17 +22,37 @@ Partial Class Form1
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.VS7_ValueLabel2 = New Proyecto_ViSnap7.VS7_ValueLabel()
         Me.SuspendLayout()
+        '
+        'VS7_ValueLabel2
+        '
+        Me.VS7_ValueLabel2.AutoSize = True
+        Me.VS7_ValueLabel2.Location = New System.Drawing.Point(272, 136)
+        Me.VS7_ValueLabel2.Name = "VS7_ValueLabel2"
+        Me.VS7_ValueLabel2.PLC_Bit = 0
+        Me.VS7_ValueLabel2.PLC_Byte = 400
+        Me.VS7_ValueLabel2.PLC_DataArea = Proyecto_ViSnap7.General.DataArea.MARK
+        Me.VS7_ValueLabel2.PLC_DataType = Proyecto_ViSnap7.General.DataType.DINT
+        Me.VS7_ValueLabel2.PLC_DB = 0
+        Me.VS7_ValueLabel2.PLC_Length = 0
+        Me.VS7_ValueLabel2.PLC_Number = 0
+        Me.VS7_ValueLabel2.Size = New System.Drawing.Size(121, 17)
+        Me.VS7_ValueLabel2.TabIndex = 0
+        Me.VS7_ValueLabel2.Text = "VS7_ValueLabel2"
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1131, 680)
+        Me.Controls.Add(Me.VS7_ValueLabel2)
         Me.Name = "Form1"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents VS7_ValueLabel1 As VS7_ValueLabel
+    Friend WithEvents VS7_ValueLabel2 As VS7_ValueLabel
 End Class
