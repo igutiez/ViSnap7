@@ -128,7 +128,7 @@ Proyecto_ViSnap7
  <summary>
  It is used for reading/writing the control. 
  </summary>
- <param name="enable"></param>
+ <param name="enable">Enable or not control updating</param>
 </member>
 <member name="M:Proyecto_ViSnap7.ViSnap7.S7Client.ReadDrvArea(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Byte[])">
  <summary>
