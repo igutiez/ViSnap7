@@ -18,8 +18,7 @@
             CreateClients()
 
         End If
-
-        '
+        'Update controls when Open/close forms 
         If My.Application.OpenForms.Count <> OpenFormsLastIteration Then
             'Clear all controls and data from PLC
 

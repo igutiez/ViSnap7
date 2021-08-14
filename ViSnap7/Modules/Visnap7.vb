@@ -40,8 +40,6 @@ Imports System.Threading
 Namespace ViSnap7
 
 
-
-
 #Region "[Sync Sockets Win32/Win64 Desktop Application]"
 
     Friend Class MsgSocket

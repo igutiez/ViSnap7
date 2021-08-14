@@ -18,7 +18,6 @@ Class VS7_ValueLabel
     Private _txt As String
     Public pLC_Value As String
 
-
 #Region "PLC Properties"
 
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcNumberLabel)>
@@ -91,7 +90,6 @@ Class VS7_ValueLabel
 
 
 #End Region
-
 #Region "Control Events"
 
 
@@ -151,17 +149,7 @@ Class VS7_ValueLabel
 
 #End Region
 
-
-
-
-
-
 End Class
-
-
-
-
-
 #Region "Label Smart tags"
 
 Public Class PLCValueLabelDesigner

@@ -10,19 +10,6 @@ Module General
     'Clients that connect to the PLC. See ViSnap7Setup
     Public plc(KMaxNumberOfPLC) As PlcClient
 
-
-    'List of user controls that connect with PLC
-    Public Enum PlcControlTypes
-        VS7_Textbox
-        VS7_ValueLabel
-        VS7_Led
-        VS7_Checkbox
-        VS7_Button
-        VS7_ComboBox
-        VS7_RadioButton
-        VS7_PictureBox
-    End Enum
-
     'Used in Controls properties
     Public Enum DataArea
         MARK = 1

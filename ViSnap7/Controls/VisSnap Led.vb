@@ -136,13 +136,11 @@ Class VS7_Led
 
 
 #End Region
-
 #Region "Control Events"
 
 
 
 #End Region
-
 #Region "Control Procedures"
     Sub Circle()
         If Me.PLC_ShapeType = ShapeType.Circular Then

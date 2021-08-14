@@ -208,11 +208,6 @@ Class VS7_RadioButton
 
 
 End Class
-
-
-
-
-
 #Region "RadioButton Smart tags"
 
 Public Class PLCRadioButtonDesigner

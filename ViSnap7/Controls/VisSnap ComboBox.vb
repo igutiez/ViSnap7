@@ -128,7 +128,6 @@ Class VS7_ComboBox
 
 
 #End Region
-
 #Region "Control Events"
 
     Private Sub IndexChanged(sender As Object, e As EventArgs) Handles Me.SelectedIndexChanged

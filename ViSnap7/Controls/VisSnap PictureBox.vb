@@ -189,7 +189,6 @@ Class VS7_PictureBox
 #End Region
 
 End Class
-
 #Region "PictureBox Smart tags"
 
 Public Class PLCPictureBoxDesigner
@@ -208,7 +207,6 @@ Public Class PLCPictureBoxDesigner
         End Get
     End Property
 End Class
-
 Friend Class PLCPictureBoxActionList
     Inherits DesignerActionList
 

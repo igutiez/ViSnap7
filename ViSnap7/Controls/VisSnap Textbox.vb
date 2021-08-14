@@ -92,7 +92,6 @@ Class VS7_Textbox
 
 
 #End Region
-
 #Region "Control Events"
 
 

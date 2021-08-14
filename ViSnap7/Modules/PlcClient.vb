@@ -1,7 +1,7 @@
 ﻿'======================================================================================================================================
 ' PlcClient.vb Ver 1.0
 ' August 2021 - 
-'
+
 ''' <summary>
 ''' PLCCLient is the class where you will store all data that are read from the PLC. Later, these data will be assigned to the controls.
 ''' </summary>

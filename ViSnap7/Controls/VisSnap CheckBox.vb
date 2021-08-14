@@ -21,8 +21,6 @@ Class VS7_Checkbox
     Public pLC_Value As String
     Public controlFocused As Boolean
     Public pendingWrite As Boolean
-
-
 #Region "PLC Properties"
 
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcNumberLabel)>
@@ -95,7 +93,6 @@ Class VS7_Checkbox
 
 
 #End Region
-
 #Region "Control Events"
     Public Sub CheckboxClick(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Click
         If sender.checked Then
@@ -204,20 +201,8 @@ Class VS7_Checkbox
     End Function
 
 #End Region
-
-
-
-
-
-
 End Class
-
-
-
-
-
 #Region "PLCCheckbox Smart tags"
-
 Public Class PLCCheckboxDesigner
     Inherits ControlDesigner
 

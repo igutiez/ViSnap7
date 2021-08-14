@@ -28,14 +28,13 @@ Class VS7_Button
 
 
 #Region "PLC Properties"
-
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcNumberLabel)>
     Public Property PLC_Number As Integer
         Get
-            Return _PLC
+            Return _plc
         End Get
         Set(value As Integer)
-            _PLC = value
+            _plc = value
         End Set
     End Property
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcDataAreaLabel)>
@@ -131,8 +130,6 @@ Class VS7_Button
             _Caption = value
         End Set
     End Property
-
-
 #End Region
 
 #Region "Control Events"

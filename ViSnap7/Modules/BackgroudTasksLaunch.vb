@@ -9,8 +9,6 @@ Module BackgroudTasksLaunch
         'Tasks in the backgroud for reading/writing in the PLC
         BackgroundTasks.AccomodatePlcData()
         BackgroundTasks.FillPlcData()
-
-
     End Sub
 
     Private Sub CyclicLoop_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles CyclicLoop.RunWorkerCompleted

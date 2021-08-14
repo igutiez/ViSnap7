@@ -1,11 +1,14 @@
 ﻿Module UpdateFormsTasks
+    ''' <summary>
+    ''' It is used for reading/writing the control. 
+    ''' </summary>
+    ''' <param name="enable"></param>
     Public Sub ReadControls(ByVal enable As Boolean)
         Dim c As Integer
         If enable Then
-
-            For c = 0 To TotalPlcNumber - 1
-                For Each ctr As Object In PLC(c).ControlsCollection
-                    ctr.UpdateValue(PLC(0))
+            For c = 0 To totalPlcNumber - 1
+                For Each ctr As Object In plc(c).controlsCollection
+                    ctr.UpdateValue(plc(0))
                 Next
 
             Next
