@@ -18,8 +18,7 @@
                     totalPlcNumber = totalPlcNumber + 1
                 End If
             Next
-            'Create the Clients (one per PLC)
-            CreateClients()
+
 
         End If
 
@@ -27,8 +26,10 @@
         'Update controls when Open/close forms 
         'Only if number of openforms changes this is performed.
         If My.Application.OpenForms.Count <> openFormsLastIteration Then
-            'Clear all controls and data from PLC
+            'Create the Clients (one per PLC)
+            CreateClients()
 
+            'Clear all controls and data from PLC
             For counter = 0 To totalPlcNumber - 1
                 With plc(counter)
 
