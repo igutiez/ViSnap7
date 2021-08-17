@@ -42,7 +42,7 @@ Proyecto_ViSnap7
  PLC Button user control 
  </summary>
 </member>
-<member name="M:Proyecto_ViSnap7.VS7_RWVariable.#ctor(System.Windows.Forms.Form,System.Int32,Proyecto_ViSnap7.General.DataArea,Proyecto_ViSnap7.General.DataType,System.Int32,System.Byte,System.Int32,System.Int32)">
+<member name="M:Proyecto_ViSnap7.VS7_RWVariable.#ctor(System.Windows.Forms.Form,System.Int32,Proyecto_ViSnap7.General.DataArea,Proyecto_ViSnap7.General.DataType,System.Int32,System.Int32,System.Int32,System.Int32)">
  <summary>
  Variable when DataArea is DB and it is not a bit and not a string
  </summary>

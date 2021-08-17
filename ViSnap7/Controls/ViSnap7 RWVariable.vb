@@ -20,7 +20,7 @@ Public Class VS7_RWVariable
     ''' <param name="dataType"></param>
     ''' <param name="db_Number"></param>
     ''' <param name="numByte"></param>
-    Sub New(ByVal frm As Form, ByVal plcNumber As Integer, ByVal dataArea As General.DataArea, ByVal dataType As General.DataType, ByVal db_Number As Integer, ByVal numByte As Byte, ByVal numBit As Integer, ByVal length As Integer)
+    Sub New(ByVal frm As Form, ByVal plcNumber As Integer, ByVal dataArea As General.DataArea, ByVal dataType As General.DataType, ByVal db_Number As Integer, ByVal numByte As Integer, ByVal numBit As Integer, ByVal length As Integer)
         _PLC = plcNumber
         _DataArea = dataArea
         _DataType = dataType
