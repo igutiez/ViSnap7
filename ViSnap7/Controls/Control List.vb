@@ -10,5 +10,6 @@
         VS7_RadioButton
         VS7_PictureBox
         VS7_IOByte
+        VS7_RWVariable
     End Enum
 End Module

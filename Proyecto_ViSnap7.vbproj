@@ -113,6 +113,9 @@
     <Compile Include="ViSnap7\Controls\ViSnap7 Button.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ViSnap7\Controls\ViSnap7 RWVariable.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ViSnap7\Controls\ViSnap7 PictureBox.vb">
       <SubType>Component</SubType>
     </Compile>
