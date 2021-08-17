@@ -894,7 +894,8 @@ Namespace ViSnap7
         Public Function GetWCharsAt(ByVal Buffer As Byte(), ByVal Pos As Integer, ByVal SizeInCharNb As Integer) As String
             'Extract Unicode UTF-16 Big-Endian character from the buffer. To use with WChar Datatype.
             'Size to read is in byte. Be careful, 1 char = 2 bytes
-            Return Encoding.BigEndianUnicode.GetString(Buffer, Pos, SizeInCharNb * 2)
+            Return Encoding.ASCII.GetString(Buffer, Pos, SizeInCharNb * 2)
+
         End Function
 
         Public Sub SetWCharsAt(ByVal Buffer As Byte(), ByVal Pos As Integer, ByVal Value As String)

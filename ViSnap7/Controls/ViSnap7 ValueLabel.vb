@@ -128,7 +128,7 @@ Class VS7_ValueLabel
                 txt = ViSnap7.S7.GetBitAt(_DBData.Data, _PLC_Byte, _PLC_Bit)
 
             Case DataType.CHR
-                txt = ViSnap7.S7.GetWCharsAt(_DBData.Data, _PLC_Byte, 1)
+                txt = ViSnap7.S7.GetCharsAt(_DBData.data, _PLC_Byte, 1)
             Case DataType.DINT
                 txt = ViSnap7.S7.GetDIntAt(_DBData.Data, _PLC_Byte)
             Case DataType.INT
