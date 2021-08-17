@@ -20,10 +20,6 @@ Public Class VS7_IOByte
     Private _DB As Integer
     Private _Byte As Integer
     Private _Bit As Integer
-    Private _DataType As General.DataType = DataType.SINT
-    Private _Length As Integer
-
-    Private _txt As String
     Private _ColorTrue As Color = Color.FromKnownColor(KnownColor.Lime)
     Private _ColorFalse As Color = Color.FromKnownColor(KnownColor.Window)
 
@@ -67,15 +63,8 @@ Public Class VS7_IOByte
         End Set
     End Property
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcValueTypeLabel)>
-    Public Property PLC_DataType As General.DataType
-        Get
-            Return _DataType
-        End Get
-        Set(value As General.DataType)
-            _DataType = value
+    Public PLC_DataType As General.DataType = DataType.SINT
 
-        End Set
-    End Property
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcBitLabel)>
     Public Property PLC_Bit As Integer
         Get
@@ -277,16 +266,7 @@ Friend Class PLCIOByteActionList
         End Set
     End Property
 
-    Public Property PLC_Bit() As Integer
-        Get
-            Return ctr.PLC_Bit
-        End Get
-        Set(ByVal value As Integer)
-            GetPropertyByName(ctr, "PLC_Bit").SetValue(ctr, value)
-            designerActionSvc.Refresh(ctr)
 
-        End Set
-    End Property
     Public Property PLC_ColorTrue() As Color
         Get
             Return ctr.PLC_ColorTrue
@@ -343,12 +323,7 @@ Friend Class PLCIOByteActionList
         'Add the properties
         items.Add(New DesignerActionPropertyItem("PLC_DataArea", KPlcValueTypeLabel, KPlcAdressingCategory, KPlcTipDataArea))
         items.Add(New DesignerActionPropertyItem("PLC_Number", KPlcNumberLabel, KPlcAdressingCategory, KPlcTipPlcNumber))
-        If PLC_DataArea = DataArea.DB Then
-            items.Add(New DesignerActionPropertyItem("PLC_DB", KPlcDBLabel, KPlcAdressingCategory, KPlcTipPlcDB))
-        End If
         items.Add(New DesignerActionPropertyItem("PLC_Byte", KPlcByteLabel, KPlcAdressingCategory, KPlcTipPlcByte))
-
-        items.Add(New DesignerActionPropertyItem("PLC_Bit", KPlcBitLabel, KPlcAdressingCategory, KPlcTipPlcBit))
         items.Add(New DesignerActionPropertyItem("PLC_ColorTrue", KPlcTrueValueLabel, KPlcLedCategory, KPlcTipTrueValue))
         items.Add(New DesignerActionPropertyItem("PLC_ColorFalse", KPlcFalseValueLabel, KPlcLedCategory, KPlcTipFalseValue))
 
