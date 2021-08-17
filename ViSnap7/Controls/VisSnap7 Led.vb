@@ -228,11 +228,6 @@ Class VS7_Led
         Circle()
     End Sub
 
-
-
-
-
-
     Private Function TakeValue(_DBData As PlcClient.ByteData, _PLC_DB As Integer, _PLC_Byte As Integer, _PLC_Bit As Integer, _PLC_DataType As Integer, _PLC_Length As Integer) As String
         Dim txt As String = ""
         Select Case _PLC_DataType

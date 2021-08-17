@@ -9,5 +9,6 @@
         VS7_ComboBox
         VS7_RadioButton
         VS7_PictureBox
+        VS7_IOByte
     End Enum
 End Module

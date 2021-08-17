@@ -32,6 +32,11 @@ Proyecto_ViSnap7
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="T:Proyecto_ViSnap7.VS7_IOByte.LocalDataArea">
+ <summary>
+ We uses a partial enum of General.TypeArea taking only Input and output
+ </summary>
+</member>
 <member name="T:Proyecto_ViSnap7.VS7_Button">
  <summary>
  PLC Button user control 

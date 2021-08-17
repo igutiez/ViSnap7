@@ -104,28 +104,34 @@
     </Compile>
     <Compile Include="ViSnap7Setup.vb" />
     <Compile Include="ViSnap7\Controls\Control List.vb" />
-    <Compile Include="ViSnap7\Controls\VisSnap Button.vb">
+    <Compile Include="ViSnap7\Controls\VS7 IOByte.Designer.vb">
+      <DependentUpon>VS7 IOByte.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ViSnap7\Controls\VS7 IOByte.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ViSnap7\Controls\VisSnap7 Button.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ViSnap7\Controls\VisSnap PictureBox.vb">
+    <Compile Include="ViSnap7\Controls\VisSnap7 PictureBox.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ViSnap7\Controls\VisSnap RadioButton.vb">
+    <Compile Include="ViSnap7\Controls\VisSnap7 RadioButton.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ViSnap7\Controls\VisSnap CheckBox.vb">
+    <Compile Include="ViSnap7\Controls\VisSnap7 CheckBox.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ViSnap7\Controls\VisSnap ComboBox.vb">
+    <Compile Include="ViSnap7\Controls\VisSnap7 ComboBox.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ViSnap7\Controls\VisSnap Led.vb">
+    <Compile Include="ViSnap7\Controls\VisSnap7 Led.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ViSnap7\Controls\VisSnap Textbox.vb">
+    <Compile Include="ViSnap7\Controls\VisSnap7 Textbox.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ViSnap7\Controls\VisSnap ValueLabel.vb">
+    <Compile Include="ViSnap7\Controls\VisSnap7 ValueLabel.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ViSnap7\Modules\BackgroudTasksLaunch.vb" />
@@ -145,6 +151,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViSnap7\Controls\VS7 IOByte.resx">
+      <DependentUpon>VS7 IOByte.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

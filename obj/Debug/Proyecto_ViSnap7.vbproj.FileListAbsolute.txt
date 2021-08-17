@@ -33,3 +33,15 @@ C:\Users\iguti\OneDrive\Documentos\GitHub\ViSnap7\obj\Debug\Proyecto_ViSnap7.vbp
 C:\Users\iguti\OneDrive\Documentos\GitHub\ViSnap7\obj\Debug\Proyecto_ViSnap7.exe
 C:\Users\iguti\OneDrive\Documentos\GitHub\ViSnap7\obj\Debug\Proyecto_ViSnap7.xml
 C:\Users\iguti\OneDrive\Documentos\GitHub\ViSnap7\obj\Debug\Proyecto_ViSnap7.pdb
+C:\Users\Guti\Source\Repos\ViSnap7\bin\Debug\Proyecto_ViSnap7.exe.config
+C:\Users\Guti\Source\Repos\ViSnap7\bin\Debug\Proyecto_ViSnap7.exe
+C:\Users\Guti\Source\Repos\ViSnap7\bin\Debug\Proyecto_ViSnap7.pdb
+C:\Users\Guti\Source\Repos\ViSnap7\bin\Debug\Proyecto_ViSnap7.xml
+C:\Users\Guti\Source\Repos\ViSnap7\obj\Debug\Proyecto_ViSnap7.Form1.resources
+C:\Users\Guti\Source\Repos\ViSnap7\obj\Debug\Proyecto_ViSnap7.Resources.resources
+C:\Users\Guti\Source\Repos\ViSnap7\obj\Debug\Proyecto_ViSnap7.vbproj.GenerateResource.cache
+C:\Users\Guti\Source\Repos\ViSnap7\obj\Debug\Proyecto_ViSnap7.vbproj.CoreCompileInputs.cache
+C:\Users\Guti\Source\Repos\ViSnap7\obj\Debug\Proyecto_ViSnap7.exe
+C:\Users\Guti\Source\Repos\ViSnap7\obj\Debug\Proyecto_ViSnap7.xml
+C:\Users\Guti\Source\Repos\ViSnap7\obj\Debug\Proyecto_ViSnap7.pdb
+C:\Users\Guti\Source\Repos\ViSnap7\obj\Debug\Proyecto_ViSnap7.VS7_IOByte.resources

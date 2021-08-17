@@ -2,7 +2,7 @@
 ''' <summary>
 ''' General module of communication
 ''' </summary>
-Module General
+Public Module General
 
     'Used for tasks that only should be executed at the loading of the main form.
     Public firstExecution As Boolean
@@ -43,7 +43,7 @@ Module General
         'Flag to execute some instructions at the begining
         firstExecution = True
         'Tasks to be performed recurrently
-        BackgroudTasksLaunch.cyclicLoop.RunWorkerAsync()
+        BackgroudTasksLaunch.CyclicLoop.RunWorkerAsync()
     End Sub
 
 
