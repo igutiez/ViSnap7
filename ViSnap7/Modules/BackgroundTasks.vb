@@ -71,12 +71,14 @@
 
             Next
             For Each frm As Form In My.Application.OpenForms
-                For Each ctr As Control In frm.Controls
+                For Each ctr As Object In frm.Controls
 
                     'Check if control belongs to the custom-controls list developed by the user
 
-                    If [Enum].IsDefined(GetType([PlcControlTypes]), ctr.GetType.Name) Then
+                    If [Enum].IsDefined(GetType(Control_List.PlcControlTypes), ctr.GetType.Name) Then
                         CheckDataToBeloaded(ctr)
+                        'Add the controls
+                        plc(ctr.PLC_Number).controlsCollection.Add(ctr)
                     End If
 
 
@@ -232,8 +234,7 @@
             End Select
 
         End With
-        'Add the controls
-        PLC(PlcNum).ControlsCollection.Add(ctr)
+
 
 
     End Sub

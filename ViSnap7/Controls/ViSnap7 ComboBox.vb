@@ -20,9 +20,13 @@ Class VS7_ComboBox
     Private _DataType As General.DataType = DataType.INT
     Private _Length As Integer
     Private _txt As String
+    Private _formActive As Boolean
+    Private _formNumber As Integer
+
     Public pLC_Value As String
     Public controlFocused As Boolean
     Public pendingWrite As Boolean
+    Public updateForm As Boolean
 
     Sub New()
         Me.AutoCompleteSource = AutoCompleteSource.CustomSource
@@ -89,17 +93,26 @@ Class VS7_ComboBox
         End Set
     End Property
 
-    'Public Property CustomSource As ArrayEditor
-    '    Get
-    '        Return Me.Items
-    '    End Get
-    '    Set(value As ArrayEditor)
-    '        Me.Items.Clear()
-    '        For Each txt In value
-    '            Me.Items.Add(txt)
-    '        Next
-    '    End Set
-    'End Property
+    <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcFormActive)>
+    Public Property PLC_FormActive As Boolean
+        Get
+            Return _formActive
+        End Get
+        Set(value As Boolean)
+            _formActive = value
+        End Set
+    End Property
+
+    <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcFormNumber)>
+    Public Property PLC_FormNumber As Integer
+        Get
+            Return _formNumber
+        End Get
+        Set(value As Integer)
+            _formNumber = value
+        End Set
+    End Property
+
 
     Dim theCollection As New System.Collections.Specialized.StringCollection
     Public Property CustomItems As Collections.Specialized.StringCollection
@@ -132,7 +145,11 @@ Class VS7_ComboBox
 
     Private Sub IndexChanged(sender As Object, e As EventArgs) Handles Me.SelectedIndexChanged
         Me.pLC_Value = Me.SelectedIndex + 1
-        pendingWrite = True
+        'If the control is not used in a form. 
+        'In case of using in a control, pendingwrite will be set in submit form.
+        If Not PLC_FormActive Then
+            pendingWrite = True
+        End If
 
     End Sub
 
@@ -152,7 +169,9 @@ Class VS7_ComboBox
     Public Sub UpdateControl(ByRef _PLC As PlcClient)
 
         'Reading if control is no pending and not write pending.
-        If firstExecution Or (Not controlFocused And Not pendingWrite) Then
+        If (PLC_FormActive And updateForm) Or (Not PLC_FormActive And (firstExecution Or (Not controlFocused And Not pendingWrite))) Then
+            updateForm = False
+
             Select Case Me.PLC_DataArea
                 Case DataArea.DB
                     Me.pLC_Value = TakeValue(_PLC.dbData(Me.PLC_DB), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
@@ -175,8 +194,6 @@ Class VS7_ComboBox
         End If
         'Write in case of pendind write
         If pendingWrite Then
-
-
             If plc(PLC_Number).connected And KGlobalConnectionEnabled Then
                 WriteValue(Me.pLC_Value - 1, Me.PLC_Number, Me.PLC_DataArea, Me.PLC_DataType, Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_Length)
             End If
@@ -347,6 +364,28 @@ Friend Class PLCComboboxActionList
     End Property
 
 
+    Public Property PLC_FormActive() As Boolean
+        Get
+            Return ctr.PLC_FormActive
+        End Get
+        Set(ByVal value As Boolean)
+            GetPropertyByName(ctr, "PLC_FormActive").SetValue(ctr, value)
+            designerActionSvc.Refresh(ctr)
+
+        End Set
+    End Property
+
+    Public Property PLC_FormNumber() As Integer
+        Get
+            Return ctr.PLC_FormNumber
+        End Get
+        Set(ByVal value As Integer)
+            GetPropertyByName(ctr, "PLC_FormNumber").SetValue(ctr, value)
+            designerActionSvc.Refresh(ctr)
+
+        End Set
+    End Property
+
 
 
 #End Region
@@ -380,6 +419,7 @@ Friend Class PLCComboboxActionList
 
         'Add a few Header Items (categories)
         items.Add(New DesignerActionHeaderItem(KPlcAdressingCategory))
+        items.Add(New DesignerActionHeaderItem(KPlcFormCategory))
 
         'Add the properties
         items.Add(New DesignerActionPropertyItem("PLC_DataArea", KPlcValueTypeLabel, KPlcAdressingCategory, KPlcTipDataArea))
@@ -390,7 +430,11 @@ Friend Class PLCComboboxActionList
         items.Add(New DesignerActionPropertyItem("PLC_Byte", KPlcByteLabel, KPlcAdressingCategory, KPlcTipPlcByte))
 
         items.Add(New DesignerActionPropertyItem("CustomItems", KPlcByteLabel, KPlcAdressingCategory, KPlcTipPlcByte))
+        items.Add(New DesignerActionPropertyItem("PLC_FormActive", KPlcFormActive, KPlcFormCategory, KPlcTipPlcFormActive))
+        If PLC_FormActive Then
+            items.Add(New DesignerActionPropertyItem("PLC_FormNumber", KPlcFormNumber, KPlcFormCategory, KPlcTipPlcFormNumber))
 
+        End If
         'Return the ActionItemCollection
         Return items
     End Function

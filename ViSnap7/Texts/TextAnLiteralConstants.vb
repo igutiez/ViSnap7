@@ -5,6 +5,8 @@
     ' If you want another language, you just have to translate the texts.
     Public Const KPlcPropertiesCategory = "PLC"
     Public Const KPlcAdressingCategory = "PLC Addressing"
+    Public Const KPlcFormCategory = "Form Characteristics"
+
     Public Const KPlcComboBoxCategory = "ComboBox characteristics"
     Public Const KPlcPictureBoxCategory = "PictureBox characteristics"
     Public Const KPlcLedCategory = "Led characteristics"
@@ -27,6 +29,9 @@
     Public Const KPlcButtonTypeLabel = "Write '1' only if pressed"
     Public Const KPlcButtonCaption = "Button Text"
     Public Const KPlcLengthLabel = "STR Length"
+    Public Const KPlcFormActive = "This contros is used in a form"
+    Public Const KPlcFormNumber = "Form N#"
+
     Public Const KPlcShapeType = "Shape type"
     Public Const KPlcColorTrue = "Color True"
     Public Const KPlcColorFalse = "Color False"
@@ -37,6 +42,8 @@
     Public Const KPlcTipPlcByte = "Byte in which variable is set"
     Public Const KPlcTipComboboxItems = "ComboBox string items"
     Public Const KPlcTipPlcBit = "Bit for boolean variable"
+    Public Const KPlcTipPlcFormActive = "The control is used in a form"
+    Public Const KPlcTipPlcFormNumber = "The number of the form where is used"
     Public Const KPlcTipPictureBoxTrue = "Picture for true value"
     Public Const KPlcTipPictureBoxFalse = "Picture for false value"
     Public Const KPlcTipBorderStyle = "Border style"
