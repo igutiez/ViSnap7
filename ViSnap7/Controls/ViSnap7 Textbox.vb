@@ -16,9 +16,15 @@ Class VS7_Textbox
     Private _DataType As DataType = DataType.INT
     Private _Length As Integer
     Private _txt As String
-    Public pLC_Value As String
+    Private _formNumber As Integer
+    Private _formActive As Boolean
+
+    Public pLC_Value As String = ""
     Public controlFocused As Boolean
     Public pendingWrite As Boolean
+    Public updateForm As Boolean
+
+
 
 #Region "PLC Properties"
 
@@ -89,14 +95,37 @@ Class VS7_Textbox
 
 
 
+    <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcFormActive)>
+    Public Property PLC_FormActive As Boolean
+        Get
+            Return _formActive
+        End Get
+        Set(value As Boolean)
+            _formActive = value
+        End Set
+    End Property
+    <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcFormNumber)>
+    Public Property PLC_FormNumber As Integer
+        Get
+            Return _formNumber
+        End Get
+        Set(value As Integer)
+            _formNumber = value
+        End Set
+    End Property
+
 
 
 #End Region
 #Region "Control Events"
 
-
     Public Sub ControlLeave(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Leave
-        pendingWrite = True
+        'If the control is not used in a form. 
+        'In case of using in a control, pendingwrite will be set in submit form.
+        If Not PLC_FormActive Then
+            pendingWrite = True
+        End If
+
     End Sub
 
     Public Sub ControlGotFocus(ByVal sender As Object, ByVal e As EventArgs) Handles Me.GotFocus
@@ -227,7 +256,9 @@ Class VS7_Textbox
     Public Sub UpdateControl(ByRef _PLC As PlcClient)
 
         'Reading if control is no pending and not write pending.
-        If firstExecution Or (Not controlFocused And Not pendingWrite) Then
+        If (PLC_FormActive And updateForm) Or (Not PLC_FormActive And (firstExecution Or (Not controlFocused And Not pendingWrite))) Then
+            updateForm = False
+
             Select Case Me.PLC_DataArea
                 Case DataArea.DB
                     Me.Text = TakeValue(_PLC.dbData(Me.PLC_DB), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
@@ -484,6 +515,29 @@ Friend Class PLCTextBoxActionList
     End Property
 
 
+    Public Property PLC_FormActive() As Boolean
+        Get
+            Return ctr.PLC_FormActive
+        End Get
+        Set(ByVal value As Boolean)
+            GetPropertyByName(ctr, "PLC_FormActive").SetValue(ctr, value)
+            designerActionSvc.Refresh(ctr)
+
+        End Set
+    End Property
+
+    Public Property PLC_FormNumber() As Integer
+        Get
+            Return ctr.PLC_FormNumber
+        End Get
+        Set(ByVal value As Integer)
+            GetPropertyByName(ctr, "PLC_FormNumber").SetValue(ctr, value)
+            designerActionSvc.Refresh(ctr)
+
+        End Set
+    End Property
+
+
 #End Region
 
 #Region " Methods to display in the Smart-Tag panel "
@@ -528,6 +582,7 @@ Friend Class PLCTextBoxActionList
 
         'Add a few Header Items (categories)
         items.Add(New DesignerActionHeaderItem(KPlcAdressingCategory))
+        items.Add(New DesignerActionHeaderItem(KPlcFormCategory))
 
         'Add the properties
         items.Add(New DesignerActionPropertyItem("PLC_DataArea", KPlcValueTypeLabel, KPlcAdressingCategory, KPLCTipDataArea))
@@ -543,6 +598,11 @@ Friend Class PLCTextBoxActionList
         End If
         If PLC_DataType = DataType.STR Then
             items.Add(New DesignerActionPropertyItem("PLC_Length", KPlcLengthLabel, KPlcAdressingCategory, KPlcTipStrLength))
+        End If
+        items.Add(New DesignerActionPropertyItem("PLC_FormActive", KPlcFormActive, KPlcFormCategory, KPlcTipPlcFormActive))
+        If PLC_FormActive Then
+            items.Add(New DesignerActionPropertyItem("PLC_FormNumber", KPlcFormNumber, KPlcFormCategory, KPlcTipPlcFormNumber))
+
         End If
 
         'Return the ActionItemCollection

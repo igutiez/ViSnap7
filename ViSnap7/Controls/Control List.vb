@@ -12,4 +12,12 @@
         VS7_IOByte
         VS7_RWVariable
     End Enum
+    ' List of user controls that be used in forms
+    ' After configure the control, it must be added to this Enum. 
+    Public Enum PlcCrtCanBeForms
+        VS7_Textbox
+        VS7_Checkbox
+        VS7_ComboBox
+        VS7_RadioButton
+    End Enum
 End Module

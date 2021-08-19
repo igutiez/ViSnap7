@@ -104,6 +104,12 @@
     </Compile>
     <Compile Include="ViSnap7Setup.vb" />
     <Compile Include="ViSnap7\Controls\Control List.vb" />
+    <Compile Include="ViSnap7\Controls\ViSnap7 SubmitForm .vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ViSnap7\Controls\ViSnap7 UpdateForm.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ViSnap7\Controls\ViSnap7 IOByte.Designer.vb">
       <DependentUpon>ViSnap7 IOByte.vb</DependentUpon>
     </Compile>

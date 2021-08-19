@@ -32,6 +32,16 @@ Proyecto_ViSnap7
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="T:Proyecto_ViSnap7.VS7_SubmitForm">
+ <summary>
+ Submit Button user control 
+ </summary>
+</member>
+<member name="T:Proyecto_ViSnap7.VS7_UpdateForm">
+ <summary>
+ Update Button user control 
+ </summary>
+</member>
 <member name="T:Proyecto_ViSnap7.VS7_IOByte.LocalDataArea">
  <summary>
  We uses a partial enum of General.TypeArea taking only Input and output
@@ -144,6 +154,12 @@ Proyecto_ViSnap7
  It is used for reading/writing the control. 
  </summary>
  <param name="enable">Enable or not control updating</param>
+</member>
+<member name="M:Proyecto_ViSnap7.UpdateFormsTasks.SubmitForm(System.Int32)">
+ <summary>
+ Submit the form created.
+ </summary>
+ <param name="FormNumber"></param>
 </member>
 <member name="M:Proyecto_ViSnap7.ViSnap7.S7Client.ReadDrvArea(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Byte[])">
  <summary>
