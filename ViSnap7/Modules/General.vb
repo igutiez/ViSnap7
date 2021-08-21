@@ -12,6 +12,10 @@ Public Module General
     'Clients that connect to the PLC. See ViSnap7Setup
     Public plc(KMaxNumberOfPLC) As PlcClient
 
+    ''' <summary>
+    ''' Separator character between data in saved files
+    ''' </summary>
+    Public KColumSeparator As String = " ; "
 
     ''' <summary>
     ''' Type of data area: used in Controls properties

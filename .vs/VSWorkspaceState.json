@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\bin",
+    "\\ViSnap7",
+    "\\ViSnap7\\Controls",
+    "\\ViSnap7\\Controls\\LoadSaveForms"
   ],
-  "SelectedNode": "\\Proyecto_ViSnap7.sln",
+  "SelectedNode": "\\ViSnap7\\Controls\\ViSnap7 Textbox.vb",
   "PreviewInSolutionExplorer": false
 }

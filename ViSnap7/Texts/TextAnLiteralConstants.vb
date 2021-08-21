@@ -28,6 +28,7 @@
 
     Public Const KPlcValueTypeLabel = "Value Type"
     Public Const KSaveFolder = "Folder"
+    Public Const KExtensionFile = "File extension"
     Public Const KPlcButtonTypeLabel = "Write '1' only if pressed"
     Public Const KPlcButtonCaption = "Button Text"
     Public Const KPlcLengthLabel = "STR Length"
@@ -41,8 +42,10 @@
     Public Const KPlcTipDataArea = "Type of PLC Area: inputs, outputs, marks or DB"
     Public Const KFolderSaveTip = "Folder where the form data will be stored"
     Public Const KFolderLoadTip = "Button is used for loading data instead of saving data"
-    Public Const KSaveLabel = "Recipe name"
-
+    Public Const KSaveLabel = "RECIPE NAME"
+    Public Const KLoadLabel = "RECIPE LIST"
+    Public Const KDataSaved = "Data saved!"
+    Public Const KExtensionTip = "Extension for stored data file."
     Public Const KSelectFolder = "Select folder"
     Public Const KPlcTipDataType = "Type of data: integers, reals, strings, chars..."
     Public Const KPlcTipPlcDB = "In case of using DB, number of the DB"

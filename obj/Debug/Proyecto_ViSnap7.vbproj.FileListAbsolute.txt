@@ -46,3 +46,5 @@ C:\Users\iguti\OneDrive\Documentos\GitHub\ViSnap7\obj\Debug\Proyecto_ViSnap7.exe
 C:\Users\iguti\OneDrive\Documentos\GitHub\ViSnap7\obj\Debug\Proyecto_ViSnap7.xml
 C:\Users\iguti\OneDrive\Documentos\GitHub\ViSnap7\obj\Debug\Proyecto_ViSnap7.pdb
 C:\Users\iguti\OneDrive\Documentos\GitHub\ViSnap7\obj\Debug\Proyecto_ViSnap7.Dialog1.resources
+C:\Users\Guti\Source\Repos\ViSnap7\obj\Debug\Proyecto_ViSnap7.SaveDialog.resources
+C:\Users\Guti\Source\Repos\ViSnap7\obj\Debug\Proyecto_ViSnap7.LoadDialog.resources
