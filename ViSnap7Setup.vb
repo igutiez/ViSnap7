@@ -13,7 +13,7 @@
         'Rack Slot for S7-300 Rack 0, Slot 2
         'Rack Slot for S7-400 tipically Rack 0, Slot 3
         'Just uncomment or add as many as needed PLC connections (take in consideration the max number of PLC in KMaxNumberOfPLC
-        PLC(0) = New PlcClient("PLC0", "192.168.1.192", 0, 0)
+        plc(0) = New PlcClient("PLC0", "192.168.1.192", 0, 0)
         'PLC(1) = New PlcClient("PLC0", "192.168.1.192", 0, 2)
         'PLC(2) = New PlcClient("PLC0", "192.168.1.193", 0, 2)
 
@@ -28,6 +28,7 @@
         REM Define decimal separator
         culture.NumberFormat.NumberDecimalSeparator = ","
         System.Threading.Thread.CurrentThread.CurrentCulture = culture
+
     End Sub
 
 
