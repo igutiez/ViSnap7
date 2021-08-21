@@ -5,6 +5,7 @@
     ' If you want another language, you just have to translate the texts.
     Public Const KPlcPropertiesCategory = "PLC"
     Public Const KPlcAdressingCategory = "PLC Addressing"
+    Public Const KPlcFolderCategory = "Folder characteristics"
     Public Const KPlcFormCategory = "Form Characteristics"
 
     Public Const KPlcComboBoxCategory = "ComboBox characteristics"
@@ -26,17 +27,23 @@
     Public Const KPlcFalseValueLabel = "Color if false"
 
     Public Const KPlcValueTypeLabel = "Value Type"
+    Public Const KSaveFolder = "Folder"
     Public Const KPlcButtonTypeLabel = "Write '1' only if pressed"
     Public Const KPlcButtonCaption = "Button Text"
     Public Const KPlcLengthLabel = "STR Length"
     Public Const KPlcFormActive = "This contros is used in a form"
     Public Const KPlcFormNumber = "Form N#"
-
+    Public Const KPlcLoadForm = "Loading Form"
     Public Const KPlcShapeType = "Shape type"
     Public Const KPlcColorTrue = "Color True"
     Public Const KPlcColorFalse = "Color False"
     Public Const KPlcTipPlcNumber = "Number of PLC configured"
     Public Const KPlcTipDataArea = "Type of PLC Area: inputs, outputs, marks or DB"
+    Public Const KFolderSaveTip = "Folder where the form data will be stored"
+    Public Const KFolderLoadTip = "Button is used for loading data instead of saving data"
+    Public Const KSaveLabel = "Recipe name"
+
+    Public Const KSelectFolder = "Select folder"
     Public Const KPlcTipDataType = "Type of data: integers, reals, strings, chars..."
     Public Const KPlcTipPlcDB = "In case of using DB, number of the DB"
     Public Const KPlcTipPlcByte = "Byte in which variable is set"

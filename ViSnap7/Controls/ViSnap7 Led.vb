@@ -8,7 +8,7 @@ Imports System.Windows.Forms.Design
 <System.ComponentModel.Designer(GetType(PLCLedDesigner))>
 Class VS7_Led
     Inherits Panel
-    Private _PLC As PlcConnection
+    Private _PLC As Integer
     Private _DataArea As General.DataArea = DataArea.DB
     Private _DB As Integer
     Private _Byte As Integer
@@ -32,11 +32,11 @@ Class VS7_Led
 #Region "PLC Properties"
 
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcNumberLabel)>
-    Public Property PLC_Number As PlcConnection
+    Public Property PLC_Number As Integer
         Get
             Return _PLC
         End Get
-        Set(value As PlcConnection)
+        Set(value As Integer)
             _PLC = value
         End Set
     End Property
@@ -317,11 +317,11 @@ Friend Class PLCLedActionList
 
 
 
-    Public Property PLC_Number() As PlcConnection
+    Public Property PLC_Number() As Integer
         Get
             Return ctr.PLC_Number
         End Get
-        Set(ByVal value As PlcConnection)
+        Set(ByVal value As Integer)
             GetPropertyByName(ctr, "PLC_Number").SetValue(ctr, value)
             designerActionSvc.Refresh(ctr)
 
