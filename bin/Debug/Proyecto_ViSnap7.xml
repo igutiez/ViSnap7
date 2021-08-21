@@ -121,6 +121,11 @@ Proyecto_ViSnap7
  General module of communication
  </summary>
 </member>
+<member name="F:Proyecto_ViSnap7.General.KColumSeparator">
+ <summary>
+ Separator character between data in saved files
+ </summary>
+</member>
 <member name="T:Proyecto_ViSnap7.General.DataArea">
  <summary>
  Type of data area: used in Controls properties

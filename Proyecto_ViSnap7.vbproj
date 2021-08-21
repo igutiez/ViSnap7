@@ -104,13 +104,19 @@
     </Compile>
     <Compile Include="ViSnap7Setup.vb" />
     <Compile Include="ViSnap7\Controls\Control List.vb" />
-    <Compile Include="ViSnap7\Controls\Dialog1.Designer.vb">
-      <DependentUpon>Dialog1.vb</DependentUpon>
+    <Compile Include="ViSnap7\Controls\ViSnap7 LoadSaveForm\LoadDialog.Designer.vb">
+      <DependentUpon>LoadDialog.vb</DependentUpon>
     </Compile>
-    <Compile Include="ViSnap7\Controls\Dialog1.vb">
+    <Compile Include="ViSnap7\Controls\ViSnap7 LoadSaveForm\LoadDialog.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ViSnap7\Controls\ViSnap7 LoadSaveForm.vb">
+    <Compile Include="ViSnap7\Controls\ViSnap7 LoadSaveForm\SaveDialog.Designer.vb">
+      <DependentUpon>SaveDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ViSnap7\Controls\ViSnap7 LoadSaveForm\SaveDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViSnap7\Controls\ViSnap7 LoadSaveForm\ViSnap7 LoadSaveForm.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ViSnap7\Controls\ViSnap7 SubmitForm .vb">
@@ -170,8 +176,11 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="ViSnap7\Controls\Dialog1.resx">
-      <DependentUpon>Dialog1.vb</DependentUpon>
+    <EmbeddedResource Include="ViSnap7\Controls\ViSnap7 LoadSaveForm\LoadDialog.resx">
+      <DependentUpon>LoadDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViSnap7\Controls\ViSnap7 LoadSaveForm\SaveDialog.resx">
+      <DependentUpon>SaveDialog.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViSnap7\Controls\ViSnap7 IOByte.resx">
       <DependentUpon>ViSnap7 IOByte.vb</DependentUpon>
