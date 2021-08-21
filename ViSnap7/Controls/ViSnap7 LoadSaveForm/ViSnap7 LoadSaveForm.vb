@@ -55,13 +55,15 @@ Class ViSnap7_LoadSaveForm
         If Me.LoadForm Then
             'Actions for loading data-form
             Dim _loadDialog As New LoadDialog
-            Dim _selectedrecipe As String
             _loadDialog.RecipeListLabel.Text = KLoadLabel
+            _loadDialog.folder = Me.SaveFolder
+            _loadDialog.extension = Me.Extension
+
             LoadAllRecipes(_loadDialog, Me.SaveFolder, Me.Extension)
 
-            If _loadDialog.ShowDialog = vbOK Then
+            _loadDialog.ShowDialog()
 
-            End If
+
         Else
             'Actions for saving data-form
             Dim _saveDialog As New SaveDialog
@@ -71,7 +73,7 @@ Class ViSnap7_LoadSaveForm
 
             If _saveDialog.ShowDialog = DialogResult.OK Then
                 SaveFormData(Me.SaveFolder, _saveDialog.FileName.Text, Me.Extension, Me.PLC_FormNumber)
-                MsgBox(KDataSaved)
+
 
             End If
             _defaultSaveName = _saveDialog.FileName.Text
@@ -216,56 +218,96 @@ End Class
 Public Module LoadSaveData
 
     Public Sub SaveFormData(ByVal folder As String, ByVal fileName As String, ByVal extension As String, ByVal formNumber As Integer)
+
         Dim completeFileName As String = folder + "\" + fileName + "." + extension
+
         Dim c As Integer
         Dim fileOverwrite As Boolean = False
 
         Dim fileExist = IO.File.Exists(completeFileName)
+        If IO.Directory.Exists(folder) Then
 
-        If fileExist Then
-            If MsgBox("File alreade exist. Overwrite?", MsgBoxStyle.OkCancel) = MsgBoxResult.Ok Then
-                fileOverwrite = True
+            If fileExist Then
+                If MsgBox("File alreade exist. Overwrite?", MsgBoxStyle.OkCancel) = MsgBoxResult.Ok Then
+                    fileOverwrite = True
+                End If
+
             End If
 
+            If Not fileExist Or fileOverwrite Then
+
+                'If file exists, it must be delete in order to save new data
+                IO.File.Delete(completeFileName)
+                Dim recipeText As String = ""
+                For c = 0 To totalPlcNumber - 1
+                    For Each ctr As Object In plc(c).controlsCollection
+                        If [Enum].IsDefined(GetType(Control_List.PlcCrtCanBeForms), ctr.GetType.Name) Then
+                            If ctr.PLC_FormNumber <> 0 And ctr.PLC_FormNumber = formNumber Then
+
+                                With ctr
+                                    recipeText = recipeText + .Name.ToString + KColumSeparator
+                                    recipeText = recipeText + .plc_Value.ToString + KColumSeparator
+                                    recipeText = recipeText + .plc_FormNumber.ToString + KColumSeparator
+                                    recipeText = recipeText + .PLC_Number.ToString + KColumSeparator
+                                    recipeText = recipeText + .PLC_DataArea.ToString + KColumSeparator
+                                    recipeText = recipeText + .PLC_DataType.ToString + KColumSeparator
+                                    recipeText = recipeText + .PLC_DB.ToString + KColumSeparator
+                                    recipeText = recipeText + .PLC_Byte.ToString + KColumSeparator
+                                    recipeText = recipeText + .PLC_Bit.ToString + KColumSeparator
+                                    recipeText = recipeText + .PLC_Length.ToString
+                                    recipeText = recipeText + vbCr
+                                End With
+                            End If
+                        End If
+                    Next
+                Next
+                IO.File.WriteAllText(completeFileName, recipeText)
+            End If
+            MsgBox(KDataSaved)
+        Else
+            MsgBox(KFolderNotExist)
         End If
 
-        If Not fileExist Or fileOverwrite Then
+    End Sub
+    Public Sub LoadAllRecipes(ByRef frm As LoadDialog, ByVal folder As String, ByVal fileExtension As String)
+        If IO.Directory.Exists(folder) Then
 
-            'If file exists, it must be delete in order to save new data
-            IO.File.Delete(completeFileName)
-            Dim recipeText As String = ""
+            For Each newfile As IO.FileInfo In New IO.DirectoryInfo(folder).GetFiles
+
+
+                If UCase(Trim(newfile.Extension)) = UCase(Trim("." + fileExtension)) Then
+                    frm.RecipeList.Items.Add(newfile.Name.Replace("." + fileExtension, ""))
+                End If
+            Next
+        Else
+            MsgBox(KFolderNotExist)
+        End If
+
+    End Sub
+
+    Public Sub LoadRecipe(ByVal fileName As String, ByVal folder As String, ByVal extension As String)
+        Dim filepath As String = folder + "\" + fileName + "." + extension
+        Dim lines As String() = IO.File.ReadAllLines(filepath)
+        Dim c As Integer
+
+
+        For Each line In lines
+            Dim parts As String() = line.Split(Trim(KColumSeparator))
+            Dim variableName As String = Trim(parts(0))
+            Dim variableValue As String = Trim(parts(1))
+            Dim formNumber As String = Trim(parts(2))
+
             For c = 0 To totalPlcNumber - 1
                 For Each ctr As Object In plc(c).controlsCollection
                     If [Enum].IsDefined(GetType(Control_List.PlcCrtCanBeForms), ctr.GetType.Name) Then
-                        If ctr.PLC_FormNumber <> 0 And ctr.PLC_FormNumber = formNumber Then
+                        If (ctr.Name = variableName) Then
 
-                            With ctr
-                                recipeText = recipeText + .Name.ToString + KColumSeparator
-                                recipeText = recipeText + .plc_Value.ToString + KColumSeparator
-                                recipeText = recipeText + .PLC_Number.ToString + KColumSeparator
-                                recipeText = recipeText + .PLC_DataArea.ToString + KColumSeparator
-                                recipeText = recipeText + .PLC_DataType.ToString + KColumSeparator
-                                recipeText = recipeText + .PLC_DB.ToString + KColumSeparator
-                                recipeText = recipeText + .PLC_Byte.ToString + KColumSeparator
-                                recipeText = recipeText + .PLC_Bit.ToString + KColumSeparator
-                                recipeText = recipeText + .PLC_Length.ToString
-                                recipeText = recipeText + vbCr
-                            End With
+                            ctr.updateValueFromForm(variableValue)
+
                         End If
                     End If
                 Next
             Next
-            IO.File.WriteAllText(completeFileName, recipeText)
-        End If
-    End Sub
-    Public Sub LoadAllRecipes(ByRef frm As LoadDialog, ByVal folder As String, ByVal fileExtension As String)
-
-        For Each newfile As IO.FileInfo In New IO.DirectoryInfo(folder).GetFiles
-
-
-            If UCase(Trim(newfile.Extension)) = UCase(Trim("." + fileExtension)) Then
-                frm.RecipeList.Items.Add(newfile.Name.Replace("." + fileExtension, ""))
-            End If
         Next
     End Sub
 End Module

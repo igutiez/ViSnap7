@@ -45,6 +45,8 @@
     Public Const KSaveLabel = "RECIPE NAME"
     Public Const KLoadLabel = "RECIPE LIST"
     Public Const KDataSaved = "Data saved!"
+    Public Const KFolderNotExist = "Folder does not exist."
+
     Public Const KExtensionTip = "Extension for stored data file."
     Public Const KSelectFolder = "Select folder"
     Public Const KPlcTipDataType = "Type of data: integers, reals, strings, chars..."
