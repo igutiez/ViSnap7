@@ -21,4 +21,16 @@ Public Class LoadDialog
         LoadRecipe(RecipeList.SelectedItem, Me.folder, Me.extension)
         Me.Close()
     End Sub
+
+    Private Sub FilterTextbox_TextChanged(sender As Object, e As EventArgs) Handles FilterTextbox.TextChanged
+        Dim items = From it In RecipeList.Items.Cast(Of Object)()
+                    Where it.ToString().IndexOf(FilterTextbox.Text, StringComparison.CurrentCultureIgnoreCase) >= 0
+        Dim matchingItemList As List(Of Object) = items.ToList()
+        RecipeList.BeginUpdate()
+        RecipeList.Items.Clear()
+        For Each item In matchingItemList
+            RecipeList.Items.Add(item)
+        Next
+        RecipeList.EndUpdate()
+    End Sub
 End Class

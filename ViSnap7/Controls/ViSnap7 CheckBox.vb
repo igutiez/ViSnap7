@@ -135,7 +135,7 @@ Class VS7_Checkbox
 #Region "Plc reading and writing"
     Public Sub UpdateControl(ByRef _PLC As PlcClient)
         'Reading if control is no pending and not write pending.
-        If ( PLC_FormActive And updateForm) Or (Not PLC_FormActive And  (firstExecution Or (Not controlFocused And Not pendingWrite))) Then
+        If (PLC_FormActive And updateForm) Or (Not PLC_FormActive And (firstExecution Or (Not controlFocused And Not pendingWrite))) Then
 
             updateForm = False
 
@@ -165,6 +165,11 @@ Class VS7_Checkbox
             End If
 
         End If
+    End Sub
+
+    Public Sub updateValueFromForm(ByVal value As String)
+        Me.pLC_Value = CBool(value)
+        Me.Checked = Me.pLC_Value
     End Sub
     Private Sub WriteValue(_Text As String, _PLC_Number As Integer, _PLC_DataArea As DataArea, _DataType As DataType, _DB As Integer, _Byte As Integer, _Bit As Integer, _Length As Integer)
         Select Case Me.PLC_DataArea

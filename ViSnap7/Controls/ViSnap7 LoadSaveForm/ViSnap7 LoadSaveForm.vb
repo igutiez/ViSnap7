@@ -58,7 +58,7 @@ Class ViSnap7_LoadSaveForm
             _loadDialog.RecipeListLabel.Text = KLoadLabel
             _loadDialog.folder = Me.SaveFolder
             _loadDialog.extension = Me.Extension
-
+            _loadDialog.FilterLabel.Text = KFilterLabel
             LoadAllRecipes(_loadDialog, Me.SaveFolder, Me.Extension)
 
             _loadDialog.ShowDialog()
