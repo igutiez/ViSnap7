@@ -304,6 +304,11 @@ Class VS7_Textbox
         Me.pLC_Value = value
         Me.Text = value
     End Sub
+
+    Public Sub ClearControl()
+        Me.pLC_Value = ""
+        Me.Text = ""
+    End Sub
     Private Sub WriteValue(_Text As String, _PLC_Number As Integer, _PLC_DataArea As DataArea, _DataType As DataType, _DB As Integer, _Byte As Integer, _Bit As Integer, _Length As Integer)
         Select Case Me.PLC_DataArea
             Case DataArea.DB

@@ -29,7 +29,7 @@ Public Class LoadDialog
     End Sub
 
     Private Sub RecipeList_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles RecipeList.MouseDoubleClick
-        If RecipeList.SelectedIndex > 0 Then
+        If RecipeList.SelectedIndex >= 0 Then
             LoadRecipe(RecipeList.SelectedItem, Me.folder, Me.extension)
             Me.Close()
         End If
