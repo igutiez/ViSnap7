@@ -25,7 +25,7 @@
     Public Const KPlcShapetypeLabel = "Shape type"
     Public Const KPlcTrueValueLabel = "Color if true"
     Public Const KPlcFalseValueLabel = "Color if false"
-
+    Public Const KFilterLabel = "Filter"
     Public Const KPlcValueTypeLabel = "Value Type"
     Public Const KSaveFolder = "Folder"
     Public Const KExtensionFile = "File extension"
