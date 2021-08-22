@@ -37,6 +37,11 @@ Proyecto_ViSnap7
  Submit Button user control 
  </summary>
 </member>
+<member name="T:Proyecto_ViSnap7.VS7_ClearForm">
+ <summary>
+ ClearForm Button user control 
+ </summary>
+</member>
 <member name="T:Proyecto_ViSnap7.VS7_UpdateForm">
  <summary>
  Update Button user control 
@@ -75,6 +80,17 @@ Proyecto_ViSnap7
 <member name="T:Proyecto_ViSnap7.VS7_Checkbox">
  <summary>
  PLC Checkbox user control 
+ </summary>
+</member>
+<member name="M:Proyecto_ViSnap7.VS7_Checkbox.updateValueFromForm(System.String)">
+ <summary>
+ Update Value from forms
+ </summary>
+ <param name="value"></param>
+</member>
+<member name="M:Proyecto_ViSnap7.VS7_Checkbox.ClearControl">
+ <summary>
+ Clear the value of the control 
  </summary>
 </member>
 <member name="T:Proyecto_ViSnap7.VS7_ComboBox">

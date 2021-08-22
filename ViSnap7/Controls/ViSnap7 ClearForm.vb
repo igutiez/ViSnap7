@@ -6,7 +6,7 @@ Imports System.Windows.Forms.Design
 ''' ClearForm Button user control 
 ''' </summary>
 
-<System.ComponentModel.Designer(GetType(UpdateFormDesigner))>
+<System.ComponentModel.Designer(GetType(ClearFormDesigner))>
 Class VS7_ClearForm
     Inherits Button
     Private _formNumber As Integer
