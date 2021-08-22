@@ -67,13 +67,22 @@
                             .marksData(i).minByte = minReference
                         Next
                     End If
+                    'Delete all controls in collection
+                    .controlsCollection.Clear()
                 End With
 
             Next
-            For Each frm As Form In My.Application.OpenForms
-                For Each ctr As Object In frm.Controls
 
-                    'Check if control belongs to the custom-controls list developed by the user
+
+            For Each frm As Form In My.Application.OpenForms
+
+                Dim AllControls As List(Of Control)
+
+                AllControls = GetTypeControls(Of Control)(frm, True)
+
+                'Check if control belongs to the custom-controls list developed by the user
+
+                For Each ctr As Object In AllControls
 
                     If [Enum].IsDefined(GetType(Control_List.PlcControlTypes), ctr.GetType.Name) Then
                         CheckDataToBeloaded(ctr)
@@ -81,8 +90,8 @@
                         plc(ctr.PLC_Number).controlsCollection.Add(ctr)
                     End If
 
-
                 Next
+
             Next
         End If
         'Save the number of openforms for checking next iteration

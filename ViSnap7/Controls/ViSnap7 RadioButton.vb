@@ -166,6 +166,16 @@ Class VS7_RadioButton
 
         End If
     End Sub
+
+    Public Sub updateValueFromForm(ByVal value As String)
+        Me.pLC_Value = CBool(value)
+        Me.Checked = Me.pLC_Value
+    End Sub
+
+    Public Sub ClearControl()
+        Me.pLC_Value = False
+        Me.Checked = False
+    End Sub
     Private Sub WriteValue(_Text As String, _PLC_Number As Integer, _PLC_DataArea As DataArea, _DataType As DataType, _DB As Integer, _Byte As Integer, _Bit As Integer, _Length As Integer)
         Select Case Me.PLC_DataArea
             Case DataArea.DB

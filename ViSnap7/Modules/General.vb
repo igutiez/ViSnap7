@@ -12,6 +12,10 @@ Public Module General
     'Clients that connect to the PLC. See ViSnap7Setup
     Public plc(KMaxNumberOfPLC) As PlcClient
 
+    ''' <summary>
+    ''' Separator character between data in saved files
+    ''' </summary>
+    Public KColumSeparator As String = " ; "
 
     ''' <summary>
     ''' Type of data area: used in Controls properties
@@ -64,5 +68,38 @@ Public Module General
         End If
     End Function
 
+    Public Function GetTypeControls(Of T As Control)(
+        parentContainer As Control, includeInheritedControls As Boolean) As List(Of T)
+
+        If (parentContainer Is Nothing) Then Return Nothing
+
+        Dim controls As New List(Of T)
+
+        ' System.Type para el tipo de dato especificado.
+        '
+        Dim typeT As Type = GetType(T)
+
+        For Each ctrl As Control In parentContainer.Controls
+
+            If (includeInheritedControls) Then
+                If (TypeOf ctrl Is T) Then _
+                    controls.Add(DirectCast(ctrl, T))
+
+            Else
+                ' System.Type del control.
+                '
+                Dim typeControl As Type = ctrl.GetType()
+                If (typeControl.Equals(typeT)) Then _
+                    controls.Add(DirectCast(ctrl, T))
+
+            End If
+
+            controls.AddRange(GetTypeControls(Of T)(ctrl, includeInheritedControls))
+
+        Next
+
+        Return controls
+
+    End Function
 
 End Module

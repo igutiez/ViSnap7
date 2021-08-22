@@ -118,6 +118,9 @@ Class VS7_Textbox
 
 #End Region
 #Region "Control Events"
+    Public Sub New()
+        Me.Text = ""
+    End Sub
 
     Public Sub ControlLeave(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Leave
         'If the control is not used in a form. 
@@ -136,9 +139,13 @@ Class VS7_Textbox
         Me.ControlFocused = False
     End Sub
 
-
+    Private Sub ControlIsCreated(sender As Object, e As EventArgs) Handles Me.HandleCreated
+        Me.Text = ""
+        Me.pLC_Value = Me.Text
+    End Sub
     Public Sub FieldEvaluator(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles Me.KeyPress
         Dim separator As Char = culture.NumberFormat.NumberDecimalSeparator
+
         Select Case sender.PLC_Datatype
             Case DataType.BOOL
                 If e.KeyChar = "0" Or e.KeyChar = "1" Or Char.IsControl(e.KeyChar) Then
@@ -250,7 +257,9 @@ Class VS7_Textbox
 
 
     End Sub
-
+    Private Sub TextBox1_Validated(sender As Object, e As EventArgs) Handles Me.Validated
+        Me.pLC_Value = Me.Text
+    End Sub
 #End Region
 #Region "Plc reading and writing"
     Public Sub UpdateControl(ByRef _PLC As PlcClient)
@@ -289,6 +298,16 @@ Class VS7_Textbox
             End If
 
         End If
+    End Sub
+
+    Public Sub updateValueFromForm(ByVal value As String)
+        Me.pLC_Value = value
+        Me.Text = value
+    End Sub
+
+    Public Sub ClearControl()
+        Me.pLC_Value = ""
+        Me.Text = ""
     End Sub
     Private Sub WriteValue(_Text As String, _PLC_Number As Integer, _PLC_DataArea As DataArea, _DataType As DataType, _DB As Integer, _Byte As Integer, _Bit As Integer, _Length As Integer)
         Select Case Me.PLC_DataArea
@@ -378,6 +397,8 @@ Class VS7_Textbox
         End Select
         Return txt
     End Function
+
+
 
 #End Region
 
