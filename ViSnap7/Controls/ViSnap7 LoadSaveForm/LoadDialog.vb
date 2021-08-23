@@ -17,6 +17,9 @@ Public Class LoadDialog
     End Sub
 
     Private Sub FilterTextbox_TextChanged(sender As Object, e As EventArgs) Handles FilterTextbox.TextChanged
+        RecipeList.Items.Clear()
+        LoadAllRecipes(Me, Me.folder, Me.extension)
+
         Dim items = From it In RecipeList.Items.Cast(Of Object)()
                     Where it.ToString().IndexOf(FilterTextbox.Text, StringComparison.CurrentCultureIgnoreCase) >= 0
         Dim matchingItemList As List(Of Object) = items.ToList()

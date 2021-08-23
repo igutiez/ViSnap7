@@ -26,7 +26,6 @@
                 If [Enum].IsDefined(GetType(Control_List.PlcCrtCanBeForms), ctr.GetType.Name) Then
                     If ctr.PLC_FormNumber <> 0 And ctr.PLC_FormNumber = FormNumber Then
                         ctr.pendingWrite = True
-                        ctr.UpdateControl(plc(c))
                     End If
                 End If
             Next
