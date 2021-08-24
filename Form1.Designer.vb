@@ -22,27 +22,31 @@ Partial Class Form1
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.ViSnap7_LoadSaveForm1 = New Proyecto_ViSnap7.ViSnap7_LoadSaveForm()
+        Me.VS7_Button2 = New Proyecto_ViSnap7.VS7_Button()
         Me.SuspendLayout()
         '
-        'ViSnap7_LoadSaveForm1
+        'VS7_Button2
         '
-        Me.ViSnap7_LoadSaveForm1.Extension = "dat"
-        Me.ViSnap7_LoadSaveForm1.LoadForm = True
-        Me.ViSnap7_LoadSaveForm1.Location = New System.Drawing.Point(237, 140)
-        Me.ViSnap7_LoadSaveForm1.Name = "ViSnap7_LoadSaveForm1"
-        Me.ViSnap7_LoadSaveForm1.PLC_FormNumber = 1
-        Me.ViSnap7_LoadSaveForm1.SaveFolder = "C:\recipes"
-        Me.ViSnap7_LoadSaveForm1.Size = New System.Drawing.Size(75, 23)
-        Me.ViSnap7_LoadSaveForm1.TabIndex = 0
-        Me.ViSnap7_LoadSaveForm1.Text = "ViSnap7_LoadSaveForm1"
+        Me.VS7_Button2.Location = New System.Drawing.Point(181, 52)
+        Me.VS7_Button2.Name = "VS7_Button2"
+        Me.VS7_Button2.PLC_Bit = 1
+        Me.VS7_Button2.PLC_ButtonType = False
+        Me.VS7_Button2.PLC_Byte = 46
+        Me.VS7_Button2.PLC_ColorFalse = System.Drawing.SystemColors.Window
+        Me.VS7_Button2.PLC_ColorTrue = System.Drawing.Color.Lime
+        Me.VS7_Button2.PLC_DB = 1
+        Me.VS7_Button2.PLC_Length = 0
+        Me.VS7_Button2.PLC_Number = 0
+        Me.VS7_Button2.Size = New System.Drawing.Size(75, 23)
+        Me.VS7_Button2.TabIndex = 0
+        Me.VS7_Button2.Text = "Trigger"
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1131, 679)
-        Me.Controls.Add(Me.ViSnap7_LoadSaveForm1)
+        Me.Controls.Add(Me.VS7_Button2)
         Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "Form1"
         Me.Text = "Form1"
@@ -50,5 +54,6 @@ Partial Class Form1
 
     End Sub
     Friend WithEvents VS7_ValueLabel1 As VS7_ValueLabel
-    Friend WithEvents ViSnap7_LoadSaveForm1 As ViSnap7_LoadSaveForm
+    Friend WithEvents VS7_Button1 As VS7_Button
+    Friend WithEvents VS7_Button2 As VS7_Button
 End Class

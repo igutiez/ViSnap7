@@ -47,4 +47,3 @@ C:\Users\iguti\OneDrive\Documentos\GitHub\ViSnap7\obj\Debug\Proyecto_ViSnap7.vbp
 C:\Users\iguti\OneDrive\Documentos\GitHub\ViSnap7\obj\Debug\Proyecto_ViSnap7.exe
 C:\Users\iguti\OneDrive\Documentos\GitHub\ViSnap7\obj\Debug\Proyecto_ViSnap7.xml
 C:\Users\iguti\OneDrive\Documentos\GitHub\ViSnap7\obj\Debug\Proyecto_ViSnap7.pdb
-C:\Users\iguti\OneDrive\Documentos\GitHub\ViSnap7\obj\Debug\Proyecto_ViSnap7.vbprojAssemblyReference.cache

@@ -32,6 +32,16 @@ Proyecto_ViSnap7
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="M:Proyecto_ViSnap7.VS7_Register.#ctor(System.Windows.Forms.Form,System.Int32,Proyecto_ViSnap7.General.DataArea,Proyecto_ViSnap7.General.DataType,System.Int32,System.Int32,System.Int32,System.Int32)">
+ <summary>
+ Variable when DataArea is DB and it is not a bit and not a string
+ </summary>
+ <param name="frm"></param>
+ <param name="plcNumber"></param>
+ <param name="dataType"></param>
+ <param name="db_Number"></param>
+ <param name="numByte"></param>
+</member>
 <member name="T:Proyecto_ViSnap7.VS7_SubmitForm">
  <summary>
  Submit Button user control 

@@ -10,6 +10,7 @@
         VS7_RadioButton
         VS7_PictureBox
         VS7_IOByte
+        VS7_Register
         VS7_RWVariable
     End Enum
     ' List of user controls that be used in forms

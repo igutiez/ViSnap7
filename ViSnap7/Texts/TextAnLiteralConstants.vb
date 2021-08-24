@@ -32,6 +32,8 @@
     Public Const KPlcButtonTypeLabel = "Write '1' only if pressed"
     Public Const KPlcButtonCaption = "Button Text"
     Public Const KPlcLengthLabel = "STR Length"
+    Public Const KPlcTypeTriggerLabel = "Define the type of trigger"
+    Public Const KPlcReferenceValueLabel = "Define the value to be compared to"
     Public Const KPlcFormActive = "This contros is used in a form"
     Public Const KPlcFormNumber = "Form N#"
     Public Const KPlcLoadForm = "Loading Form"
