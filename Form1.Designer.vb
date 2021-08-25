@@ -22,32 +22,14 @@ Partial Class Form1
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.VS7_Button2 = New Proyecto_ViSnap7.VS7_Button()
         Me.SuspendLayout()
-        '
-        'VS7_Button2
-        '
-        Me.VS7_Button2.Location = New System.Drawing.Point(181, 52)
-        Me.VS7_Button2.Name = "VS7_Button2"
-        Me.VS7_Button2.PLC_Bit = 1
-        Me.VS7_Button2.PLC_ButtonType = False
-        Me.VS7_Button2.PLC_Byte = 46
-        Me.VS7_Button2.PLC_ColorFalse = System.Drawing.SystemColors.Window
-        Me.VS7_Button2.PLC_ColorTrue = System.Drawing.Color.Lime
-        Me.VS7_Button2.PLC_DB = 1
-        Me.VS7_Button2.PLC_Length = 0
-        Me.VS7_Button2.PLC_Number = 0
-        Me.VS7_Button2.Size = New System.Drawing.Size(75, 23)
-        Me.VS7_Button2.TabIndex = 0
-        Me.VS7_Button2.Text = "Trigger"
         '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1131, 679)
-        Me.Controls.Add(Me.VS7_Button2)
-        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.ClientSize = New System.Drawing.Size(848, 552)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Form1"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
@@ -55,5 +37,4 @@ Partial Class Form1
     End Sub
     Friend WithEvents VS7_ValueLabel1 As VS7_ValueLabel
     Friend WithEvents VS7_Button1 As VS7_Button
-    Friend WithEvents VS7_Button2 As VS7_Button
 End Class

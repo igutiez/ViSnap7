@@ -149,22 +149,24 @@ Public Class VS7_Register
         Dim result As Boolean = False
         'Reading the  control value.
         Select Case Me.PLC_DataArea
-                Case DataArea.DB
-                    Me.plc_Value = TakeValue(_PLC.dbData(Me.PLC_DB), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
-                Case DataArea.INPUT
-                    Me.plc_Value = TakeValue(_PLC.inputData(0), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
-                Case DataArea.MARK
-                    Me.plc_Value = TakeValue(_PLC.marksData(0), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
-                Case DataArea.OUTPUT
-                    Me.plc_Value = TakeValue(_PLC.outputData(0), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
-                Case Else
-            End Select
+            Case DataArea.DB
+                Me.plc_Value = TakeValue(_PLC.dbData(Me.PLC_DB), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
+            Case DataArea.INPUT
+                Me.plc_Value = TakeValue(_PLC.inputData(0), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
+            Case DataArea.MARK
+                Me.plc_Value = TakeValue(_PLC.marksData(0), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
+            Case DataArea.OUTPUT
+                Me.plc_Value = TakeValue(_PLC.outputData(0), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
+            Case Else
+        End Select
 
         If (Not firstExecution) And (_plcValuePrevious IsNot Nothing) Then
 
             Select Case Me.PLC_TypeTrigger
                 Case TypeTrigger.EQUAL
+
                     result = ResultComparisonEqual(Me.plc_Value, Me.PLC_ReferenceValue, Me.PLC_DataType)
+
                 Case TypeTrigger.GREATER
                     result = ResultComparisonGreaterThan(Me.plc_Value, Me.PLC_ReferenceValue, Me.PLC_DataType)
                 Case TypeTrigger.LESS
@@ -178,10 +180,14 @@ Public Class VS7_Register
                     result = False
 
             End Select
-            If result Then
-                LogControls()
 
+            Static Dim Triggered As Boolean
+
+            If result And Not Triggered Then
+                LogControls()
             End If
+            Triggered = result
+
         End If
 
 
@@ -197,7 +203,7 @@ Public Class VS7_Register
         Dim fileName As String
         Dim _date As Date = Now()
 
-        fileName = _date.ToString
+        fileName = _date.Year.ToString + "-" + _date.Month.ToString + "-" + _date.Day.ToString
 
 
         Dim Abort As Boolean = False
@@ -215,24 +221,42 @@ Public Class VS7_Register
             path = Me.PLC_Folder & "\" & fileName & ".txt "
             Try
                 If Not IO.File.Exists(path) Then
-                    IO.File.Create(path)
+
+                    value = Now.ToLongTimeString
+                    For Each ctr As Object In Me.ListControls
+
+                        value = value & vbTab & ctr.Name
+
+                    Next
+                    Dim file As System.IO.StreamWriter
+                    file = My.Computer.FileSystem.OpenTextFileWriter(path, False)
+                    file.WriteLine(value)
+                    file.Close()
                 End If
+
             Catch ex As Exception
                 Abort = True
             End Try
 
         End If
         If Not Abort Then
-            value = ""
+            value = Now.ToLongTimeString
             For Each ctr As Object In Me.ListControls
-                ctr.updatecontrol(ctr.plc_Number)
-                value = Now.ToShortDateString & vbTab & ctr.Name & vbTab & ctr.plc_Value & vbCr
+
+                value = value & vbTab & ctr.plc_Value
             Next
-            IO.File.AppendAllText(path, value)
+
+            Dim file As System.IO.StreamWriter
+            file = My.Computer.FileSystem.OpenTextFileWriter(path, True)
+            file.WriteLine(value)
+            file.Close()
+
+
         End If
     End Sub
     Function ResultComparisonEqual(ByVal valueReal As String, ByVal valueSP As String, ByVal typeData As General.DataType) As Boolean
         Dim result As Boolean = False
+
         Select Case typeData
             Case DataType.BOOL
                 Try
@@ -258,6 +282,8 @@ Public Class VS7_Register
             Case Else
 
         End Select
+
+
 
         Return result
     End Function
