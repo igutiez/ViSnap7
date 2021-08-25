@@ -32,16 +32,6 @@ Public Class VS7_Register
     ''' <param name="dataType"></param>
     ''' <param name="db_Number"></param>
     ''' <param name="numByte"></param>
-    Sub New(ByVal frm As Form, ByVal plcNumber As Integer, ByVal dataArea As General.DataArea, ByVal dataType As General.DataType, ByVal db_Number As Integer, ByVal numByte As Integer, ByVal numBit As Integer, ByVal length As Integer)
-        _plc = plcNumber
-        _dataArea = dataArea
-        _dataType = dataType
-        _db = db_Number
-        _byte = numByte
-        _bit = numBit
-        _length = length
-        frm.Controls.Add(Me)
-    End Sub
 
 #Region "PLC Properties"
 
@@ -142,7 +132,26 @@ Public Class VS7_Register
     End Property
 
 #End Region
-
+#Region "Methods"
+    Sub New(ByVal frm As Form, ByVal plcNumber As Integer, ByVal dataArea As General.DataArea, ByVal dataType As General.DataType, ByVal db_Number As Integer, ByVal numByte As Integer, ByVal numBit As Integer, ByVal length As Integer)
+        _plc = plcNumber
+        _dataArea = dataArea
+        _dataType = dataType
+        _db = db_Number
+        _byte = numByte
+        _bit = numBit
+        _length = length
+        frm.Controls.Add(Me)
+    End Sub
+    Public Sub ConfigureRegister(ByVal Folder As String, typeComparison As TypeTrigger, ByVal compareValue As Decimal)
+        Me._folder = Folder
+        Me._typeOfTrigger = typeComparison
+        Me._referenceValue = compareValue
+    End Sub
+    Public Sub Add(ByVal ctr As Control)
+        Me.ListControls.Add(ctr)
+    End Sub
+#End Region
 
 #Region "Plc reading and writing"
     Public Sub UpdateControl(ByRef _PLC As PlcClient)
@@ -164,9 +173,7 @@ Public Class VS7_Register
 
             Select Case Me.PLC_TypeTrigger
                 Case TypeTrigger.EQUAL
-
                     result = ResultComparisonEqual(Me.plc_Value, Me.PLC_ReferenceValue, Me.PLC_DataType)
-
                 Case TypeTrigger.GREATER
                     result = ResultComparisonGreaterThan(Me.plc_Value, Me.PLC_ReferenceValue, Me.PLC_DataType)
                 Case TypeTrigger.LESS
@@ -180,14 +187,14 @@ Public Class VS7_Register
                     result = False
 
             End Select
-
             Static Dim Triggered As Boolean
 
-            If result And Not Triggered Then
+            'Run only once when condition is satisfied
+            If result And (Not Triggered) Then
                 LogControls()
+
             End If
             Triggered = result
-
         End If
 
 
@@ -256,7 +263,6 @@ Public Class VS7_Register
     End Sub
     Function ResultComparisonEqual(ByVal valueReal As String, ByVal valueSP As String, ByVal typeData As General.DataType) As Boolean
         Dim result As Boolean = False
-
         Select Case typeData
             Case DataType.BOOL
                 Try
@@ -282,8 +288,6 @@ Public Class VS7_Register
             Case Else
 
         End Select
-
-
 
         Return result
     End Function
