@@ -236,8 +236,7 @@ Public Module LoadSaveData
 
             If Not fileExist Or fileOverwrite Then
 
-                'If file exists, it must be delete in order to save new data
-                IO.File.Delete(completeFileName)
+
                 Dim recipeText As String = ""
                 For c = 0 To totalPlcNumber - 1
                     For Each ctr As Object In plc(c).controlsCollection
@@ -261,7 +260,11 @@ Public Module LoadSaveData
                         End If
                     Next
                 Next
-                IO.File.WriteAllText(completeFileName, recipeText)
+                'Overwrite the file in case of existing
+                Dim objWriter As New System.IO.StreamWriter(completeFileName, False)
+                objWriter.Write(recipeText)
+                objWriter.Close()
+
             End If
             MsgBox(KDataSaved)
         Else
