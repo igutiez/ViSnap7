@@ -14,7 +14,8 @@ Public Class VS7_IOByte
         INPUT = 3
         OUTPUT = 4
     End Enum
-
+    Public pLC_Value As String
+#Region "PLC Properties"
     Private _PLC As Integer
     Private _DataArea As LocalDataArea = LocalDataArea.INPUT
     Private _DB As Integer
@@ -22,10 +23,6 @@ Public Class VS7_IOByte
     Private _Bit As Integer
     Private _ColorTrue As Color = Color.FromKnownColor(KnownColor.Lime)
     Private _ColorFalse As Color = Color.FromKnownColor(KnownColor.Window)
-
-    Public pLC_Value As String
-#Region "PLC Properties"
-
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcNumberLabel)>
     Public Property PLC_Number As Integer
         Get
@@ -103,8 +100,7 @@ Public Class VS7_IOByte
 
 
 #End Region
-
-
+#Region "Methods"
     Public Sub UpdateControl(ByRef _PLC As PlcClient)
 
 
@@ -175,13 +171,11 @@ Public Class VS7_IOByte
 
 
     End Sub
-
     Private Function TakeValue(_DBData As PlcClient.ByteData, _PLC_DB As Integer, _PLC_Byte As Integer, _PLC_Bit As Integer, _PLC_DataType As Integer, _PLC_Length As Integer) As String
 
         Return ViSnap7.S7.GetSIntAt(_DBData.data, _PLC_Byte)
     End Function
-
-
+#End Region
 
 End Class
 

@@ -9,6 +9,11 @@ Imports System.Windows.Forms.Design
 <System.ComponentModel.Designer(GetType(PLCButtonDesigner))>
 Class VS7_Button
     Inherits Button
+
+    Public plc_Value As String
+    Public controlFocused As Boolean
+    Public pendingWrite As Boolean
+#Region "PLC Properties"
     Private _plc As Integer
     Private _dataArea As General.DataArea = DataArea.DB
     Private _db As Integer
@@ -21,13 +26,6 @@ Class VS7_Button
     Private _colorFalse As Color = Color.FromKnownColor(KnownColor.Window)
     Private _buttonType As Boolean
     Private _Caption As String
-
-    Public plc_Value As String
-    Public controlFocused As Boolean
-    Public pendingWrite As Boolean
-
-
-#Region "PLC Properties"
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcNumberLabel)>
     Public Property PLC_Number As Integer
         Get
@@ -167,9 +165,6 @@ Class VS7_Button
     Public Sub UpdateControl(ByRef _PLC As PlcClient)
         'Reading if control is no pending and not write pending.
         If firstExecution Or (Not controlFocused And Not pendingWrite) Then
-
-
-
             Select Case Me.PLC_DataArea
                 Case DataArea.DB
                     Me.plc_Value = TakeValue(_PLC.dbData(Me.PLC_DB), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
@@ -221,41 +216,37 @@ Class VS7_Button
         End Select
 
     End Sub
-
     Sub WriteOnPlc(_Text As String, _PLC_Number As Integer, _DataArea As Byte, _DataType As DataType, _DB As Integer, _Byte As Integer, _Bit As Integer, _Length As Integer)
         Select Case _DataType
             Case DataType.BOOL
                 Dim Buffer(0) As Byte
                 Buffer(0) = CByte(CBool(_Text))
-                PLC(_PLC_Number).Client.WriteArea(_DataArea, _DB, _Byte * 8 + _Bit, 1, ViSnap7.S7Consts.S7WLBit, Buffer)
+                plc(_PLC_Number).client.WriteArea(_DataArea, _DB, _Byte * 8 + _Bit, 1, ViSnap7.S7Consts.S7WLBit, Buffer)
 
             Case Else
 
         End Select
     End Sub
-
-
-
     Private Function TakeValue(_DBData As PlcClient.ByteData, _PLC_DB As Integer, _PLC_Byte As Integer, _PLC_Bit As Integer, _PLC_DataType As Integer, _PLC_Length As Integer) As String
         Dim txt As String
         Select Case _PLC_DataType
             Case DataType.BOOL
-                txt = ViSnap7.S7.GetBitAt(_DBData.Data, _PLC_Byte, _PLC_Bit)
+                txt = ViSnap7.S7.GetBitAt(_DBData.data, _PLC_Byte, _PLC_Bit)
 
             Case DataType.CHR
                 txt = ViSnap7.S7.GetCharsAt(_DBData.data, _PLC_Byte, 1)
             Case DataType.DINT
-                txt = ViSnap7.S7.GetDIntAt(_DBData.Data, _PLC_Byte)
+                txt = ViSnap7.S7.GetDIntAt(_DBData.data, _PLC_Byte)
             Case DataType.INT
-                txt = ViSnap7.S7.GetIntAt(_DBData.Data, _PLC_Byte)
+                txt = ViSnap7.S7.GetIntAt(_DBData.data, _PLC_Byte)
             Case DataType.REAL
-                txt = ViSnap7.S7.GetRealAt(_DBData.Data, _PLC_Byte)
+                txt = ViSnap7.S7.GetRealAt(_DBData.data, _PLC_Byte)
             Case DataType.SINT
-                txt = ViSnap7.S7.GetSIntAt(_DBData.Data, _PLC_Byte)
+                txt = ViSnap7.S7.GetSIntAt(_DBData.data, _PLC_Byte)
             Case DataType.STR
-                txt = ViSnap7.S7.GetStringAt(_DBData.Data, _PLC_Byte)
+                txt = ViSnap7.S7.GetStringAt(_DBData.data, _PLC_Byte)
             Case DataType.UINT
-                txt = ViSnap7.S7.GetUIntAt(_DBData.Data, _PLC_Byte)
+                txt = ViSnap7.S7.GetUIntAt(_DBData.data, _PLC_Byte)
             Case Else
                 txt = ""
         End Select
@@ -264,16 +255,7 @@ Class VS7_Button
 
 #End Region
 
-
-
-
-
-
 End Class
-
-
-
-
 
 #Region "PLCButton Smart tags"
 
@@ -308,7 +290,6 @@ Friend Class PLCButtonActionList
     End Sub
 
 #Region " Properties to display in the Smart-Tag panel "
-
     Public Property PLC_DataArea As General.DataArea
         Get
             Return ctr.PLC_DataArea
@@ -321,9 +302,6 @@ Friend Class PLCButtonActionList
             designerActionSvc.Refresh(ctr)
         End Set
     End Property
-
-
-
     Public Property PLC_Number() As Integer
         Get
             Return ctr.PLC_Number
@@ -334,7 +312,6 @@ Friend Class PLCButtonActionList
 
         End Set
     End Property
-
     Public Property PLC_DB() As Integer
         Get
             Return ctr.PLC_DB
@@ -345,7 +322,6 @@ Friend Class PLCButtonActionList
 
         End Set
     End Property
-
     Public Property PLC_Byte() As Integer
         Get
             Return ctr.PLC_Byte
@@ -356,7 +332,6 @@ Friend Class PLCButtonActionList
 
         End Set
     End Property
-
     Public Property PLC_Bit() As Integer
         Get
             Return ctr.PLC_Bit
@@ -367,7 +342,6 @@ Friend Class PLCButtonActionList
 
         End Set
     End Property
-
     Public Property PLC_ColorTrue() As Color
         Get
             Return ctr.PLC_ColorTrue
@@ -376,7 +350,6 @@ Friend Class PLCButtonActionList
             GetPropertyByName(ctr, "PLC_ColorTrue").SetValue(ctr, value)
 
         End Set
-
     End Property
     Public Property PLC_ColorFalse() As Color
         Get
@@ -384,20 +357,16 @@ Friend Class PLCButtonActionList
         End Get
         Set(ByVal value As Color)
             GetPropertyByName(ctr, "PLC_ColorFalse").SetValue(ctr, value)
-
         End Set
     End Property
-
     Public Property PLC_ButtonType() As Boolean
         Get
             Return ctr.PLC_ButtonType
         End Get
         Set(ByVal value As Boolean)
             GetPropertyByName(ctr, "PLC_ButtonType").SetValue(ctr, value)
-
         End Set
     End Property
-
     Public Property Text As String
         Get
             Return ctr.Text
@@ -410,14 +379,12 @@ Friend Class PLCButtonActionList
 #End Region
 
 #Region " Methods to display in the Smart-Tag panel "
-
     Public Sub OnDock()
         If ctr.Dock = DockStyle.Fill Then
             ctr.Dock = DockStyle.None
         Else
             ctr.Dock = DockStyle.Fill
         End If
-
         designerActionSvc.Refresh(ctr)
     End Sub
 
@@ -457,5 +424,4 @@ Friend Class PLCButtonActionList
         Return items
     End Function
 End Class
-
 #End Region

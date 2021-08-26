@@ -8,6 +8,8 @@ Imports System.Windows.Forms.Design
 <System.ComponentModel.Designer(GetType(PLCPictureBoxDesigner))>
 Class VS7_PictureBox
     Inherits PictureBox
+    Public pLC_Value As Boolean = False
+#Region "PLC Properties"
     Private _PLC As Integer
     Private _DataArea As General.DataArea = DataArea.DB
     Private _DB As Integer
@@ -18,13 +20,6 @@ Class VS7_PictureBox
     Private _txt As String
     Private _PictureTrue As System.Drawing.Bitmap
     Private _PictureFalse As System.Drawing.Bitmap
-
-    Public pLC_Value As Boolean = False
-
-
-
-#Region "PLC Properties"
-
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcNumberLabel)>
     Public Property PLC_Number As Integer
         Get
@@ -187,7 +182,6 @@ Class VS7_PictureBox
     End Function
 
 #End Region
-
 End Class
 #Region "PictureBox Smart tags"
 

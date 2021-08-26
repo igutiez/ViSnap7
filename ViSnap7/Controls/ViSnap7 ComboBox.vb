@@ -12,6 +12,11 @@ Imports System.Windows.Forms.Design
 <System.ComponentModel.Designer(GetType(PLCComboboxDesigner))>
 Class VS7_ComboBox
     Inherits ComboBox
+    Public pLC_Value As String
+    Public controlFocused As Boolean
+    Public pendingWrite As Boolean
+    Public updateForm As Boolean
+#Region "PLC Properties"
     Private _PLC As Integer
     Private _DataArea As General.DataArea = DataArea.DB
     Private _DB As Integer
@@ -22,17 +27,6 @@ Class VS7_ComboBox
     Private _txt As String
     Private _formActive As Boolean
     Private _formNumber As Integer
-
-    Public pLC_Value As String
-    Public controlFocused As Boolean
-    Public pendingWrite As Boolean
-    Public updateForm As Boolean
-
-    Sub New()
-        Me.AutoCompleteSource = AutoCompleteSource.CustomSource
-        Me.DropDownStyle = ComboBoxStyle.DropDownList
-    End Sub
-#Region "PLC Properties"
 
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcNumberLabel)>
     Public Property PLC_Number As Integer
@@ -142,7 +136,10 @@ Class VS7_ComboBox
 
 #End Region
 #Region "Control Events"
-
+    Sub New()
+        Me.AutoCompleteSource = AutoCompleteSource.CustomSource
+        Me.DropDownStyle = ComboBoxStyle.DropDownList
+    End Sub
     Private Sub IndexChanged(sender As Object, e As EventArgs) Handles Me.SelectedIndexChanged
         Me.pLC_Value = Me.SelectedIndex + 1
         'If the control is not used in a form. 
@@ -243,18 +240,7 @@ Class VS7_ComboBox
     End Function
 
 #End Region
-
-
-
-
-
-
 End Class
-
-
-
-
-
 #Region "PLCCombobox Smart tags"
 
 Public Class PLCComboboxDesigner

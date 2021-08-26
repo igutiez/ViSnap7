@@ -1,14 +1,7 @@
 ﻿<ToolboxItem(False)>
 Public Class VS7_RWVariable
     Inherits Control
-    Private _PLC As Integer
-    Private _DataArea As DataArea = DataArea.DB
-    Private _DB As Integer
-    Private _Byte As Integer
-    Private _Bit As Integer
-    Private _DataType As DataType = DataType.INT
-    Private _Length As Integer
-    Private _txt As String
+
     Public pLC_Value As String
     Public controlFocused As Boolean
     Public pendingWrite As Boolean
@@ -20,19 +13,17 @@ Public Class VS7_RWVariable
     ''' <param name="dataType"></param>
     ''' <param name="db_Number"></param>
     ''' <param name="numByte"></param>
-    Sub New(ByVal frm As Form, ByVal plcNumber As Integer, ByVal dataArea As General.DataArea, ByVal dataType As General.DataType, ByVal db_Number As Integer, ByVal numByte As Integer, ByVal numBit As Integer, ByVal length As Integer)
-        _PLC = plcNumber
-        _DataArea = dataArea
-        _DataType = dataType
-        _DB = db_Number
-        _Byte = numByte
-        _Bit = numBit
-        _Length = length
-        frm.Controls.Add(Me)
-    End Sub
+
 
 #Region "PLC Properties"
-
+    Private _PLC As Integer
+    Private _DataArea As DataArea = DataArea.DB
+    Private _DB As Integer
+    Private _Byte As Integer
+    Private _Bit As Integer
+    Private _DataType As DataType = DataType.INT
+    Private _Length As Integer
+    Private _txt As String
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcNumberLabel)>
     Public Property PLC_Number As Integer
         Get
@@ -97,13 +88,19 @@ Public Class VS7_RWVariable
             _Length = value
         End Set
     End Property
-
-
-
-
-
 #End Region
-
+#Region "Control Events"
+    Sub New(ByVal frm As Form, ByVal plcNumber As Integer, ByVal dataArea As General.DataArea, ByVal dataType As General.DataType, ByVal db_Number As Integer, ByVal numByte As Integer, ByVal numBit As Integer, ByVal length As Integer)
+        _PLC = plcNumber
+        _DataArea = dataArea
+        _DataType = dataType
+        _DB = db_Number
+        _Byte = numByte
+        _Bit = numBit
+        _Length = length
+        frm.Controls.Add(frm)
+    End Sub
+#End Region
 
 #Region "Plc reading and writing"
     Public Sub UpdateControl(ByRef _PLC As PlcClient)

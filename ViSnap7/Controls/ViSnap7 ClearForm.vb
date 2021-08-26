@@ -10,8 +10,6 @@ Imports System.Windows.Forms.Design
 Class VS7_ClearForm
     Inherits Button
     Private _formNumber As Integer
-
-
 #Region "PLC Properties"
     Public Property PLC_FormNumber As Integer
         Get

@@ -28,7 +28,6 @@
         REM Define decimal separator
         culture.NumberFormat.NumberDecimalSeparator = ","
         System.Threading.Thread.CurrentThread.CurrentCulture = culture
-
     End Sub
 
 

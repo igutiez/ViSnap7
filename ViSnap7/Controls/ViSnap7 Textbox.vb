@@ -8,6 +8,12 @@ Imports System.Windows.Forms.Design
 <System.ComponentModel.Designer(GetType(PLCTextBoxDesigner))>
 Class VS7_Textbox
     Inherits TextBox
+    Public pLC_Value As String = ""
+    Public controlFocused As Boolean
+    Public pendingWrite As Boolean
+    Public updateForm As Boolean
+
+#Region "PLC Properties"
     Private _PLC As Integer
     Private _DataArea As DataArea = DataArea.DB
     Private _DB As Integer
@@ -18,16 +24,6 @@ Class VS7_Textbox
     Private _txt As String
     Private _formNumber As Integer
     Private _formActive As Boolean
-
-    Public pLC_Value As String = ""
-    Public controlFocused As Boolean
-    Public pendingWrite As Boolean
-    Public updateForm As Boolean
-
-
-
-#Region "PLC Properties"
-
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcNumberLabel)>
     Public Property PLC_Number As Integer
         Get
@@ -92,9 +88,6 @@ Class VS7_Textbox
             _Length = value
         End Set
     End Property
-
-
-
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcFormActive)>
     Public Property PLC_FormActive As Boolean
         Get
@@ -113,15 +106,11 @@ Class VS7_Textbox
             _formNumber = value
         End Set
     End Property
-
-
-
 #End Region
 #Region "Control Events"
     Public Sub New()
         Me.Text = ""
     End Sub
-
     Public Sub ControlLeave(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Leave
         'If the control is not used in a form. 
         'In case of using in a control, pendingwrite will be set in submit form.
@@ -130,15 +119,13 @@ Class VS7_Textbox
         End If
 
     End Sub
-
     Public Sub ControlGotFocus(ByVal sender As Object, ByVal e As EventArgs) Handles Me.GotFocus
-        Me.ControlFocused = True
+        Me.controlFocused = True
 
     End Sub
     Public Sub ControlLostFocus(ByVal sender As Object, ByVal e As EventArgs) Handles Me.LostFocus
         Me.ControlFocused = False
     End Sub
-
     Private Sub ControlIsCreated(sender As Object, e As EventArgs) Handles Me.HandleCreated
         Me.Text = ""
         Me.pLC_Value = Me.Text
@@ -237,19 +224,6 @@ Class VS7_Textbox
                     e.Handled = True
                 End If
 
-                'Case DataType.USINT
-                '    If Char.IsDigit(e.KeyChar) Or Char.IsControl(e.KeyChar) Then
-                '        e.Handled = False
-                '        If IsNumeric(sender.text) Then
-                '            sender.PLC_Value = sender.text
-                '        End If
-                '        If e.KeyChar = Chr(13) Then
-                '            sender.pendingWrite = True
-                '        End If
-                '        Exit Sub
-                '    Else
-                '        e.Handled = True
-                '    End If
             Case Else
                 e.Handled = True
         End Select
@@ -257,7 +231,7 @@ Class VS7_Textbox
 
 
     End Sub
-    Private Sub TextBox1_Validated(sender As Object, e As EventArgs) Handles Me.Validated
+    Private Sub TextBox_Validated(sender As Object, e As EventArgs) Handles Me.Validated
         Me.pLC_Value = Me.Text
     End Sub
 #End Region
@@ -300,7 +274,7 @@ Class VS7_Textbox
         End If
     End Sub
 
-    Public Sub updateValueFromForm(ByVal value As String)
+    Public Sub UpdateValueFromForm(ByVal value As String)
         Me.pLC_Value = value
         Me.Text = value
     End Sub
@@ -377,7 +351,6 @@ Class VS7_Textbox
         Select Case _PLC_DataType
             Case DataType.BOOL
                 txt = ViSnap7.S7.GetBitAt(_DBData.Data, _PLC_Byte, _PLC_Bit)
-
             Case DataType.CHR
                 txt = ViSnap7.S7.GetCharsAt(_DBData.data, _PLC_Byte, 1)
             Case DataType.DINT
@@ -397,9 +370,6 @@ Class VS7_Textbox
         End Select
         Return txt
     End Function
-
-
-
 #End Region
 
 

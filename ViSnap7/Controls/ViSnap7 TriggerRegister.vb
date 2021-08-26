@@ -1,6 +1,17 @@
 ﻿<ToolboxItem(False)>
 Public Class VS7_Register
     Inherits Control
+    Public plc_Value As String
+    Public ListControls As New List(Of Control)
+    Public Enum TypeTrigger
+        EQUAL = 1
+        LESS = 2
+        GREATER = 3
+        PULSE_P = 4
+        PULSE_N = 5
+    End Enum
+
+#Region "PLC Properties"
     Private _plc As Integer
     Private _dataArea As DataArea = DataArea.DB
     Private _db As Integer
@@ -12,28 +23,6 @@ Public Class VS7_Register
     Private _typeOfTrigger As TypeTrigger
     Private _referenceValue As String
     Private _folder As String
-
-    Public plc_Value As String
-    Public ListControls As New List(Of Control)
-
-    Public Enum TypeTrigger
-        EQUAL = 1
-        LESS = 2
-        GREATER = 3
-        PULSE_P = 4
-        PULSE_N = 5
-    End Enum
-
-    ''' <summary>
-    ''' Variable when DataArea is DB and it is not a bit and not a string
-    ''' </summary>
-    ''' <param name="frm"></param>
-    ''' <param name="plcNumber"></param>
-    ''' <param name="dataType"></param>
-    ''' <param name="db_Number"></param>
-    ''' <param name="numByte"></param>
-
-#Region "PLC Properties"
 
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcNumberLabel)>
     Public Property PLC_Number As Integer
@@ -152,7 +141,6 @@ Public Class VS7_Register
         Me.ListControls.Add(ctr)
     End Sub
 #End Region
-
 #Region "Plc reading and writing"
     Public Sub UpdateControl(ByRef _PLC As PlcClient)
         Dim result As Boolean = False

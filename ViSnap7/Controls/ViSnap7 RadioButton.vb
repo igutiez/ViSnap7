@@ -9,6 +9,11 @@ Imports System.Windows.Forms.Design
 <System.ComponentModel.Designer(GetType(PLCRadioButtonDesigner))>
 Class VS7_RadioButton
     Inherits RadioButton
+    Public pLC_Value As String = "false"
+    Public controlFocused As Boolean
+    Public pendingWrite As Boolean
+    Public updateForm As Boolean
+#Region "PLC Properties"
     Private _PLC As Integer
     Private _DataArea As General.DataArea = DataArea.DB
     Private _DB As Integer
@@ -19,15 +24,6 @@ Class VS7_RadioButton
     Private _txt As String
     Private _formNumber As Integer
     Private _formActive As Boolean
-
-    Public pLC_Value As String = "false"
-    Public controlFocused As Boolean
-    Public pendingWrite As Boolean
-    Public updateForm As Boolean
-
-
-#Region "PLC Properties"
-
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcNumberLabel)>
     Public Property PLC_Number As Integer
         Get
@@ -113,10 +109,6 @@ Class VS7_RadioButton
             _formNumber = value
         End Set
     End Property
-
-
-
-
 #End Region
 
 #Region "Control Events"
@@ -236,12 +228,6 @@ Class VS7_RadioButton
     End Function
 
 #End Region
-
-
-
-
-
-
 End Class
 #Region "RadioButton Smart tags"
 

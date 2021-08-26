@@ -9,6 +9,11 @@ Imports System.Windows.Forms.Design
 <System.ComponentModel.Designer(GetType(PLCCheckboxDesigner))>
 Class VS7_Checkbox
     Inherits CheckBox
+    Public pLC_Value As String
+    Public controlFocused As Boolean
+    Public pendingWrite As Boolean
+    Public updateForm As Boolean
+#Region "PLC Properties"
     Private _PLC As Integer
     Private _DataArea As General.DataArea = DataArea.DB
     Private _DB As Integer
@@ -19,13 +24,6 @@ Class VS7_Checkbox
     Private _formActive As Boolean
     Private _Length As Integer
     Private _txt As String
-    Public pLC_Value As String
-    Public controlFocused As Boolean
-    Public pendingWrite As Boolean
-    Public updateForm As Boolean
-
-#Region "PLC Properties"
-
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcNumberLabel)>
     Public Property PLC_Number As Integer
         Get
@@ -110,15 +108,11 @@ Class VS7_Checkbox
             _formNumber = value
         End Set
     End Property
-
-
 #End Region
 #Region "Control Events"
     Public Sub CheckboxClick(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Click
-
         If sender.checked Then
             sender.PLC_Value = True
-
         Else
             sender.PLC_Value = False
         End If
@@ -127,10 +121,7 @@ Class VS7_Checkbox
         If Not PLC_FormActive Then
             pendingWrite = True
         End If
-
     End Sub
-
-
 #End Region
 #Region "Plc reading and writing"
     Public Sub UpdateControl(ByRef _PLC As PlcClient)
@@ -199,47 +190,41 @@ Class VS7_Checkbox
         End Select
 
     End Sub
-
     Sub WriteOnPlc(_Text As String, _PLC_Number As Integer, _DataArea As Byte, _DataType As DataType, _DB As Integer, _Byte As Integer, _Bit As Integer, _Length As Integer)
         Select Case _DataType
             Case DataType.BOOL
                 Dim Buffer(0) As Byte
                 Buffer(0) = CByte(CBool(_Text))
-                PLC(_PLC_Number).Client.WriteArea(_DataArea, _DB, _Byte * 8 + _Bit, 1, ViSnap7.S7Consts.S7WLBit, Buffer)
+                plc(_PLC_Number).client.WriteArea(_DataArea, _DB, _Byte * 8 + _Bit, 1, ViSnap7.S7Consts.S7WLBit, Buffer)
 
             Case Else
 
         End Select
     End Sub
-
-
-
     Private Function TakeValue(_DBData As PlcClient.ByteData, _PLC_DB As Integer, _PLC_Byte As Integer, _PLC_Bit As Integer, _PLC_DataType As Integer, _PLC_Length As Integer) As String
         Dim txt As String = ""
         Select Case _PLC_DataType
             Case DataType.BOOL
-                txt = ViSnap7.S7.GetBitAt(_DBData.Data, _PLC_Byte, _PLC_Bit)
-
+                txt = ViSnap7.S7.GetBitAt(_DBData.data, _PLC_Byte, _PLC_Bit)
             Case DataType.CHR
                 txt = ViSnap7.S7.GetCharsAt(_DBData.data, _PLC_Byte, 1)
             Case DataType.DINT
-                txt = ViSnap7.S7.GetDIntAt(_DBData.Data, _PLC_Byte)
+                txt = ViSnap7.S7.GetDIntAt(_DBData.data, _PLC_Byte)
             Case DataType.INT
-                txt = ViSnap7.S7.GetIntAt(_DBData.Data, _PLC_Byte)
+                txt = ViSnap7.S7.GetIntAt(_DBData.data, _PLC_Byte)
             Case DataType.REAL
-                txt = ViSnap7.S7.GetRealAt(_DBData.Data, _PLC_Byte)
+                txt = ViSnap7.S7.GetRealAt(_DBData.data, _PLC_Byte)
             Case DataType.SINT
-                txt = ViSnap7.S7.GetSIntAt(_DBData.Data, _PLC_Byte)
+                txt = ViSnap7.S7.GetSIntAt(_DBData.data, _PLC_Byte)
             Case DataType.STR
-                txt = ViSnap7.S7.GetStringAt(_DBData.Data, _PLC_Byte)
+                txt = ViSnap7.S7.GetStringAt(_DBData.data, _PLC_Byte)
             Case DataType.UINT
-                txt = ViSnap7.S7.GetUIntAt(_DBData.Data, _PLC_Byte)
+                txt = ViSnap7.S7.GetUIntAt(_DBData.data, _PLC_Byte)
             Case Else
                 txt = ""
         End Select
         Return txt
     End Function
-
 #End Region
 End Class
 #Region "PLCCheckbox Smart tags"

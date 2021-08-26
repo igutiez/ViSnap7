@@ -9,10 +9,8 @@ Imports System.Windows.Forms.Design
 <System.ComponentModel.Designer(GetType(SubmitFormDesigner))>
 Class VS7_SubmitForm
     Inherits Button
-    Private _formNumber As Integer
-
-
 #Region "PLC Properties"
+    Private _formNumber As Integer
     Public Property PLC_FormNumber As Integer
         Get
             Return _formNumber
@@ -29,19 +27,7 @@ Class VS7_SubmitForm
     End Sub
 
 #End Region
-
-
-
-
-
-
-
 End Class
-
-
-
-
-
 #Region "SubmitForm Smart tags"
 
 Public Class SubmitFormDesigner

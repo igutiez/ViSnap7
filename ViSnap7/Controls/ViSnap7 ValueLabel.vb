@@ -8,6 +8,7 @@ Imports System.Windows.Forms.Design
 <System.ComponentModel.Designer(GetType(PLCValueLabelDesigner))>
 Class VS7_ValueLabel
     Inherits Label
+#Region "PLC Properties"
     Private _PLC As Integer
     Private _DataArea As General.DataArea = DataArea.DB
     Private _DB As Integer
@@ -17,9 +18,6 @@ Class VS7_ValueLabel
     Private _Length As Integer
     Private _txt As String
     Public pLC_Value As String
-
-#Region "PLC Properties"
-
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcNumberLabel)>
     Public Property PLC_Number As Integer
         Get
@@ -148,7 +146,6 @@ Class VS7_ValueLabel
     End Function
 
 #End Region
-
 End Class
 #Region "Label Smart tags"
 

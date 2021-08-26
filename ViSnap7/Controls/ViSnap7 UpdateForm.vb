@@ -9,10 +9,8 @@ Imports System.Windows.Forms.Design
 <System.ComponentModel.Designer(GetType(UpdateFormDesigner))>
 Class VS7_UpdateForm
     Inherits Button
-    Private _formNumber As Integer
-
-
 #Region "PLC Properties"
+    Private _formNumber As Integer
     Public Property PLC_FormNumber As Integer
         Get
             Return _formNumber

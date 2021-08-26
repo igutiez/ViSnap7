@@ -8,6 +8,14 @@ Imports System.Windows.Forms.Design
 <System.ComponentModel.Designer(GetType(PLCLedDesigner))>
 Class VS7_Led
     Inherits Panel
+    Public pLC_Value As Boolean = False
+    Public controlFocused As Boolean
+    Public pendingWrite As Boolean
+    Friend Enum ShapeType
+        Normal
+        Circular
+    End Enum
+#Region "PLC Properties"
     Private _PLC As Integer
     Private _DataArea As General.DataArea = DataArea.DB
     Private _DB As Integer
@@ -19,18 +27,7 @@ Class VS7_Led
     Private _ColorTrue As Color = Color.FromKnownColor(KnownColor.Lime)
     Private _ColorFalse As Color = Color.FromKnownColor(KnownColor.Window)
     Private g As Graphics
-
-    Public pLC_Value As Boolean = False
-    Public controlFocused As Boolean
-    Public pendingWrite As Boolean
     Private _shapeType As ShapeType
-    Friend Enum ShapeType
-        Normal
-        Circular
-    End Enum
-
-#Region "PLC Properties"
-
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcNumberLabel)>
     Public Property PLC_Number As Integer
         Get
@@ -128,18 +125,15 @@ Class VS7_Led
         End Set
     End Property
 
-    Sub New()
-        Me.BorderStyle = Windows.Forms.BorderStyle.FixedSingle
-        Me.Size = New Point(25, 25)
 
-    End Sub
 
 
 #End Region
 #Region "Control Events"
-
-
-
+    Sub New()
+        Me.BorderStyle = Windows.Forms.BorderStyle.FixedSingle
+        Me.Size = New Point(25, 25)
+    End Sub
 #End Region
 #Region "Control Procedures"
     Sub Circle()
@@ -232,22 +226,22 @@ Class VS7_Led
         Dim txt As String = ""
         Select Case _PLC_DataType
             Case DataType.BOOL
-                txt = ViSnap7.S7.GetBitAt(_DBData.Data, _PLC_Byte, _PLC_Bit)
+                txt = ViSnap7.S7.GetBitAt(_DBData.data, _PLC_Byte, _PLC_Bit)
 
             Case DataType.CHR
                 txt = ViSnap7.S7.GetCharsAt(_DBData.data, _PLC_Byte, 1)
             Case DataType.DINT
-                txt = ViSnap7.S7.GetDIntAt(_DBData.Data, _PLC_Byte)
+                txt = ViSnap7.S7.GetDIntAt(_DBData.data, _PLC_Byte)
             Case DataType.INT
-                txt = ViSnap7.S7.GetIntAt(_DBData.Data, _PLC_Byte)
+                txt = ViSnap7.S7.GetIntAt(_DBData.data, _PLC_Byte)
             Case DataType.REAL
-                txt = ViSnap7.S7.GetRealAt(_DBData.Data, _PLC_Byte)
+                txt = ViSnap7.S7.GetRealAt(_DBData.data, _PLC_Byte)
             Case DataType.SINT
-                txt = ViSnap7.S7.GetSIntAt(_DBData.Data, _PLC_Byte)
+                txt = ViSnap7.S7.GetSIntAt(_DBData.data, _PLC_Byte)
             Case DataType.STR
-                txt = ViSnap7.S7.GetStringAt(_DBData.Data, _PLC_Byte)
+                txt = ViSnap7.S7.GetStringAt(_DBData.data, _PLC_Byte)
             Case DataType.UINT
-                txt = ViSnap7.S7.GetUIntAt(_DBData.Data, _PLC_Byte)
+                txt = ViSnap7.S7.GetUIntAt(_DBData.data, _PLC_Byte)
             Case Else
                 txt = ""
         End Select
@@ -255,18 +249,7 @@ Class VS7_Led
     End Function
 
 #End Region
-
-
-
-
-
-
 End Class
-
-
-
-
-
 #Region "PLCLed Smart tags"
 
 Public Class PLCLedDesigner
