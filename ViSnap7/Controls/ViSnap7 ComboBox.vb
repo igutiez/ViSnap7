@@ -141,7 +141,7 @@ Class VS7_ComboBox
         Me.DropDownStyle = ComboBoxStyle.DropDownList
     End Sub
     Private Sub IndexChanged(sender As Object, e As EventArgs) Handles Me.SelectedIndexChanged
-        Me.pLC_Value = Me.SelectedIndex + 1
+        Me.pLC_Value = Me.SelectedIndex
         'If the control is not used in a form. 
         'In case of using in a control, pendingwrite will be set in submit form.
         If Not PLC_FormActive Then
