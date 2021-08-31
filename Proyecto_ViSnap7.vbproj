@@ -178,6 +178,12 @@
     <Compile Include="ViSnap7\Modules\UpdateFormsTasks.vb" />
     <Compile Include="ViSnap7\Modules\Visnap7.vb" />
     <Compile Include="ViSnap7\Texts\TextAnLiteralConstants.vb" />
+    <Compile Include="ViSnap7\Controls\ViSnap7 DynamicLabel.Designer.vb">
+      <DependentUpon>ViSnap7 DynamicLabel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ViSnap7\Controls\ViSnap7 DynamicLabel.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
@@ -197,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViSnap7\Controls\ViSnap7 IOByte.resx">
       <DependentUpon>ViSnap7 IOByte.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViSnap7\Controls\ViSnap7 DynamicLabel.resx">
+      <DependentUpon>ViSnap7 DynamicLabel.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

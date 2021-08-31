@@ -1,6 +1,8 @@
 ﻿Module BackgroundTasks
     Public openFormsLastIteration As Integer
     Public totalPlcNumber As Integer = 0
+    Public UpdateNumberOfControlsActive As Boolean
+
     Private minReference As Integer = 9999
     Private maxReferece As Integer = -1
     Public Sub AccomodatePlcData()
@@ -22,10 +24,16 @@
 
         End If
 
-
         'Update controls when Open/close forms 
         'Only if number of openforms changes this is performed.
-        If My.Application.OpenForms.Count <> openFormsLastIteration Then
+        'This can be set externally to force a new update
+        If (My.Application.OpenForms.Count <> openFormsLastIteration) Then
+            UpdateNumberOfControlsActive = True
+        End If
+
+        If UpdateNumberOfControlsActive Then
+            UpdateNumberOfControlsActive = False
+
             'Create the Clients (one per PLC)
             CreateClients()
 

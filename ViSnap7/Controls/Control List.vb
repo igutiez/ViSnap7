@@ -12,6 +12,7 @@
         VS7_IOByte
         VS7_Register
         VS7_RWVariable
+        ViSnap7_DynamicLabel
     End Enum
     ' List of user controls that be used in forms
     ' After configure the control, it must be added to this Enum. 

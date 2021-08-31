@@ -211,5 +211,10 @@ Proyecto_ViSnap7
  </summary>
  <returns></returns>
 </member>
+<member name="T:Proyecto_ViSnap7.ViSnap7_DynamicLabel">
+ <summary>
+ PLC Value Label user control 
+ </summary>
+</member>
 </members>
 </doc>
