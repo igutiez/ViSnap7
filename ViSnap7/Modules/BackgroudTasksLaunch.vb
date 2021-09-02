@@ -30,9 +30,13 @@ Module BackgroudTasksLaunch
         End If
         'Read all active controls
         UpdateFormsTasks.ReadControls(udateControls)
-        'Next loop launch
-        CyclicLoop.RunWorkerAsync()
         'Terminated the first execution
         firstExecution = False
+        
+        'Delay the reading the desired interval
+        Threading.Thread.Sleep(KReadingIntervalMiliseconds)
+        'Next loop launch
+        CyclicLoop.RunWorkerAsync()
+
     End Sub
 End Module

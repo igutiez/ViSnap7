@@ -104,8 +104,7 @@
         End If
         'Save the number of openforms for checking next iteration
         openFormsLastIteration = My.Application.OpenForms.Count
-        'Delay the reading the desired interval
-        Threading.Thread.Sleep(KReadingIntervalMiliseconds)
+
 
     End Sub
 
