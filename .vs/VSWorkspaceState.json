@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\ViSnap7",
-    "\\ViSnap7\\Controls"
+    "\\ViSnap7\\Controls",
+    "\\ViSnap7\\Modules"
   ],
-  "SelectedNode": "\\Form1.vb",
+  "SelectedNode": "\\ViSnap7\\Controls\\VS7 Charting.vb",
   "PreviewInSolutionExplorer": false
 }

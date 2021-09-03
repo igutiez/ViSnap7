@@ -5,6 +5,7 @@
     ' If you want another language, you just have to translate the texts.
     Public Const KPlcPropertiesCategory = "PLC"
     Public Const KPlcAdressingCategory = "PLC Addressing"
+    Public Const KChartCategory = "Chart characteristics"
     Public Const KPlcFolderCategory = "Folder characteristics"
     Public Const KPlcFormCategory = "Form Characteristics"
 
@@ -32,6 +33,16 @@
     Public Const KPlcButtonTypeLabel = "Write '1' only if pressed"
     Public Const KPlcButtonCaption = "Button Text"
     Public Const KPlcLengthLabel = "STR Length"
+    Public Const KPLC_SerieName = "Serie Name"
+    Public Const KPLC_RegisterNumbers = "Number of points"
+    Public Const KPLC_TimeInterval = "Interval Time (ms)"
+    Public Const KPLC_SerieXAxis = "X Axis"
+    Public Const KPLC_SerieYAxis = "Y Axis"
+
+    Public Const KPlcPLC_TimeInterval = "Time Interval"
+    Public Const KPLC_YAxis = "Y Axis Name"
+    Public Const KPLC_XAxis = "X Axis Name"
+
     Public Const KPlcTypeTriggerLabel = "Define the type of trigger"
     Public Const KPlcReferenceValueLabel = "Define the value to be compared to"
     Public Const KPlcFormActive = "This contros is used in a form"
