@@ -23,9 +23,8 @@ Partial Class VS7_Trends
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Me.MyChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.MyChart, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -34,16 +33,12 @@ Partial Class VS7_Trends
         'MyChart
         '
         Me.MyChart.Anchor = System.Windows.Forms.AnchorStyles.None
-        ChartArea2.Name = "ChartArea1"
-        Me.MyChart.ChartAreas.Add(ChartArea2)
-        Legend2.Name = "Legend1"
-        Me.MyChart.Legends.Add(Legend2)
+        ChartArea1.Name = "ChartArea1"
+        Me.MyChart.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.MyChart.Legends.Add(Legend1)
         Me.MyChart.Location = New System.Drawing.Point(18, 17)
         Me.MyChart.Name = "MyChart"
-        Series2.ChartArea = "ChartArea1"
-        Series2.Legend = "Legend1"
-        Series2.Name = "Series1"
-        Me.MyChart.Series.Add(Series2)
         Me.MyChart.Size = New System.Drawing.Size(737, 400)
         Me.MyChart.TabIndex = 0
         Me.MyChart.Text = "Chart1"
@@ -56,7 +51,6 @@ Partial Class VS7_Trends
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.Controls.Add(Me.MyChart)
         Me.Name = "VS7_Trends"

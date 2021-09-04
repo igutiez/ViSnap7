@@ -90,7 +90,7 @@ Public Class VS7_RWVariable
     End Property
 #End Region
 #Region "Control Events"
-    Sub New(ByVal frm As Form, ByVal plcNumber As Integer, ByVal dataArea As General.DataArea, ByVal dataType As General.DataType, ByVal db_Number As Integer, ByVal numByte As Integer, ByVal numBit As Integer, ByVal length As Integer)
+    Sub New(ByVal frm As Control, ByVal plcNumber As Integer, ByVal dataArea As General.DataArea, ByVal dataType As General.DataType, ByVal db_Number As Integer, ByVal numByte As Integer, ByVal numBit As Integer, ByVal length As Integer)
         _PLC = plcNumber
         _DataArea = dataArea
         _DataType = dataType
@@ -98,7 +98,7 @@ Public Class VS7_RWVariable
         _Byte = numByte
         _Bit = numBit
         _Length = length
-        frm.Controls.Add(frm)
+        frm.Controls.Add(Me)
     End Sub
 #End Region
 

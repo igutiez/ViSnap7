@@ -28,6 +28,7 @@
     Public Const KPlcFalseValueLabel = "Color if false"
     Public Const KFilterLabel = "Filter"
     Public Const KPlcValueTypeLabel = "Value Type"
+    Public Const KPlcDataTypeLabel = "Data Type"
     Public Const KSaveFolder = "Folder"
     Public Const KExtensionFile = "File extension"
     Public Const KPlcButtonTypeLabel = "Write '1' only if pressed"
