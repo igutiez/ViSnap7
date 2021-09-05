@@ -19,11 +19,11 @@ Public Class VS7_Trends
 
     Public _PLC As Integer() = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
     Public _DataArea As General.DataArea() = {DataArea.MARK, DataArea.MARK, DataArea.MARK, DataArea.MARK, DataArea.MARK, DataArea.MARK, DataArea.MARK, DataArea.MARK, DataArea.MARK, DataArea.MARK}
-    Public _DB As Integer() = {1, 1, 1, 1, 1, 1, 1, 1, 1}
+    Public _DB As Integer() = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
     Public _Byte As Integer() = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
     Public _Bit As Integer() = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
     Public _DataType As LocalDataType() = {LocalDataType.INT, LocalDataType.INT, LocalDataType.INT, LocalDataType.INT, LocalDataType.INT, LocalDataType.INT, LocalDataType.INT, LocalDataType.INT, LocalDataType.INT, LocalDataType.INT}
-    Public _Length As Integer() = {0, 0, 0, 0, 0, 0, 0, 0, 0}
+    Public _Length As Integer() = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
     Public _SerieActive As Boolean() = {True, False, False, False, False, False, False, False, False, False}
     Private m_PLCs_Enable As [Boolean]()
 
