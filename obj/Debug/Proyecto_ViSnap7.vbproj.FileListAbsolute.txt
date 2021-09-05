@@ -78,4 +78,3 @@ D:\Guti\GitHub\ViSnap7\bin\Debug\Proyecto_ViSnap7.xml
 D:\Guti\GitHub\ViSnap7\obj\Debug\Proyecto_ViSnap7.exe
 D:\Guti\GitHub\ViSnap7\obj\Debug\Proyecto_ViSnap7.xml
 D:\Guti\GitHub\ViSnap7\obj\Debug\Proyecto_ViSnap7.pdb
-D:\Guti\GitHub\ViSnap7\obj\Debug\Proyecto_ViSnap7.vbproj.AssemblyReference.cache

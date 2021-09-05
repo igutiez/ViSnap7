@@ -5,14 +5,6 @@ Public Class VS7_RWVariable
     Public pLC_Value As String
     Public controlFocused As Boolean
     Public pendingWrite As Boolean
-    ''' <summary>
-    ''' Variable when DataArea is DB and it is not a bit and not a string
-    ''' </summary>
-    ''' <param name="frm"></param>
-    ''' <param name="plcNumber"></param>
-    ''' <param name="dataType"></param>
-    ''' <param name="db_Number"></param>
-    ''' <param name="numByte"></param>
 
 
 #Region "PLC Properties"
