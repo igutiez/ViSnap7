@@ -41,7 +41,8 @@
     Public Const KPLC_SerieActive = "Serie Active"
     Public Const KPLC_RegisterNumbers = "Number of points"
     Public Const KPLC_ChartDashStyle = "Chart Style"
-    Public Const KPLC_TimeInterval = "Interval Time (ms)"
+    Public Const KPLC_AxisXStep = "Interval Time (ms)"
+    Public Const KPLC_TimeInterval = "Step in X axis"
     Public Const KPLC_SerieXAxis = "X Axis"
     Public Const KPLC_SerieYAxis = "Y Axis"
     Public Const KPLC_SerieYAxis2 = "Y2 Axis"
@@ -50,6 +51,7 @@
     Public Const KPLC_YAxis2 = "Y2 Axis Name"
 
     Public Const KPLC_XAxis = "X Axis Name"
+    Public Const KPLC_XAxisStep = "X Axis Step"
 
     Public Const KPlcTypeTriggerLabel = "Define the type of trigger"
     Public Const KPlcReferenceValueLabel = "Define the value to be compared to"

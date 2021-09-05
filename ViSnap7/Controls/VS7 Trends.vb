@@ -41,7 +41,7 @@ Public Class VS7_Trends
     Private _XAxis As String = "X"
     Private _YAxis2 As String = "Y2"
     Private _AxisType As AxisType() = {AxisType.Primary, AxisType.Primary, AxisType.Primary, AxisType.Primary, AxisType.Primary, AxisType.Primary, AxisType.Primary, AxisType.Primary, AxisType.Primary, AxisType.Primary}
-
+    Private _AxisXStep As AxisXStep
     Public _SerieNumber As NumSeries
 
     Public Enum LocalDataType
@@ -50,6 +50,19 @@ Public Class VS7_Trends
         INT = 4
         DINT = 5
         REAL = 6
+    End Enum
+    Public Enum AxisXStep
+        Auto = 0
+        Step_1ud = 1
+        Step_2uds = 2
+        Step_3uds = 3
+        Step_4uds = 4
+        Step_5uds = 5
+        Step_6uds = 6
+        Step_7uds = 7
+        Step_8uds = 8
+        Step_9uds = 9
+        Step_10uds = 10
     End Enum
 
     Private numberOfSeries As Integer = [Enum].GetValues(GetType(NumSeries)).Length - 1
@@ -374,6 +387,17 @@ Public Class VS7_Trends
             _TimeInterval = value
         End Set
     End Property
+
+    <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPLC_AxisXStep)>
+    Public Property PLC_AxisXStep() As AxisXStep
+        Get
+            Return _AxisXStep
+        End Get
+        Set(value As AxisXStep)
+            _AxisXStep = value
+        End Set
+    End Property
+
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPLC_SerieYAxis)>
     Public Property PLC_YAxis() As String
         Get
@@ -445,7 +469,7 @@ Public Class VS7_Trends
                 Catch ex As Exception
                 End Try
                 MyChart.Series(PLCs_SerieName(c)).YAxisType = PLCs_AxisType(c)
-                MyChart.Series(PLCs_SerieName(c)).LabelBackColor = Me.BackColor
+                MyChart.Series(PLCs_SerieName(c)).LabelBackColor = Color.Transparent
                 MyChart.Series(PLCs_SerieName(c)).Points.Clear()
                 For x As Integer = 0 To PLC_RegisterNumbers - 1
                     MyArray(c, x) = New DataPoint
@@ -472,7 +496,7 @@ Public Class VS7_Trends
                     .AxisX.Title = PLC_XAxis
                     .AxisX.MajorGrid.LineColor = Color.LightBlue
                     .AxisX.Minimum = 0
-                    .AxisX.Interval = 2
+                    .AxisX.Interval = PLC_AxisXStep
                     .AxisY.Title = PLC_YAxis
                     .AxisY.MajorGrid.LineColor = Color.LightGray
                     .AxisY.Minimum = 0
@@ -664,6 +688,17 @@ Friend Class TrendsActionList
 
         End Set
     End Property
+
+    Public Property PLC_AxisXStep As VS7_Trends.AxisXStep
+        Get
+            Return ctr.PLC_AxisXStep
+        End Get
+        Set(value As VS7_Trends.AxisXStep)
+            GetPropertyByName(ctr, "PLC_AxisXStep").SetValue(ctr, value)
+            designerActionSvc.Refresh(ctr)
+
+        End Set
+    End Property
     Public Property PLC_YAxis As String
         Get
             Return ctr.PLC_YAxis
@@ -812,6 +847,7 @@ Friend Class TrendsActionList
         End If
         items.Add(New DesignerActionPropertyItem("PLC_TimeInterval", KPlcPLC_TimeInterval, KChartCategory, KPlcPLC_TimeInterval))
         items.Add(New DesignerActionPropertyItem("PLC_XAxis", KPLC_XAxis, KChartCategory, KPLC_XAxis))
+        items.Add(New DesignerActionPropertyItem("PLC_AxisXStep", KPLC_XAxisStep, KChartCategory, KPLC_XAxisStep))
         items.Add(New DesignerActionPropertyItem("PLC_YAxis", KPLC_YAxis, KChartCategory, KPLC_YAxis))
         items.Add(New DesignerActionPropertyItem("PLC_YAxis2", KPLC_YAxis2, KChartCategory, KPLC_YAxis2))
 

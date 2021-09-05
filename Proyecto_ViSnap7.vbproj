@@ -191,6 +191,9 @@
     <Compile Include="ViSnap7\Controls\ViSnap7 DynamicLabel.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="ViSnap7\VS7 Gauge.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
