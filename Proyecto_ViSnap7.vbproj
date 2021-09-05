@@ -184,7 +184,7 @@
     <Compile Include="ViSnap7\Modules\PlcClient.vb" />
     <Compile Include="ViSnap7\Modules\UpdateFormsTasks.vb" />
     <Compile Include="ViSnap7\Modules\Visnap7.vb" />
-    <Compile Include="ViSnap7\Texts\TextAnLiteralConstants.vb" />
+    <Compile Include="ViSnap7\Texts\TextAndLiteralConstants.vb" />
     <Compile Include="ViSnap7\Controls\ViSnap7 DynamicLabel.Designer.vb">
       <DependentUpon>ViSnap7 DynamicLabel.vb</DependentUpon>
     </Compile>

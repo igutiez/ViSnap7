@@ -2,8 +2,13 @@
 Imports System.Windows.Forms.Design
 <System.ComponentModel.Designer(GetType(TrendsDesigner))>
 Public Class VS7_Trends
+
 #Region "PLC Properties"
     Public pLC_Value As String
+    Structure DataPoint
+        Public X As Date
+        Public Y As Double
+    End Structure
     Public Enum NumSeries
         Serie1 = 0
         Serie2 = 1
@@ -17,23 +22,26 @@ Public Class VS7_Trends
         Serie10 = 9
     End Enum
 
-    Public _PLC As Integer() = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
-    Public _DataArea As General.DataArea() = {DataArea.MARK, DataArea.MARK, DataArea.MARK, DataArea.MARK, DataArea.MARK, DataArea.MARK, DataArea.MARK, DataArea.MARK, DataArea.MARK, DataArea.MARK}
-    Public _DB As Integer() = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
-    Public _Byte As Integer() = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
-    Public _Bit As Integer() = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
-    Public _DataType As LocalDataType() = {LocalDataType.INT, LocalDataType.INT, LocalDataType.INT, LocalDataType.INT, LocalDataType.INT, LocalDataType.INT, LocalDataType.INT, LocalDataType.INT, LocalDataType.INT, LocalDataType.INT}
-    Public _Length As Integer() = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
-    Public _SerieActive As Boolean() = {True, False, False, False, False, False, False, False, False, False}
-    Private m_PLCs_Enable As [Boolean]()
+    Private _PLC As Integer() = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+    Private _DataArea As General.DataArea() = {DataArea.MARK, DataArea.MARK, DataArea.MARK, DataArea.MARK, DataArea.MARK, DataArea.MARK, DataArea.MARK, DataArea.MARK, DataArea.MARK, DataArea.MARK}
+    Private _DB As Integer() = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+    Private _Byte As Integer() = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+    Private _Bit As Integer() = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+    Private _DataType As LocalDataType() = {LocalDataType.INT, LocalDataType.INT, LocalDataType.INT, LocalDataType.INT, LocalDataType.INT, LocalDataType.INT, LocalDataType.INT, LocalDataType.INT, LocalDataType.INT, LocalDataType.INT}
+    Private _Length As Integer() = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+    Private _SerieActive As Boolean() = {True, False, False, False, False, False, False, False, False, False}
+    Private m_PLCs_Enable As Boolean()
 
-    Public _Color As Color() = {Color.Blue, Color.Red, Color.Blue, Color.Red, Color.Black, Color.Green, Color.Yellow, Color.Blue, Color.Red, Color.Blue}
+    Private _Color As Color() = {Color.Blue, Color.Red, Color.Blue, Color.Red, Color.Black, Color.Green, Color.Yellow, Color.Blue, Color.Red, Color.Blue}
 
-    Public _ChartDashStyle As ChartDashStyle() = {ChartDashStyle.Solid, ChartDashStyle.Solid, ChartDashStyle.Solid, ChartDashStyle.Solid, ChartDashStyle.Solid, ChartDashStyle.Solid, ChartDashStyle.Solid, ChartDashStyle.Solid, ChartDashStyle.Solid, ChartDashStyle.Solid}
-    Public _SerieName As String() = {"Nombre Serie1", "Nombre Serie2", "Nombre Serie3", "Nombre Serie4", "Nombre Serie5", "Nombre Serie6", "Nombre Serie7", "Nombre Serie8", "Nombre Serie9", "Nombre Serie10"}
+    Private _ChartDashStyle As ChartDashStyle() = {ChartDashStyle.Solid, ChartDashStyle.Solid, ChartDashStyle.Solid, ChartDashStyle.Solid, ChartDashStyle.Solid, ChartDashStyle.Solid, ChartDashStyle.Solid, ChartDashStyle.Solid, ChartDashStyle.Solid, ChartDashStyle.Solid}
+    Private _SerieName As String() = {"Nombre Serie1", "Nombre Serie2", "Nombre Serie3", "Nombre Serie4", "Nombre Serie5", "Nombre Serie6", "Nombre Serie7", "Nombre Serie8", "Nombre Serie9", "Nombre Serie10"}
     Private _TimeInterval As Integer = 1000
     Private _YAxis As String = "Y"
     Private _XAxis As String = "X"
+    Private _YAxis2 As String = "Y2"
+    Private _AxisType As AxisType() = {AxisType.Primary, AxisType.Primary, AxisType.Primary, AxisType.Primary, AxisType.Primary, AxisType.Primary, AxisType.Primary, AxisType.Primary, AxisType.Primary, AxisType.Primary}
+
     Public _SerieNumber As NumSeries
 
     Public Enum LocalDataType
@@ -44,12 +52,13 @@ Public Class VS7_Trends
         REAL = 6
     End Enum
 
-    Private Dimension As Integer = [Enum].GetValues(GetType(NumSeries)).Length - 1
+    Private numberOfSeries As Integer = [Enum].GetValues(GetType(NumSeries)).Length - 1
 
-    Public Values(Dimension) As VS7_RWVariable
+    Public Values(numberOfSeries) As VS7_RWVariable
 
     Private _RegisterNumbers As Integer = 60
-
+#Region "Serie Number"
+    <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPLC_SerieNumber)>
     Public Property PLC_SerieNumber() As NumSeries
         Get
             Return _SerieNumber
@@ -58,8 +67,9 @@ Public Class VS7_Trends
             _SerieNumber = value
         End Set
     End Property
-
-
+#End Region
+#Region "Serie Color"
+    <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPLC_SerieColor)>
     Public Property PLC_Color() As Color
         Get
             Return _Color(PLC_SerieNumber)
@@ -72,7 +82,7 @@ Public Class VS7_Trends
             End If
         End Set
     End Property
-
+    <System.ComponentModel.Browsable(False)>
     Public Property PLCs_Color() As Color()
         Get
             Return _Color
@@ -82,8 +92,8 @@ Public Class VS7_Trends
             Refresh()
         End Set
     End Property
-
-
+#End Region
+#Region "PLC Number"
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcNumberLabel)>
     Public Property PLC_Number() As Integer
         Get
@@ -97,7 +107,7 @@ Public Class VS7_Trends
 
         End Set
     End Property
-
+    <System.ComponentModel.Browsable(False)>
     Public Property PLCs_Number() As Integer()
         Get
             Return _PLC
@@ -106,7 +116,8 @@ Public Class VS7_Trends
             _PLC = value
         End Set
     End Property
-
+#End Region
+#Region "PLC DataArea"
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcDataAreaLabel)>
     Public Property PLC_DataArea() As General.DataArea
         Get
@@ -120,6 +131,7 @@ Public Class VS7_Trends
 
         End Set
     End Property
+    <System.ComponentModel.Browsable(False)>
     Public Property PLCs_DataArea() As General.DataArea()
         Get
             Return _DataArea
@@ -128,7 +140,8 @@ Public Class VS7_Trends
             _DataArea = value
         End Set
     End Property
-
+#End Region
+#Region "PLC DB"
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcDBLabel)>
     Public Property PLC_DB() As Integer
         Get
@@ -142,6 +155,7 @@ Public Class VS7_Trends
 
         End Set
     End Property
+    <System.ComponentModel.Browsable(False)>
     Public Property PLCs_DB() As Integer()
         Get
             Return _DB
@@ -150,6 +164,8 @@ Public Class VS7_Trends
             _DB = value
         End Set
     End Property
+#End Region
+#Region "PLC Byte"
 
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcByteLabel)>
     Public Property PLC_Byte() As Integer
@@ -164,6 +180,7 @@ Public Class VS7_Trends
 
         End Set
     End Property
+    <System.ComponentModel.Browsable(False)>
     Public Property PLCs_Byte() As Integer()
         Get
             Return _Byte
@@ -172,7 +189,8 @@ Public Class VS7_Trends
             _Byte = value
         End Set
     End Property
-
+#End Region
+#Region "Data Type"
 
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcValueTypeLabel)>
     Public Property PLC_DataType() As LocalDataType
@@ -188,6 +206,8 @@ Public Class VS7_Trends
 
         End Set
     End Property
+
+    <System.ComponentModel.Browsable(False)>
     Public Property PLCs_DataType() As LocalDataType()
         Get
             Return _DataType
@@ -197,7 +217,8 @@ Public Class VS7_Trends
 
         End Set
     End Property
-
+#End Region
+#Region "PLC Bit"
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcBitLabel)>
     Public Property PLC_Bit() As Integer
         Get
@@ -211,6 +232,7 @@ Public Class VS7_Trends
 
         End Set
     End Property
+    <System.ComponentModel.Browsable(False)>
     Public Property PLCs_Bit() As Integer()
         Get
             Return _Bit
@@ -219,6 +241,8 @@ Public Class VS7_Trends
             _Bit = value
         End Set
     End Property
+#End Region
+#Region "PLC Length"
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcLengthLabel)>
     Public Property PLC_Length() As Integer
         Get
@@ -228,8 +252,8 @@ Public Class VS7_Trends
             _Length(PLC_SerieNumber) = value
         End Set
     End Property
-
-
+#End Region
+#Region "Serie Name"
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPLC_SerieName)>
     Public Property PLC_SerieName() As String
         Get
@@ -243,7 +267,7 @@ Public Class VS7_Trends
 
         End Set
     End Property
-
+    <System.ComponentModel.Browsable(False)>
     Public Property PLCs_SerieName() As String()
         Get
             Return _SerieName
@@ -252,13 +276,15 @@ Public Class VS7_Trends
             _SerieName = value
         End Set
     End Property
+#End Region
+#Region "Serie active"
 
-
-    Public Property PLC_SerieActive() As [Boolean]
+    <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPLC_SerieActive)>
+    Public Property PLC_SerieActive() As Boolean
         Get
             Return _SerieActive(PLC_SerieNumber)
         End Get
-        Set(value As [Boolean])
+        Set(value As Boolean)
             If _SerieActive(PLC_SerieNumber) <> value Then
                 _SerieActive(PLC_SerieNumber) = value
                 PLCs_SerieActive = _SerieActive
@@ -267,22 +293,19 @@ Public Class VS7_Trends
         End Set
 
     End Property
-
-
-
     <System.ComponentModel.Browsable(False)>
-    Public Property PLCs_SerieActive() As [Boolean]()
+    Public Property PLCs_SerieActive() As Boolean()
         Get
             Return _SerieActive
         End Get
-        Set(value As [Boolean]())
-            'For counter As Int32 = 0 To Dimension
-            '    _SerieActive(counter) = value(counter)
-            'Next
+        Set(value As Boolean())
             _SerieActive = value
             Refresh()
         End Set
     End Property
+#End Region
+#Region "Chart Style"
+    <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPLC_ChartDashStyle)>
     Public Property PLC_ChartDashStyle() As ChartDashStyle
         Get
             Return _ChartDashStyle(PLC_SerieNumber)
@@ -296,6 +319,7 @@ Public Class VS7_Trends
 
         End Set
     End Property
+    <System.ComponentModel.Browsable(False)>
     Public Property PLCs_ChartDashStyle() As ChartDashStyle()
         Get
             Return _ChartDashStyle
@@ -305,7 +329,33 @@ Public Class VS7_Trends
             Refresh()
         End Set
     End Property
+#End Region
+#Region "Axis Type"
+    <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPLC_SerieAxisType)>
+    Public Property PLC_AxisType() As AxisType
+        Get
+            Return _AxisType(PLC_SerieNumber)
+        End Get
+        Set(value As AxisType)
+            If _AxisType(PLC_SerieNumber) <> value Then
+                _AxisType(PLC_SerieNumber) = value
+                PLCs_AxisType = _AxisType
+            End If
 
+        End Set
+    End Property
+    <System.ComponentModel.Browsable(False)>
+    Public Property PLCs_AxisType() As AxisType()
+        Get
+            Return _AxisType
+        End Get
+        Set(value As AxisType())
+            _AxisType = value
+        End Set
+    End Property
+#End Region
+
+#Region "Axis x/y characteristics"
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPLC_RegisterNumbers)>
     Public Property PLC_RegisterNumbers() As Integer
         Get
@@ -333,6 +383,15 @@ Public Class VS7_Trends
             _YAxis = value
         End Set
     End Property
+    <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPLC_SerieYAxis2)>
+    Public Property PLC_YAxis2() As String
+        Get
+            Return _YAxis2
+        End Get
+        Set(value As String)
+            _YAxis2 = value
+        End Set
+    End Property
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPLC_SerieXAxis)>
     Public Property PLC_XAxis() As String
         Get
@@ -343,36 +402,24 @@ Public Class VS7_Trends
         End Set
     End Property
 
+    Private MyArray(numberOfSeries, PLC_RegisterNumbers) As DataPoint
 #End Region
-
-    Structure DataPoint
-        Public X As Date
-        Public Y As Double
-    End Structure
-    Private MyArray(Dimension, PLC_RegisterNumbers) As DataPoint
-
-
-    Public Sub New()
-
-        ' Esta llamada es exigida por el diseñador.
-        InitializeComponent()
-
-        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
-
-    End Sub
-
-
+#End Region
 #Region "Plc reading and writing"
     Public Sub UpdateControl(ByRef _PlcClient As PlcClient)
 
         If firstExecution Then
+            Me.BackColor = Me.Parent.BackColor
+            Me.MyChart.BackColor = Me.BackColor
             MyChart.Dock = DockStyle.Fill
-            For c = 0 To Dimension
-                Values(c) = New VS7_RWVariable(Me, PLCs_Number(c), PLCs_DataArea(c), PLCs_DataType(c), PLCs_DB(c), PLCs_Byte(c), PLCs_Bit(c), 0)
+            For c = 0 To numberOfSeries
+                If PLCs_SerieActive(c) Then
+                    Values(c) = New VS7_RWVariable(Me, PLCs_Number(c), PLCs_DataArea(c), PLCs_DataType(c), PLCs_DB(c), PLCs_Byte(c), PLCs_Bit(c), 0)
+                End If
             Next
 
             UpdateChart()
-            Trend()
+            ConfigureTrend()
             UpdateNumberOfControlsActive = True
 
 
@@ -381,33 +428,29 @@ Public Class VS7_Trends
             Timer1.Start()
         End If
     End Sub
-
-
     Public Sub UpdateChart()
-        ReDim MyArray(Dimension, PLC_RegisterNumbers)
-
+        ReDim MyArray(numberOfSeries, PLC_RegisterNumbers)
         Timer1.Interval = Me.PLC_TimeInterval
         With MyChart.ChartAreas(0)
             .AxisX.Title = Me.PLC_XAxis
+            .AxisX2.Title = Me.PLC_XAxis
             .AxisY.Title = Me.PLC_YAxis
+            .AxisY2.Title = Me.PLC_YAxis2
+            .AxisY2.TextOrientation = TextOrientation.Rotated270
         End With
-        For c = 0 To Dimension
+        For c = 0 To numberOfSeries
             If Me.PLCs_SerieActive(c) Then
                 Try
-                    MyChart.Series.Add(_SerieName(c))
-
+                    MyChart.Series.Add(PLCs_SerieName(c))
                 Catch ex As Exception
-
                 End Try
-
+                MyChart.Series(PLCs_SerieName(c)).YAxisType = PLCs_AxisType(c)
+                MyChart.Series(PLCs_SerieName(c)).LabelBackColor = Me.BackColor
                 MyChart.Series(PLCs_SerieName(c)).Points.Clear()
-
                 For x As Integer = 0 To PLC_RegisterNumbers - 1
                     MyArray(c, x) = New DataPoint
                     MyArray(c, x).X = Now
-                    MyArray(c, x).Y = CDbl(Me.Values(c).pLC_Value)
-
-
+                    MyArray(c, x).Y = 0 'Normally will be CDbl(Me.Values(c).pLC_Value)
                     MyChart.Series(0).Points.AddXY(Format(MyArray(c, x).X, "HH:mm:ss"), MyArray(c, x).Y)
                 Next
             End If
@@ -420,19 +463,11 @@ Public Class VS7_Trends
 #End Region
 
 #Region "Trends"
-    Sub Trend()
-        Text = "Sample Chart"
-
-        'MyChart.Series.Clear()
-
+    Public Sub ConfigureTrend()
         'setup the chart
-        For c = 0 To Dimension
-
+        For c = 0 To numberOfSeries
             If PLCs_SerieActive(c) Then
                 ' draw the chart
-
-                ' MyChart.Series(c).Name = PLCs_SerieName(c)
-
                 With MyChart.ChartAreas(0)
                     .AxisX.Title = PLC_XAxis
                     .AxisX.MajorGrid.LineColor = Color.LightBlue
@@ -449,9 +484,6 @@ Public Class VS7_Trends
                     .BorderWidth = 1
                     .ShadowOffset = 2
                 End With
-
-
-
                 With MyChart.Series(PLCs_SerieName(c))
                     .ChartType = DataVisualization.Charting.SeriesChartType.Line
                     .BorderWidth = 1
@@ -466,11 +498,9 @@ Public Class VS7_Trends
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         Timer1.Stop()
-        For index = 0 To Dimension
+        For index = 0 To numberOfSeries
 
             If PLCs_SerieActive(index) Then
-
-
                 For c = 0 To PLC_RegisterNumbers - 1
                     MyArray(index, c) = MyArray(index, c + 1)
                 Next
@@ -478,7 +508,6 @@ Public Class VS7_Trends
                 MyArray(index, PLC_RegisterNumbers).X = Now
                 MyArray(index, PLC_RegisterNumbers).Y = CDbl(Me.Values(index).pLC_Value)
                 MyChart.Series(PLCs_SerieName(index)).Points.Clear()
-
                 For x As Integer = 0 To PLC_RegisterNumbers - 1
                     MyChart.Series(PLCs_SerieName(index)).Points.AddXY(Format(MyArray(index, x).X, "HH:mm:ss"), MyArray(index, x).Y)
                 Next
@@ -486,11 +515,6 @@ Public Class VS7_Trends
         Next
         Timer1.Start()
     End Sub
-
-
-
-
-
 #End Region
 
 End Class
@@ -607,17 +631,28 @@ Friend Class TrendsActionList
 
         End Set
     End Property
+
     Public Property PLC_SerieName() As String
         Get
             Return ctr.PLC_SerieName
         End Get
         Set(ByVal value As String)
-            '  UpdateSerieNumber()
             GetPropertyByName(ctr, "PLC_SerieName").SetValue(ctr, value)
             designerActionSvc.Refresh(ctr)
 
         End Set
     End Property
+    Public Property PLC_AxisType() As AxisType
+        Get
+            Return ctr.PLC_AxisType
+        End Get
+        Set(ByVal value As AxisType)
+            GetPropertyByName(ctr, "PLC_AxisType").SetValue(ctr, value)
+            designerActionSvc.Refresh(ctr)
+
+        End Set
+    End Property
+
 
     Public Property PLC_XAxis As String
         Get
@@ -639,6 +674,19 @@ Friend Class TrendsActionList
 
         End Set
     End Property
+
+
+    Public Property PLC_YAxis2 As String
+        Get
+            Return ctr.PLC_YAxis2
+        End Get
+        Set(ByVal value As String)
+            GetPropertyByName(ctr, "PLC_YAxis2").SetValue(ctr, value)
+            designerActionSvc.Refresh(ctr)
+
+        End Set
+    End Property
+
     Public Property PLC_TimeInterval As Integer
         Get
             Return ctr.PLC_TimeInterval
@@ -646,7 +694,6 @@ Friend Class TrendsActionList
         Set(ByVal value As Integer)
             GetPropertyByName(ctr, "PLC_TimeInterval").SetValue(ctr, value)
             designerActionSvc.Refresh(ctr)
-
         End Set
     End Property
     Public Property PLC_RegisterNumbers As Integer
@@ -708,19 +755,19 @@ Friend Class TrendsActionList
 #End Region
 
 #Region " Methods to display in the Smart-Tag panel "
-
-
-
-
-
     Public Sub OnDock()
         If ctr.Dock = DockStyle.Fill Then
             ctr.Dock = DockStyle.None
         Else
             ctr.Dock = DockStyle.Fill
         End If
-
         designerActionSvc.Refresh(ctr)
+    End Sub
+    Private Sub UpdateChart()
+        ctr.MyChart.Dock = DockStyle.Fill
+        ctr.UpdateChart()
+        ctr.ConfigureTrend()
+
     End Sub
 
 
@@ -745,6 +792,8 @@ Friend Class TrendsActionList
         items.Add(New DesignerActionPropertyItem("PLC_SerieName", KPLC_SerieName, KPlcAdressingCategory, KPLC_SerieName))
         items.Add(New DesignerActionPropertyItem("PLC_SerieActive", "Active", KPlcAdressingCategory, "Active?"))
         items.Add(New DesignerActionPropertyItem("PLC_ChartDashStyle", "Style", KPlcAdressingCategory, "Style"))
+        items.Add(New DesignerActionPropertyItem("PLC_AxisType", "Axis Type", KPlcAdressingCategory, "Style"))
+
         items.Add(New DesignerActionPropertyItem("PLC_Color", "Color", KPlcAdressingCategory, "color?"))
 
         items.Add(New DesignerActionPropertyItem("PLC_DataArea", KPlcValueTypeLabel, KPlcAdressingCategory, KPlcTipDataArea))
@@ -764,8 +813,10 @@ Friend Class TrendsActionList
         items.Add(New DesignerActionPropertyItem("PLC_TimeInterval", KPlcPLC_TimeInterval, KChartCategory, KPlcPLC_TimeInterval))
         items.Add(New DesignerActionPropertyItem("PLC_XAxis", KPLC_XAxis, KChartCategory, KPLC_XAxis))
         items.Add(New DesignerActionPropertyItem("PLC_YAxis", KPLC_YAxis, KChartCategory, KPLC_YAxis))
+        items.Add(New DesignerActionPropertyItem("PLC_YAxis2", KPLC_YAxis2, KChartCategory, KPLC_YAxis2))
+
         items.Add(New DesignerActionPropertyItem("PLC_RegisterNumbers", KPLC_RegisterNumbers, KChartCategory, KPLC_RegisterNumbers))
-        'items.Add(New DesignerActionMethodItem(Me, "UpdateChart", "Update Chart"))
+        items.Add(New DesignerActionMethodItem(Me, "UpdateChart", "Chart Preview"))
         'Return the ActionItemCollection
         Return items
     End Function

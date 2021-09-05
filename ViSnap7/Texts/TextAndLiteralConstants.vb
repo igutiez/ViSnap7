@@ -1,4 +1,4 @@
-﻿Module TextAnLiteralConstants
+﻿Module TextAndLiteralConstants
 
 
     ' Labeling for smart tags
@@ -14,6 +14,8 @@
     Public Const KPlcLedCategory = "Led characteristics"
     Public Const KPlcButtonCategory = "Button characteristics"
     Public Const KPlcNumberLabel = "PLC N#"
+    Public Const KPLC_SerieColor = "Serie color"
+    Public Const KPLC_SerieNumber = "Serie Number"
     Public Const KPlcDataAreaLabel = "Data Area"
     Public Const KPlcDBLabel = "DB N#"
     Public Const KPlcByteLabel = "Byte N#"
@@ -35,13 +37,18 @@
     Public Const KPlcButtonCaption = "Button Text"
     Public Const KPlcLengthLabel = "STR Length"
     Public Const KPLC_SerieName = "Serie Name"
+    Public Const KPLC_SerieAxisType = "Axis Type"
+    Public Const KPLC_SerieActive = "Serie Active"
     Public Const KPLC_RegisterNumbers = "Number of points"
+    Public Const KPLC_ChartDashStyle = "Chart Style"
     Public Const KPLC_TimeInterval = "Interval Time (ms)"
     Public Const KPLC_SerieXAxis = "X Axis"
     Public Const KPLC_SerieYAxis = "Y Axis"
-
+    Public Const KPLC_SerieYAxis2 = "Y2 Axis"
     Public Const KPlcPLC_TimeInterval = "Time Interval"
     Public Const KPLC_YAxis = "Y Axis Name"
+    Public Const KPLC_YAxis2 = "Y2 Axis Name"
+
     Public Const KPLC_XAxis = "X Axis Name"
 
     Public Const KPlcTypeTriggerLabel = "Define the type of trigger"
