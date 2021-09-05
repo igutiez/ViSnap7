@@ -4,21 +4,33 @@ Imports System.Windows.Forms.Design
 Public Class VS7_Trends
 #Region "PLC Properties"
     Public pLC_Value As String
+    Public Enum NumSeries
+        Serie1 = 0
+        Serie2 = 1
+        Serie3 = 2
+        Serie4 = 3
+        Serie5 = 4
+        Serie6 = 5
+        Serie7 = 6
+        Serie8 = 7
+        Serie9 = 8
+        Serie10 = 9
+    End Enum
 
-    Public _PLC As Integer() = {0, 0, 0, 0, 0}
-    Public _DataArea As General.DataArea() = {DataArea.MARK, DataArea.MARK, DataArea.MARK, DataArea.MARK, DataArea.MARK}
-    Public _DB As Integer() = {1, 1, 1, 1, 1}
-    Public _Byte As Integer() = {0, 0, 0, 0, 0}
-    Public _Bit As Integer() = {0, 0, 0, 0, 0}
-    Public _DataType As LocalDataType() = {LocalDataType.INT, LocalDataType.INT, LocalDataType.INT, LocalDataType.INT, LocalDataType.INT}
-    Public _Length As Integer() = {0, 0, 0, 0, 0}
-    Public _SerieActive As Boolean() = {False, False, False, False, False}
+    Public _PLC As Integer() = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+    Public _DataArea As General.DataArea() = {DataArea.MARK, DataArea.MARK, DataArea.MARK, DataArea.MARK, DataArea.MARK, DataArea.MARK, DataArea.MARK, DataArea.MARK, DataArea.MARK, DataArea.MARK}
+    Public _DB As Integer() = {1, 1, 1, 1, 1, 1, 1, 1, 1}
+    Public _Byte As Integer() = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+    Public _Bit As Integer() = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+    Public _DataType As LocalDataType() = {LocalDataType.INT, LocalDataType.INT, LocalDataType.INT, LocalDataType.INT, LocalDataType.INT, LocalDataType.INT, LocalDataType.INT, LocalDataType.INT, LocalDataType.INT, LocalDataType.INT}
+    Public _Length As Integer() = {0, 0, 0, 0, 0, 0, 0, 0, 0}
+    Public _SerieActive As Boolean() = {True, False, False, False, False, False, False, False, False, False}
     Private m_PLCs_Enable As [Boolean]()
 
-    Public _Color As Color() = {Color.Blue, Color.Red, Color.Black, Color.Green, Color.Yellow}
+    Public _Color As Color() = {Color.Blue, Color.Red, Color.Blue, Color.Red, Color.Black, Color.Green, Color.Yellow, Color.Blue, Color.Red, Color.Blue}
 
-    Public _ChartDashStyle As ChartDashStyle() = {ChartDashStyle.Solid, ChartDashStyle.Solid, ChartDashStyle.Solid, ChartDashStyle.Solid, ChartDashStyle.Solid}
-    Public _SerieName As String() = {"Serie1", "Serie2", "Serie3", "Serie4", "Serie5"}
+    Public _ChartDashStyle As ChartDashStyle() = {ChartDashStyle.Solid, ChartDashStyle.Solid, ChartDashStyle.Solid, ChartDashStyle.Solid, ChartDashStyle.Solid, ChartDashStyle.Solid, ChartDashStyle.Solid, ChartDashStyle.Solid, ChartDashStyle.Solid, ChartDashStyle.Solid}
+    Public _SerieName As String() = {"Nombre Serie1", "Nombre Serie2", "Nombre Serie3", "Nombre Serie4", "Nombre Serie5", "Nombre Serie6", "Nombre Serie7", "Nombre Serie8", "Nombre Serie9", "Nombre Serie10"}
     Private _TimeInterval As Integer = 1000
     Private _YAxis As String = "Y"
     Private _XAxis As String = "X"
@@ -31,13 +43,7 @@ Public Class VS7_Trends
         DINT = 5
         REAL = 6
     End Enum
-    Public Enum NumSeries
-        Serie1 = 0
-        Serie2 = 1
-        Serie3 = 2
-        Serie4 = 3
-        Serie5 = 4
-    End Enum
+
     Private Dimension As Integer = [Enum].GetValues(GetType(NumSeries)).Length - 1
 
     Public Values(Dimension) As VS7_RWVariable
@@ -428,11 +434,11 @@ Public Class VS7_Trends
                 ' MyChart.Series(c).Name = PLCs_SerieName(c)
 
                 With MyChart.ChartAreas(0)
-                    .AxisX.Title = "X"
+                    .AxisX.Title = PLC_XAxis
                     .AxisX.MajorGrid.LineColor = Color.LightBlue
                     .AxisX.Minimum = 0
                     .AxisX.Interval = 2
-                    .AxisY.Title = "Y"
+                    .AxisY.Title = PLC_YAxis
                     .AxisY.MajorGrid.LineColor = Color.LightGray
                     .AxisY.Minimum = 0
                     .BackColor = Color.FloralWhite
@@ -759,7 +765,7 @@ Friend Class TrendsActionList
         items.Add(New DesignerActionPropertyItem("PLC_XAxis", KPLC_XAxis, KChartCategory, KPLC_XAxis))
         items.Add(New DesignerActionPropertyItem("PLC_YAxis", KPLC_YAxis, KChartCategory, KPLC_YAxis))
         items.Add(New DesignerActionPropertyItem("PLC_RegisterNumbers", KPLC_RegisterNumbers, KChartCategory, KPLC_RegisterNumbers))
-        items.Add(New DesignerActionMethodItem(Me, "UpdateChart", "Update Chart"))
+        'items.Add(New DesignerActionMethodItem(Me, "UpdateChart", "Update Chart"))
         'Return the ActionItemCollection
         Return items
     End Function
