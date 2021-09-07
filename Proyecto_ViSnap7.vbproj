@@ -175,6 +175,9 @@
     <Compile Include="ViSnap7\Controls\VS7 Gauge.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ViSnap7\Controls\VS7 Slider.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ViSnap7\Controls\VS7 Trends.Designer.vb">
       <DependentUpon>VS7 Trends.vb</DependentUpon>
     </Compile>
