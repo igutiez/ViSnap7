@@ -12,7 +12,12 @@ Class VS7_Textbox
     Public controlFocused As Boolean
     Public pendingWrite As Boolean
     Public updateForm As Boolean
-
+    Public Enum ButtonType
+        SET_TRUE = 0
+        RESET_FALSE = 1
+        SWITCH = 2
+        BUTTON = 3
+    End Enum
 #Region "PLC Properties"
     Private _PLC As Integer
     Private _DataArea As DataArea = DataArea.DB
@@ -24,6 +29,7 @@ Class VS7_Textbox
     Private _txt As String
     Private _formNumber As Integer
     Private _formActive As Boolean
+
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcNumberLabel)>
     Public Property PLC_Number As Integer
         Get

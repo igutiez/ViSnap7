@@ -14,7 +14,7 @@
         'Rack Slot for S7-400 tipically Rack 0, Slot 3
         'Just uncomment or add as many as needed PLC connections (take in consideration the max number of PLC in KMaxNumberOfPLC
         plc(0) = New PlcClient("PLC0", "192.168.1.192", 0, 0)
-        'plc(1) = New PlcClient("PLC0", "192.168.1.192", 0, 2)
+        'plc(1) = New PlcClient("PLC1", "192.168.1.192", 0, 2)
         'plc(2) = New PlcClient("PLC0", "192.168.1.193", 0, 2)
 
     End Sub

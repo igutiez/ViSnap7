@@ -13,6 +13,14 @@ Class VS7_Button
     Public plc_Value As String
     Public controlFocused As Boolean
     Public pendingWrite As Boolean
+
+    Public Enum ButtonType
+        [Set] = 0
+        [Reset] = 1
+        [Switch] = 2
+        [Button] = 3
+    End Enum
+
 #Region "PLC Properties"
     Private _plc As Integer
     Private _dataArea As General.DataArea = DataArea.DB
@@ -24,8 +32,9 @@ Class VS7_Button
     Private _txt As String
     Private _ColorTrue As Color = Color.FromKnownColor(KnownColor.Lime)
     Private _colorFalse As Color = Color.FromKnownColor(KnownColor.Window)
-    Private _buttonType As Boolean
     Private _Caption As String
+    Private _buttonType As ButtonType
+
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcNumberLabel)>
     Public Property PLC_Number As Integer
         Get
@@ -110,11 +119,11 @@ Class VS7_Button
     End Property
 
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcTipButtonType)>
-    Public Property PLC_ButtonType As Boolean
+    Public Property PLC_ButtonType As ButtonType
         Get
             Return _buttonType
         End Get
-        Set(value As Boolean)
+        Set(value As ButtonType)
             _buttonType = value
         End Set
     End Property
@@ -132,19 +141,26 @@ Class VS7_Button
 
 #Region "Control Events"
     Public Sub ButtonClick(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Click
-        If Not sender.PLC_ButtonType Then
-
-            If sender.PLC_Value Then
+        Select Case Me.PLC_ButtonType
+            Case ButtonType.Button
+                'nothing 
+            Case ButtonType.Set
+                sender.PLC_Value = True
+            Case ButtonType.Reset
                 sender.PLC_Value = False
 
-            Else
-                sender.PLC_Value = True
-            End If
-            pendingWrite = True
-        End If
+            Case ButtonType.Switch
+                sender.PLC_Value = Not CBool(sender.plc_value)
+            Case Else
+
+
+        End Select
+
+        pendingWrite = True
+
     End Sub
     Public Sub ButtonDown(ByVal sender As Object, ByVal e As EventArgs) Handles Me.MouseDown
-        If sender.PLC_ButtonType Then
+        If sender.PLC_ButtonType = ButtonType.Button Then
             sender.PLC_Value = True
             pendingWrite = True
         End If
@@ -152,7 +168,7 @@ Class VS7_Button
     End Sub
 
     Public Sub ButtonUp(ByVal sender As Object, ByVal e As EventArgs) Handles Me.MouseUp
-        If sender.PLC_ButtonType Then
+        If sender.PLC_ButtonType = ButtonType.Button Then
 
             sender.PLC_Value = False
             pendingWrite = True
@@ -359,11 +375,11 @@ Friend Class PLCButtonActionList
             GetPropertyByName(ctr, "PLC_ColorFalse").SetValue(ctr, value)
         End Set
     End Property
-    Public Property PLC_ButtonType() As Boolean
+    Public Property PLC_ButtonType() As VS7_Button.ButtonType
         Get
             Return ctr.PLC_ButtonType
         End Get
-        Set(ByVal value As Boolean)
+        Set(ByVal value As VS7_Button.ButtonType)
             GetPropertyByName(ctr, "PLC_ButtonType").SetValue(ctr, value)
         End Set
     End Property
@@ -418,7 +434,7 @@ Friend Class PLCButtonActionList
         items.Add(New DesignerActionPropertyItem("PLC_ColorFalse", KPlcFalseValueLabel, KPlcLedCategory, KPlcTipFalseValue))
 
         items.Add(New DesignerActionPropertyItem("Text", KPlcButtonCaption, KPlcButtonCategory, KPlcTipCaptionType))
-        items.Add(New DesignerActionPropertyItem("PLC_ButtonType", KPlcButtonTypeLabel, KPlcButtonCategory, KPlcTipButtonType))
+        items.Add(New DesignerActionPropertyItem("PLC_ButtonType", KPlcTipButtonType, KPlcButtonCategory, KPlcTipButtonType))
 
         'Return the ActionItemCollection
         Return items

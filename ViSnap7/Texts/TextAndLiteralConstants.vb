@@ -14,6 +14,7 @@
     Public Const KPlcLedCategory = "Led characteristics"
     Public Const KPlcButtonCategory = "Button characteristics"
     Public Const KPlcNumberLabel = "PLC N#"
+    Public Const KPlcButtonType = "Button behavior"
     Public Const KPLC_SerieColor = "Serie color"
     Public Const KPLC_SerieNumber = "Serie Number"
     Public Const KPlcDataAreaLabel = "Data Area"
@@ -89,7 +90,7 @@
     Public Const KPlcTipShapeType = "Shape type for led"
     Public Const KPlcTipTrueValue = "Color for true value"
     Public Const KPlcTipFalseValue = "Color for false value"
-    Public Const KPlcTipButtonType = "When enabled, the true is sent only if button is being pressed"
+    Public Const KPlcTipButtonType = "Button behavior"
     Public Const KPlcTipCaptionType = "Caption"
 
     Public Const KPlcTipStrLength = "Max. Length of the string (max characters)"
