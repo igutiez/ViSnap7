@@ -15,6 +15,7 @@ Public Class VS7_Slider
     Private _formNumber As Integer
     Private controlFocused As Boolean
     Private _orientation As Orientation
+    Private _readonly As Boolean
 
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcMaximumValue)>
     Public Property PLC_Maximum As Integer
@@ -26,6 +27,7 @@ Public Class VS7_Slider
             Me.SetRange(Me._Minimum, Me._Maximum)
         End Set
     End Property
+    <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcOrientation)>
     Public Property PLC_Orientation As Orientation
         Get
             Return _orientation
@@ -37,6 +39,17 @@ Public Class VS7_Slider
         End Set
     End Property
 
+    <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcReadOnly)>
+    Public Property PLC_ReadOnly As Boolean
+        Get
+            Return _readonly
+        End Get
+        Set(value As Boolean)
+            _readonly = value
+
+            Me.Refresh()
+        End Set
+    End Property
 
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcMaximumValue)>
     Public Property PLC_Minimum As Integer
@@ -70,17 +83,24 @@ Public Class VS7_Slider
 
 #Region "Methods"
     Private Sub VS7_Slider_ValueChanged(sender As Object, e As EventArgs) Handles Me.ValueChanged
-        Me.pLC_Value = Me.Value
-        pendingWrite = True
+
+        If Not _readonly Then
+            Me.pLC_Value = Me.Value
+            pendingWrite = True
+        Else
+
+            Me.Value = Me.pLC_Value
+        End If
+        Me.Update()
     End Sub
 
-    Public Sub ControlGotFocus(ByVal sender As Object, ByVal e As EventArgs) Handles Me.GotFocus
-        Me.controlFocused = True
+    'Public Sub ControlGotFocus(ByVal sender As Object, ByVal e As EventArgs) Handles Me.GotFocus
+    '    Me.controlFocused = True
 
-    End Sub
-    Public Sub ControlLostFocus(ByVal sender As Object, ByVal e As EventArgs) Handles Me.LostFocus
-        Me.ControlFocused = False
-    End Sub
+    'End Sub
+    'Public Sub ControlLostFocus(ByVal sender As Object, ByVal e As EventArgs) Handles Me.LostFocus
+    '    Me.ControlFocused = False
+    'End Sub
 #End Region
 
 #Region "Plc reading and writing"
@@ -489,6 +509,16 @@ Friend Class SliderActionList
 
         End Set
     End Property
+    Public Property PLC_ReadOnly As Boolean
+        Get
+            Return ctr.PLC_ReadOnly
+        End Get
+        Set(ByVal value As Boolean)
+            GetPropertyByName(ctr, "PLC_ReadOnly").SetValue(ctr, value)
+            designerActionSvc.Refresh(ctr)
+
+        End Set
+    End Property
 #End Region
 
 #Region " Methods to display in the Smart-Tag panel "
@@ -529,6 +559,7 @@ Friend Class SliderActionList
         items.Add(New DesignerActionPropertyItem("PLC_Maximum", KPlcSliderMax, KSliderCategory, KPlcTipPLC_Maximum))
         items.Add(New DesignerActionPropertyItem("PLC_Minimum", KPlcSliderMin, KSliderCategory, KPlcTipPLC_Minimum))
         items.Add(New DesignerActionPropertyItem("PLC_Orientation", KPlcSliderOrientation, KSliderCategory, KPlcSliderOrientation))
+        items.Add(New DesignerActionPropertyItem("PLC_ReadOnly", KPlcReadOnly, KSliderCategory, KPlcReadOnly))
         items.Add(New DesignerActionPropertyItem("PLC_FormActive", KPlcFormActive, KPlcFormCategory, KPlcTipPlcFormActive))
         If PLC_FormActive Then
             items.Add(New DesignerActionPropertyItem("PLC_FormNumber", KPlcFormNumber, KPlcFormCategory, KPlcTipPlcFormNumber))

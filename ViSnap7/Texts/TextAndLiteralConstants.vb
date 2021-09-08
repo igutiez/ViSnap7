@@ -17,6 +17,8 @@
     Public Const KPlcNumberLabel = "PLC N#"
     Public Const KPlcMaximumValue = "Maximum Value"
     Public Const KPlcMinimumValue = "Minimum Value"
+    Public Const KPlcOrientation = "Orientation"
+    Public Const KPlcReadOnly = "Read Only"
     Public Const KPlcButtonType = "Button behavior"
     Public Const KPLC_SerieColor = "Serie color"
     Public Const KPLC_SerieNumber = "Serie Number"

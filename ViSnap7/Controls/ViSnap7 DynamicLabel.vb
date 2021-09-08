@@ -13,20 +13,20 @@ Class ViSnap7_DynamicLabel
 
 
     Private _PLC As Integer
-    Private _DataArea As General.DataArea = DataArea.DB
+    Private _DataArea As General.DataArea = DataArea.MARK
     Private _DB As Integer
     Private _Byte As Integer
     Private _Bit As Integer
-    Private _DataType As General.DataType = DataType.INT
+    Private _DataType As General.DataType = DataType.BOOL
     Private _Length As Integer
     Private _txt As String
     Private _updateMyControl As Boolean
     Private _New_PLC As Integer
-    Private _New_DataArea As General.DataArea = DataArea.DB
+    Private _New_DataArea As General.DataArea = DataArea.MARK
     Private _New_DB As Integer
     Private _New_Byte As Integer
     Private _New_Bit As Integer
-    Private _New_DataType As General.DataType = DataType.INT
+    Private _New_DataType As General.DataType = DataType.BOOL
     Private _New_Length As Integer
     Private _New_txt As String
     Private _ContinueUpdating As Boolean = False

@@ -62,6 +62,10 @@ D:\Guti\GitHub\old\obj\Debug\Proyecto_ViSnap7.vbproj.CoreCompileInputs.cache
 D:\Guti\GitHub\old\obj\Debug\Proyecto_ViSnap7.exe
 D:\Guti\GitHub\old\obj\Debug\Proyecto_ViSnap7.xml
 D:\Guti\GitHub\old\obj\Debug\Proyecto_ViSnap7.pdb
+D:\Guti\GitHub\ViSnap7\bin\Debug\Proyecto_ViSnap7.exe.config
+D:\Guti\GitHub\ViSnap7\bin\Debug\Proyecto_ViSnap7.exe
+D:\Guti\GitHub\ViSnap7\bin\Debug\Proyecto_ViSnap7.pdb
+D:\Guti\GitHub\ViSnap7\bin\Debug\Proyecto_ViSnap7.xml
 D:\Guti\GitHub\ViSnap7\obj\Debug\Proyecto_ViSnap7.Form1.resources
 D:\Guti\GitHub\ViSnap7\obj\Debug\Proyecto_ViSnap7.Resources.resources
 D:\Guti\GitHub\ViSnap7\obj\Debug\Proyecto_ViSnap7.LoadDialog.resources
@@ -71,10 +75,6 @@ D:\Guti\GitHub\ViSnap7\obj\Debug\Proyecto_ViSnap7.ViSnap7_DynamicLabel.resources
 D:\Guti\GitHub\ViSnap7\obj\Debug\Proyecto_ViSnap7.VS7_Trends.resources
 D:\Guti\GitHub\ViSnap7\obj\Debug\Proyecto_ViSnap7.vbproj.GenerateResource.cache
 D:\Guti\GitHub\ViSnap7\obj\Debug\Proyecto_ViSnap7.vbproj.CoreCompileInputs.cache
-D:\Guti\GitHub\ViSnap7\bin\Debug\Proyecto_ViSnap7.exe.config
-D:\Guti\GitHub\ViSnap7\bin\Debug\Proyecto_ViSnap7.exe
-D:\Guti\GitHub\ViSnap7\bin\Debug\Proyecto_ViSnap7.pdb
-D:\Guti\GitHub\ViSnap7\bin\Debug\Proyecto_ViSnap7.xml
 D:\Guti\GitHub\ViSnap7\obj\Debug\Proyecto_ViSnap7.exe
 D:\Guti\GitHub\ViSnap7\obj\Debug\Proyecto_ViSnap7.xml
 D:\Guti\GitHub\ViSnap7\obj\Debug\Proyecto_ViSnap7.pdb
