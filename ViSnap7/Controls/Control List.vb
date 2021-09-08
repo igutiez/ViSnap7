@@ -16,6 +16,7 @@
         VS7_Trends
         VS7_Gauge
         VS7_Slider
+        VS7_ListBox
     End Enum
     ' List of user controls that be used in forms
     ' After configure the control, it must be added to this Enum. 

@@ -32,6 +32,11 @@ Proyecto_ViSnap7
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="T:Proyecto_ViSnap7.VS7_ListBox">
+ <summary>
+ PLC ListBox user control 
+ </summary>
+</member>
 <member name="T:Proyecto_ViSnap7.VS7_SubmitForm">
  <summary>
  Submit Button user control 

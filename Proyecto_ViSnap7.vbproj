@@ -112,6 +112,9 @@
     </Compile>
     <Compile Include="ViSnap7Setup.vb" />
     <Compile Include="ViSnap7\Controls\Control List.vb" />
+    <Compile Include="ViSnap7\Controls\ViSnap7 ListBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ViSnap7\Controls\ViSnap7 LoadSaveForm\LoadDialog.Designer.vb">
       <DependentUpon>LoadDialog.vb</DependentUpon>
     </Compile>
