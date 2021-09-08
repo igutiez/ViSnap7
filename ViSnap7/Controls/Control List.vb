@@ -18,6 +18,7 @@
         VS7_Slider
         VS7_ListBox
         VS7_HScrollBar
+        VS7_VScrollBar
     End Enum
     ' List of user controls that be used in forms
     ' After configure the control, it must be added to this Enum. 
@@ -27,6 +28,7 @@
         VS7_ComboBox
         VS7_RadioButton
         VS7_HScrollBar
+        VS7_VScrollBar
         VS7_Slider
     End Enum
 End Module

@@ -178,6 +178,9 @@
     <Compile Include="ViSnap7\Controls\VS7 Gauge.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ViSnap7\Controls\VS7 VScrollBar.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ViSnap7\Controls\VS7 HScrollBar.vb">
       <SubType>Component</SubType>
     </Compile>

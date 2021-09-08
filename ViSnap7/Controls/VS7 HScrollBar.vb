@@ -73,24 +73,27 @@ Public Class VS7_HScrollBar
 
 #Region "Methods"
     Private Sub VS7_Slider_ValueChanged(sender As Object, e As EventArgs) Handles Me.ValueChanged
-
-        If Not _readonly Then
-            Me.pLC_Value = Me.Value
-            pendingWrite = True
+        If Not PLC_FormActive Then
+            If Not _readonly Then
+                Me.pLC_Value = Me.Value
+                pendingWrite = True
+            Else
+                Me.Value = Me.pLC_Value
+            End If
+            Me.Update()
         Else
-
-            Me.Value = Me.pLC_Value
+            Me.pLC_Value = Me.Value
         End If
-        Me.Update()
+
     End Sub
 
-    'Public Sub ControlGotFocus(ByVal sender As Object, ByVal e As EventArgs) Handles Me.GotFocus
-    '    Me.controlFocused = True
+    Public Sub ControlGotFocus(ByVal sender As Object, ByVal e As EventArgs) Handles Me.GotFocus
+        Me.controlFocused = True
 
-    'End Sub
-    'Public Sub ControlLostFocus(ByVal sender As Object, ByVal e As EventArgs) Handles Me.LostFocus
-    '    Me.ControlFocused = False
-    'End Sub
+    End Sub
+    Public Sub ControlLostFocus(ByVal sender As Object, ByVal e As EventArgs) Handles Me.LostFocus
+        Me.controlFocused = False
+    End Sub
 #End Region
 
 #Region "Plc reading and writing"

@@ -82,7 +82,6 @@ C:\Users\iguti\OneDrive\Documentos\Github-Original\bin\Debug\Proyecto_ViSnap7.ex
 C:\Users\iguti\OneDrive\Documentos\Github-Original\bin\Debug\Proyecto_ViSnap7.exe
 C:\Users\iguti\OneDrive\Documentos\Github-Original\bin\Debug\Proyecto_ViSnap7.pdb
 C:\Users\iguti\OneDrive\Documentos\Github-Original\bin\Debug\Proyecto_ViSnap7.xml
-C:\Users\iguti\OneDrive\Documentos\Github-Original\obj\Debug\Proyecto_ViSnap7.vbproj.AssemblyReference.cache
 C:\Users\iguti\OneDrive\Documentos\Github-Original\obj\Debug\Proyecto_ViSnap7.Form1.resources
 C:\Users\iguti\OneDrive\Documentos\Github-Original\obj\Debug\Proyecto_ViSnap7.Resources.resources
 C:\Users\iguti\OneDrive\Documentos\Github-Original\obj\Debug\Proyecto_ViSnap7.LoadDialog.resources
