@@ -137,41 +137,47 @@ Class VS7_Led
 #End Region
 #Region "Control Procedures"
     Sub Circle()
-        If Me.PLC_ShapeType = ShapeType.Circular Then
+        Try
 
-            Dim x = CSng(Me.Width - 2)
-            Dim y = CSng(Me.Height - 2)
-            Dim colorfondo As New SolidBrush(Color.Transparent)
+            If Me.PLC_ShapeType = ShapeType.Circular Then
 
-            Me.BackColor = Color.Transparent
-            Me.BorderStyle = BorderStyle.None
+                Dim x = CSng(Me.Width - 2)
+                Dim y = CSng(Me.Height - 2)
+                Dim colorfondo As New SolidBrush(Color.Transparent)
 
-
-            g = Me.CreateGraphics
-
-            g.DrawEllipse(Pens.Black, 1, 1, x, y)
-            If Me.pLC_Value Then
-                colorfondo.Color = _ColorTrue
-
-            Else
-                colorfondo.Color = _ColorFalse
-
-            End If
-
-            g.FillEllipse(colorfondo, 2, 2, x - 2, y - 2)
-
-        Else
-            Me.BorderStyle = BorderStyle.FixedSingle
+                Me.BackColor = Color.Transparent
+                Me.BorderStyle = BorderStyle.None
 
 
-            If Me.pLC_Value Then
-                Me.BackColor = _ColorTrue
+                g = Me.CreateGraphics
+
+                g.DrawEllipse(Pens.Black, 1, 1, x, y)
+                If Me.pLC_Value Then
+                    colorfondo.Color = _ColorTrue
+
+                Else
+                    colorfondo.Color = _ColorFalse
+
+                End If
+
+                g.FillEllipse(colorfondo, 2, 2, x - 2, y - 2)
 
             Else
-                Me.BackColor = _ColorFalse
+                Me.BorderStyle = BorderStyle.FixedSingle
 
+
+                If Me.pLC_Value Then
+                    Me.BackColor = _ColorTrue
+
+                Else
+                    Me.BackColor = _ColorFalse
+
+                End If
             End If
-        End If
+        Catch ex As Exception
+
+        End Try
+
     End Sub
     Sub Redimension(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Resize
         Circle()
