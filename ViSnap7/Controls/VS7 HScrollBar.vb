@@ -1,9 +1,9 @@
 ﻿Imports System.ComponentModel
 Imports System.ComponentModel.Design
 Imports System.Windows.Forms.Design
-<System.ComponentModel.Designer(GetType(SliderDesigner))>
-Public Class VS7_Slider
-    Inherits TrackBar
+<System.ComponentModel.Designer(GetType(HScrollBarDesigner))>
+Public Class VS7_HScrollBar
+    Inherits HScrollBar
 
 
     Public pendingWrite As Boolean
@@ -24,20 +24,10 @@ Public Class VS7_Slider
         End Get
         Set(value As Integer)
             _Maximum = value
-            Me.SetRange(Me._Minimum, Me._Maximum)
+            Me.Maximum = Me._Maximum
         End Set
     End Property
-    <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcOrientation)>
-    Public Property PLC_Orientation As Orientation
-        Get
-            Return _orientation
-        End Get
-        Set(value As Orientation)
-            _orientation = value
-            Me.Orientation = value
-            Me.Refresh()
-        End Set
-    End Property
+
 
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcReadOnly)>
     Public Property PLC_ReadOnly As Boolean
@@ -58,7 +48,7 @@ Public Class VS7_Slider
         End Get
         Set(value As Integer)
             _Minimum = value
-            Me.SetRange(Me.PLC_Minimum, Me.PLC_Maximum)
+            Me.Minimum = Me.PLC_Minimum
         End Set
     End Property
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcFormActive)>
@@ -249,8 +239,8 @@ Public Class VS7_Slider
 #End Region
 End Class
 
-Partial Public Class Vs7_slider
-    Inherits TrackBar
+Partial Public Class VS7_HScrollBar
+    Inherits HScrollBar
 #Region "PLC Properties"
     Public Enum LocalDatatype
         UINT = 2
@@ -341,7 +331,7 @@ Partial Public Class Vs7_slider
 End Class
 
 
-Public Class SliderDesigner
+Public Class HScrollBarDesigner
     Inherits ControlDesigner
 
     Private _actionListCollection As DesignerActionListCollection
@@ -350,7 +340,7 @@ Public Class SliderDesigner
         Get
             If _actionListCollection Is Nothing Then
                 _actionListCollection = New DesignerActionListCollection()
-                _actionListCollection.Add(New SliderActionList(Me.Control))
+                _actionListCollection.Add(New HScrollActionList(Me.Control))
             End If
 
             Return _actionListCollection
@@ -358,16 +348,16 @@ Public Class SliderDesigner
     End Property
 End Class
 
-Friend Class SliderActionList
+Friend Class HScrollActionList
     Inherits DesignerActionList
 
-    Private ctr As VS7_Slider
+    Private ctr As VS7_HScrollBar
     Private designerActionSvc As DesignerActionUIService
 
     Public Sub New(ByVal component As IComponent)
         MyBase.New(component)
 
-        ctr = DirectCast(component, VS7_Slider)
+        ctr = DirectCast(component, VS7_HScrollBar)
         designerActionSvc = CType(GetService(GetType(DesignerActionUIService)), DesignerActionUIService)
     End Sub
 
@@ -502,16 +492,7 @@ Friend Class SliderActionList
 
         End Set
     End Property
-    Public Property PLC_Orientation As Orientation
-        Get
-            Return ctr.PLC_Orientation
-        End Get
-        Set(ByVal value As Orientation)
-            GetPropertyByName(ctr, "PLC_Orientation").SetValue(ctr, value)
-            designerActionSvc.Refresh(ctr)
 
-        End Set
-    End Property
     Public Property PLC_ReadOnly As Boolean
         Get
             Return ctr.PLC_ReadOnly
@@ -561,7 +542,6 @@ Friend Class SliderActionList
         items.Add(New DesignerActionPropertyItem("PLC_Byte", KPlcByteLabel, KPlcAdressingCategory, KPlcTipPlcByte))
         items.Add(New DesignerActionPropertyItem("PLC_Maximum", KPlcSliderMax, KSliderCategory, KPlcTipPLC_Maximum))
         items.Add(New DesignerActionPropertyItem("PLC_Minimum", KPlcSliderMin, KSliderCategory, KPlcTipPLC_Minimum))
-        items.Add(New DesignerActionPropertyItem("PLC_Orientation", KPlcSliderOrientation, KSliderCategory, KPlcSliderOrientation))
         items.Add(New DesignerActionPropertyItem("PLC_ReadOnly", KPlcReadOnly, KSliderCategory, KPlcReadOnly))
         items.Add(New DesignerActionPropertyItem("PLC_FormActive", KPlcFormActive, KPlcFormCategory, KPlcTipPlcFormActive))
         If PLC_FormActive Then
