@@ -133,17 +133,14 @@ Class VS7_RadioButton
             updateForm = False
             Select Case Me.PLC_DataArea
                 Case DataArea.DB
-                    Me.Checked = TakeValue(_PLC.dbData(Me.PLC_DB), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
-                    Me.pLC_Value = CStr(Me.Checked)
+                    Me.pLC_Value = TakeValue(_PLC.dbData(Me.PLC_DB), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
                 Case DataArea.INPUT
-                    Me.Checked = TakeValue(_PLC.inputData(0), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
-                    Me.pLC_Value = CStr(Me.Checked)
+                    Me.pLC_Value = TakeValue(_PLC.inputData(0), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
                 Case DataArea.MARK
-                    Me.Checked = TakeValue(_PLC.marksData(0), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
-                    Me.pLC_Value = CStr(Me.Checked)
+                    Me.pLC_Value = TakeValue(_PLC.marksData(0), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
                 Case DataArea.OUTPUT
-                    Me.Checked = TakeValue(_PLC.outputData(0), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
-                    Me.pLC_Value = CStr(Me.Checked)
+                    Me.pLC_Value = TakeValue(_PLC.outputData(0), Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_DataType, Me.PLC_Length)
+
                 Case Else
             End Select
 
@@ -157,6 +154,7 @@ Class VS7_RadioButton
             End If
 
         End If
+        Me.Checked = CBool(Me.pLC_Value)
     End Sub
 
     Public Sub updateValueFromForm(ByVal value As String)
