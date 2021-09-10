@@ -94,3 +94,6 @@ C:\Users\iguti\OneDrive\Documentos\Github-Original\obj\Debug\Proyecto_ViSnap7.vb
 C:\Users\iguti\OneDrive\Documentos\Github-Original\obj\Debug\Proyecto_ViSnap7.exe
 C:\Users\iguti\OneDrive\Documentos\Github-Original\obj\Debug\Proyecto_ViSnap7.xml
 C:\Users\iguti\OneDrive\Documentos\Github-Original\obj\Debug\Proyecto_ViSnap7.pdb
+C:\Users\iguti\OneDrive\Documentos\Github-Original\obj\Debug\Proyecto_ViSnap7.VS7_AlarmsController.resources
+C:\Users\iguti\OneDrive\Documentos\Github-Original\obj\Debug\Proyecto_ViSnap7.VS7_Single_Alarm.resources
+C:\Users\iguti\OneDrive\Documentos\Github-Original\obj\Debug\Proyecto_ViSnap7.vbproj.AssemblyReference.cache

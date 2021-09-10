@@ -25,6 +25,8 @@
     Public Const KPlcDataAreaLabel = "Data Area"
     Public Const KPlcDBLabel = "DB N#"
     Public Const KPlcByteLabel = "Byte N#"
+    Public Const KPlcWordsLength = "N# of words"
+    Public Const KPlcCustomItems = "Items"
     Public Const KPlcSliderMax = "Max. Value"
     Public Const KPlcSliderMin = "Min. Value"
     Public Const KPlcSliderOrientation = "Orientation"
@@ -33,7 +35,7 @@
     Public Const KPlcBitPictureTrue = "Picture when true"
     Public Const KPlcBitPictureFalse = "Picture when false"
     Public Const KPlcBorderStyle = "Border Style"
-
+    Public Const KErrorReadingFile = "Error reading the alarms file:"
     Public Const KPlcShapetypeLabel = "Shape type"
     Public Const KPlcTrueValueLabel = "Color if true"
     Public Const KPlcFalseValueLabel = "Color if false"

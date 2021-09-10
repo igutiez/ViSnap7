@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ViSnap7",
+    "\\ViSnap7\\Controls"
   ],
-  "SelectedNode": "\\Proyecto_ViSnap7.sln",
+  "SelectedNode": "\\Proyecto_ViSnap7.vbproj",
   "PreviewInSolutionExplorer": false
 }
