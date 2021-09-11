@@ -1,4 +1,4 @@
-﻿<ToolboxItem(True)>
+﻿<ToolboxItem(False)>
 Public Class VS7_Single_Alarm
     Inherits UserControl
     Public pLC_Value As String = "False"
@@ -9,6 +9,8 @@ Public Class VS7_Single_Alarm
     Public ackColor As Color = Color.Yellow
     Public closedColor As Color = Color.Transparent
     Public alreadyAck As Boolean = False
+    Public LogFolder As String
+    Public LogActivate As Boolean
 
     Enum StatusAlarmType
         ACTIVE
@@ -141,18 +143,28 @@ Public Class VS7_Single_Alarm
                 Me.OpenedTime.Text = Format(Now, "HH:mm:ss")
                 Me.Status.Text = StatusAlarmType.ACTIVE.ToString
                 Me.BackColor = openColor
+                If LogActivate Then
+                    Dim text As String = Me.OpenedTime.Text + vbTab + Me.AlarmNumber.Text + vbTab + Me.Status.Text + vbTab + Me.AlarmText.Text + vbCrLf
+                    General.WriteLogTextOnFile(Me.LogFolder, text)
+                End If
             Else
                 alarmStatus = 2
                 'Presente y activa
                 If Me.ack Then
+                    alarmStatus = 3
+                    Me.Status.Text = StatusAlarmType.ACK.ToString
+                    Me.BackColor = ackColor
+
                     If Not Me.alreadyAck Then
                         Me.alreadyAck = True
                         Me.AckTime.Text = Format(Now, "HH:mm:ss")
-                    End If
-                    alarmStatus = 3
+                        If Me.LogActivate Then
+                            Dim text As String = Me.AckTime.Text + vbTab + Me.AlarmNumber.Text + vbTab + Me.Status.Text + vbTab + Me.AlarmText.Text + vbCrLf
+                            General.WriteLogTextOnFile(Me.LogFolder, text)
+                        End If
 
-                    Me.Status.Text = StatusAlarmType.ACK.ToString
-                    Me.BackColor = ackColor
+                    End If
+
                 Else
                     Me.alreadyAck = False
 
@@ -165,12 +177,18 @@ Public Class VS7_Single_Alarm
                 alarmStatus = 0
                 Me.Ack = False
             End If
+
+
+            Me.Status.Text = StatusAlarmType.CLOSED.ToString
+            Me.BackColor = closedColor
             If Me.alarmAlreadyExist Then
                 Me.ClosedTime.Text = Format(Now, "HH:mm:ss")
+                If Me.LogActivate Then
+                    Dim text As String = Me.ClosedTime.Text + vbTab + Me.AlarmNumber.Text + vbTab + Me.Status.Text + vbTab + Me.AlarmText.Text + vbCrLf
+                    General.WriteLogTextOnFile(Me.LogFolder, text)
+                End If
             End If
             Me.alarmAlreadyExist = False
-            Me.Status.Text = StatusAlarmType.CLOSED.ToString
-            Me.BackColor = ClosedColor
         End If
 
 

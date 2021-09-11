@@ -102,4 +102,23 @@ Public Module General
 
     End Function
 
+    Public Function WriteLogTextOnFile(ByVal folder As String, ByVal text As String) As Boolean
+        Dim result As Boolean = False
+        Dim filename As String = Now.Date.ToShortDateString.Replace("/", "-")
+        Dim completeFileName As String = folder + "\" + filename + ".txt"
+
+
+        Try
+            Dim objWriter As New System.IO.StreamWriter(completeFileName, True)
+            objWriter.Write(text)
+            objWriter.Close()
+            result = True
+        Catch ex As Exception
+            result = False
+        End Try
+
+        Return result
+    End Function
+
+
 End Module

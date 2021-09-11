@@ -28,6 +28,7 @@ Partial Class VS7_Single_Alarm
         Me.AckTime = New System.Windows.Forms.Label()
         Me.ClosedTime = New System.Windows.Forms.Label()
         Me.Status = New System.Windows.Forms.Label()
+
         Me.SuspendLayout()
         '
         'AlarmNumber
