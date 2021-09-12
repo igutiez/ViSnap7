@@ -2,7 +2,8 @@
 Imports System.Windows.Forms.Design
 <System.ComponentModel.Designer(GetType(AlarmsControllerDesigner))>
 Public Class VS7_AlarmsController
-
+    Public pLC_Value As String
+    Public Alarms() As VS7_Single_Alarm
 #Region "PLC Properties"
     Private _PLC As Integer
     Private _DataArea As LocalDataArea = LocalDataArea.MARK
@@ -11,8 +12,6 @@ Public Class VS7_AlarmsController
     Private _Bit As Integer
     Private _Length As Integer = 1
     Private _txt As String
-    Public pLC_Value As String
-    Public Alarms() As VS7_Single_Alarm
     Private arrText() As String
     Private _ColorActive As Color = Color.Red
     Private _ColorAck As Color = Color.Yellow
@@ -25,7 +24,7 @@ Public Class VS7_AlarmsController
         MARK = 1
         DB = 2
     End Enum
-    <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KFolderSaveTip)>
+    <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KFileAlarm)>
     Public Property PLC_FileExplorer As String
         Get
             Return _AlarmFileName
@@ -36,7 +35,7 @@ Public Class VS7_AlarmsController
         End Set
     End Property
 
-    <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KFolderSaveTip)>
+    <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KFolderLog)>
     Public Property PLC_SaveFolder As String
         Get
             Return _folderExplorer
@@ -167,7 +166,6 @@ Public Class VS7_AlarmsController
 
 #Region "Plc reading and writing"
     Public Sub UpdateControl(ByRef _PLC As PlcClient)
-        Dim bit As Integer
 
         If Not firstExecution Then
             Select Case Me.PLC_DataArea
@@ -185,16 +183,10 @@ Public Class VS7_AlarmsController
                     Me.pLC_Value = Me.Text
                 Case Else
             End Select
-        End If
-
-        If Not firstExecution Then
 
             UpdateAlarms()
         End If
-        If firstExecution Then
 
-
-        End If
     End Sub
 
     Private Sub GenerateAlarms()
@@ -203,11 +195,8 @@ Public Class VS7_AlarmsController
         Me.Controls.Clear()
         InitializeComponent()
         Dim contador As Integer
-
         ReadAlarmsFile()
-
         For contador = 0 To Me.PLC_Length * 16 - 1
-
             If IsNothing(Alarms(contador)) Then
                 Dim numByte = _Byte + contador \ 8
                 Dim numBit = contador Mod 8
@@ -215,7 +204,6 @@ Public Class VS7_AlarmsController
                 Alarms(contador).Name = "Alarma_" & Format(contador, "###")
                 Alarms(contador).Width = Me.Width
                 Alarms(contador).Location = New Point(0, (contador + 1) * Alarms(contador).Height)
-
                 Alarms(contador).AckTime.Text = ""
                 Alarms(contador).OpenedTime.Text = ""
                 Alarms(contador).ClosedTime.Text = ""
@@ -224,7 +212,6 @@ Public Class VS7_AlarmsController
                 Alarms(contador).openColor = Me.PLC_ColorActiveAlarm
                 Alarms(contador).LogFolder = Me.PLC_SaveFolder
                 Alarms(contador).LogActivate = Me.PLC_ActivateLog
-
                 Me.Controls.Add(Alarms(contador))
             End If
 
@@ -232,7 +219,6 @@ Public Class VS7_AlarmsController
             Alarms(contador).AlarmText.Text = arrText(Alarms(contador).AlarmNumber.Text)
 
         Next
-
         Me.Size = New System.Drawing.Size(Alarms(0).Width, (UBound(Alarms) + 0) * Alarms(0).Height)
 
     End Sub
@@ -241,14 +227,12 @@ Public Class VS7_AlarmsController
         Dim sLine As String = ""
         Dim Counter As Integer = 0
         Try
-
             objReader = New StreamReader(Me.PLC_FileExplorer)
             Do
                 sLine = objReader.ReadLine()
                 If Not sLine Is Nothing Then
                     If sLine.Length > 3 Then
                         arrText(Counter) = Split(sLine, ":")(1)
-
                         If Split(sLine, ":")(0) <> Counter Then
                             MsgBox("El número de alarma no corresponde con su texto")
                         End If
@@ -266,15 +250,13 @@ Public Class VS7_AlarmsController
     End Sub
     Public Sub AckAlarms()
         Dim counter As Integer
-
         For counter = 0 To UBound(Alarms) - 1
-            Alarms(counter).Ack = True
+            Alarms(counter).ack = True
         Next
     End Sub
     Public Sub UpdateAlarms()
         Dim Counter As Integer = 0
         Static FileReaded As Boolean
-
         For Each ctr As Control In Me.Controls
             If TypeOf (ctr) Is VS7_Single_Alarm Then
                 With DirectCast(ctr, VS7_Single_Alarm)
@@ -287,12 +269,6 @@ Public Class VS7_AlarmsController
                     If .alarmStatus > 0 Then
                         If Not FileReaded Then
                             ReadAlarmsFile()
-                            Try
-
-                            Catch ex As Exception
-                                MsgBox("" & ex.Message)
-                            End Try
-
                             FileReaded = True
                         End If
                         .AlarmText.Text = arrText(.AlarmNumber.Text)
@@ -551,11 +527,9 @@ Friend Class AlarmsControllerActionList
             items.Add(New DesignerActionPropertyItem("PLC_DB", KPlcDBLabel, KPlcAdressingCategory, KPlcTipPlcDB))
         End If
         items.Add(New DesignerActionPropertyItem("PLC_Byte", KPlcByteLabel, KPlcAdressingCategory, KPlcTipPlcByte))
-
         items.Add(New DesignerActionPropertyItem("PLC_Length", KPlcWordsLength, KPlcAdressingCategory, KPlcWordsLength))
         items.Add(New DesignerActionPropertyItem("PLC_FileExplorer", KPlcAlarmsFile, KPlcAdressingCategory, KPlcAlarmsFile))
         items.Add(New DesignerActionMethodItem(Me, "SelectFile", KPlcSelectAlarmsFile))
-
         items.Add(New DesignerActionPropertyItem("PLC_ColorActiveAlarm", KPlcColorActive, KPlcAdressingCategory, KPlcColorActive))
         items.Add(New DesignerActionPropertyItem("PLC_ColorAckAlarm", KPlcColorAck, KPlcAdressingCategory, KPlcColorAck))
         items.Add(New DesignerActionPropertyItem("PLC_ColorClosedAlarm", KPlcColorClosed, KPlcAdressingCategory, KPlcColorClosed))

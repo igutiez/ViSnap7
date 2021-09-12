@@ -82,6 +82,9 @@
     Public Const KPlcTipPlcNumber = "Number of PLC configured"
     Public Const KPlcTipDataArea = "Type of PLC Area: inputs, outputs, marks or DB"
     Public Const KFolderSaveTip = "Folder where the form data will be stored"
+    Public Const KFolderLog = "Folder where logs will be stored"
+    Public Const KFileAlarm = "File with text alarms"
+
     Public Const KFolderLoadTip = "Button is used for loading data instead of saving data"
     Public Const KSaveLabel = "RECIPE NAME"
     Public Const KLoadLabel = "RECIPE LIST"
@@ -89,7 +92,7 @@
     Public Const KFolderNotExist = "Folder does not exist."
 
     Public Const KExtensionTip = "Extension for stored data file."
-    Public Const KSelectFolder = "Select folder"
+    Public Const KSelectFolder = "Select Log folder"
     Public Const KPlcTipDataType = "Type of data: integers, reals, strings, chars..."
     Public Const KPlcTipPlcDB = "In case of using DB, number of the DB"
     Public Const KPlcTipPlcByte = "Byte in which variable is set"
