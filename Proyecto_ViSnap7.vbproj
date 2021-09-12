@@ -111,6 +111,18 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="ViSnap7Setup.vb" />
+    <Compile Include="ViSnap7\Controls\Alarms\VS7 AlarmsController.Designer.vb">
+      <DependentUpon>VS7 AlarmsController.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ViSnap7\Controls\Alarms\VS7 AlarmsController.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ViSnap7\Controls\Alarms\VS7 Single Alarm.Designer.vb">
+      <DependentUpon>VS7 Single Alarm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ViSnap7\Controls\Alarms\VS7 Single Alarm.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="ViSnap7\Controls\Control List.vb" />
     <Compile Include="ViSnap7\Controls\ViSnap7 ListBox.vb">
       <SubType>Component</SubType>
@@ -217,6 +229,12 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="ViSnap7\Controls\Alarms\VS7 AlarmsController.resx">
+      <DependentUpon>VS7 AlarmsController.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViSnap7\Controls\Alarms\VS7 Single Alarm.resx">
+      <DependentUpon>VS7 Single Alarm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViSnap7\Controls\ViSnap7 LoadSaveForm\LoadDialog.resx">
       <DependentUpon>LoadDialog.vb</DependentUpon>
     </EmbeddedResource>
@@ -250,6 +268,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\false.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ViSnap7\Controls\Alarms\alarmas.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

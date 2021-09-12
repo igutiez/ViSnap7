@@ -19,6 +19,8 @@
         VS7_ListBox
         VS7_HScrollBar
         VS7_VScrollBar
+        VS7_AlarmsController
+        VS7_Single_Alarm
     End Enum
     ' List of user controls that be used in forms
     ' After configure the control, it must be added to this Enum. 
