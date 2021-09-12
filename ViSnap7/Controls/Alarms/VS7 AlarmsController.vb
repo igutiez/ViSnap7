@@ -219,7 +219,7 @@ Public Class VS7_AlarmsController
             Alarms(contador).AlarmText.Text = arrText(Alarms(contador).AlarmNumber.Text)
 
         Next
-        Me.Size = New System.Drawing.Size(Alarms(0).Width, (UBound(Alarms) + 0) * Alarms(0).Height)
+        'Me.Size = New System.Drawing.Size(Alarms(0).Width, (UBound(Alarms) + 0) * Alarms(0).Height)
 
     End Sub
     Private Sub ReadAlarmsFile()
@@ -313,6 +313,8 @@ Public Class VS7_AlarmsController
         End Select
         Return txt
     End Function
+
+
 
 #End Region
 
