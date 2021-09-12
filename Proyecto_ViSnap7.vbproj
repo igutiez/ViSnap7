@@ -269,5 +269,8 @@
   <ItemGroup>
     <None Include="Resources\false.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="ViSnap7\Controls\Alarms\alarmas.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
