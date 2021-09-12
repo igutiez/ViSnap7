@@ -193,7 +193,7 @@ Public Class VS7_AlarmsController
         ReDim Alarms(Me.PLC_Length * 16 - 1)
         ReDim arrText(Me.PLC_Length * 16 - 1)
         Me.Controls.Clear()
-        InitializeComponent()
+        'InitializeComponent()
         Dim contador As Integer
         ReadAlarmsFile()
         For contador = 0 To Me.PLC_Length * 16 - 1
