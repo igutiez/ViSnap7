@@ -98,11 +98,17 @@ Public Class VS7_Slider
     End Sub
 
     Public Sub ControlGotFocus(ByVal sender As Object, ByVal e As EventArgs) Handles Me.GotFocus
-        Me.controlFocused = True
+        If Not PLC_ReadOnly Then
 
+
+            Me.controlFocused = True
+        End If
     End Sub
     Public Sub ControlLostFocus(ByVal sender As Object, ByVal e As EventArgs) Handles Me.LostFocus
-        Me.controlFocused = False
+        If Not PLC_ReadOnly Then
+            Me.controlFocused = False
+        End If
+
     End Sub
 #End Region
 
