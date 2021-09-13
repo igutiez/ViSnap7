@@ -111,6 +111,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="ViSnap7Setup.vb" />
+    <Compile Include="ViSnap7\Controls\Alarms\VS7 Historical.Designer.vb">
+      <DependentUpon>VS7 Historical.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ViSnap7\Controls\Alarms\VS7 Historical.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="ViSnap7\Controls\Alarms\VS7 AlarmsController.Designer.vb">
       <DependentUpon>VS7 AlarmsController.vb</DependentUpon>
     </Compile>
@@ -228,6 +234,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViSnap7\Controls\Alarms\VS7 Historical.resx">
+      <DependentUpon>VS7 Historical.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViSnap7\Controls\Alarms\VS7 AlarmsController.resx">
       <DependentUpon>VS7 AlarmsController.vb</DependentUpon>
