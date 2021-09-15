@@ -134,3 +134,5 @@ C:\Users\iguti\OneDrive\Documentos\GITHUB\obj\Debug\Proyecto_ViSnap7.vbproj.Core
 C:\Users\iguti\OneDrive\Documentos\GITHUB\obj\Debug\Proyecto_ViSnap7.exe
 C:\Users\iguti\OneDrive\Documentos\GITHUB\obj\Debug\Proyecto_ViSnap7.xml
 C:\Users\iguti\OneDrive\Documentos\GITHUB\obj\Debug\Proyecto_ViSnap7.pdb
+D:\Guti\GITHUB\obj\Debug\Proyecto_ViSnap7.VS7_Historical.resources
+D:\Guti\GITHUB\obj\Debug\Proyecto_ViSnap7.VS7_IncreaseDecrease.resources

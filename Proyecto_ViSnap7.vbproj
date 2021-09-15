@@ -196,6 +196,12 @@
     <Compile Include="ViSnap7\Controls\VS7 Gauge.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ViSnap7\Controls\VS7 IncreaseDecrease.Designer.vb">
+      <DependentUpon>VS7 IncreaseDecrease.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ViSnap7\Controls\VS7 IncreaseDecrease.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="ViSnap7\Controls\VS7 VScrollBar.vb">
       <SubType>Component</SubType>
     </Compile>
@@ -255,6 +261,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViSnap7\Controls\ViSnap7 DynamicLabel.resx">
       <DependentUpon>ViSnap7 DynamicLabel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViSnap7\Controls\VS7 IncreaseDecrease.resx">
+      <DependentUpon>VS7 IncreaseDecrease.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViSnap7\Controls\VS7 Trends.resx">
       <DependentUpon>VS7 Trends.vb</DependentUpon>
