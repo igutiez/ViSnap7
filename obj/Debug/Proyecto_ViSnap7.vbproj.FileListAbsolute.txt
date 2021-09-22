@@ -121,7 +121,6 @@ C:\Users\iguti\OneDrive\Documentos\GitHUb\bin\Debug\Proyecto_ViSnap7.exe.config
 C:\Users\iguti\OneDrive\Documentos\GitHUb\bin\Debug\Proyecto_ViSnap7.exe
 C:\Users\iguti\OneDrive\Documentos\GitHUb\bin\Debug\Proyecto_ViSnap7.pdb
 C:\Users\iguti\OneDrive\Documentos\GitHUb\bin\Debug\Proyecto_ViSnap7.xml
-C:\Users\iguti\OneDrive\Documentos\GitHUb\obj\Debug\Proyecto_ViSnap7.Form1.resources
 C:\Users\iguti\OneDrive\Documentos\GitHUb\obj\Debug\Proyecto_ViSnap7.Resources.resources
 C:\Users\iguti\OneDrive\Documentos\GitHUb\obj\Debug\Proyecto_ViSnap7.VS7_Historical.resources
 C:\Users\iguti\OneDrive\Documentos\GitHUb\obj\Debug\Proyecto_ViSnap7.VS7_AlarmsController.resources
@@ -139,3 +138,5 @@ C:\Users\iguti\OneDrive\Documentos\GitHUb\obj\Debug\Proyecto_ViSnap7.vbproj.Core
 C:\Users\iguti\OneDrive\Documentos\GitHUb\obj\Debug\Proyecto_ViSnap7.exe
 C:\Users\iguti\OneDrive\Documentos\GitHUb\obj\Debug\Proyecto_ViSnap7.xml
 C:\Users\iguti\OneDrive\Documentos\GitHUb\obj\Debug\Proyecto_ViSnap7.pdb
+C:\Users\iguti\OneDrive\Documentos\GITHUB\obj\Debug\Proyecto_ViSnap7.vbproj.AssemblyReference.cache
+C:\Users\iguti\OneDrive\Documentos\GITHUB\obj\Debug\Proyecto_ViSnap7.Main.resources
