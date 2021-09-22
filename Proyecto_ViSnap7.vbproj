@@ -130,6 +130,18 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ViSnap7\Controls\Control List.vb" />
+    <Compile Include="ViSnap7\Controls\Keyboards\VS7 AlphanumericKeyboard.designer.vb">
+      <DependentUpon>VS7 AlphanumericKeyboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ViSnap7\Controls\Keyboards\VS7 AlphanumericKeyboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViSnap7\Controls\Keyboards\VS7 NumericKeyboard.designer.vb">
+      <DependentUpon>VS7 NumericKeyboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ViSnap7\Controls\Keyboards\VS7 NumericKeyboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ViSnap7\Controls\ViSnap7 ListBox.vb">
       <SubType>Component</SubType>
     </Compile>
@@ -237,9 +249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ViSnap7\Controls\Alarms\VS7 Historical.resx">
       <DependentUpon>VS7 Historical.vb</DependentUpon>
@@ -249,6 +261,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViSnap7\Controls\Alarms\VS7 Single Alarm.resx">
       <DependentUpon>VS7 Single Alarm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViSnap7\Controls\Keyboards\VS7 AlphanumericKeyboard.resx">
+      <DependentUpon>VS7 AlphanumericKeyboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViSnap7\Controls\Keyboards\VS7 NumericKeyboard.resx">
+      <DependentUpon>VS7 NumericKeyboard.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViSnap7\Controls\ViSnap7 LoadSaveForm\LoadDialog.resx">
       <DependentUpon>LoadDialog.vb</DependentUpon>
@@ -288,6 +306,12 @@
     <None Include="Resources\false.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\clear.png" />
+    <None Include="Resources\backspace_icon.png" />
+    <None Include="Resources\shift.png" />
+    <None Include="Resources\enter.png" />
+    <None Include="Resources\alt.png" />
+    <None Include="Resources\caps-lock.png" />
     <Content Include="ViSnap7\Controls\Alarms\alarmas.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

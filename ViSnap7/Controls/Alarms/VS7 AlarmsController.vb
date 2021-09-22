@@ -306,7 +306,7 @@ Public Class VS7_AlarmsController
                 txt = ViSnap7.S7.GetSIntAt(_DBData.data, _PLC_Byte)
             Case DataType.STR
                 txt = ViSnap7.S7.GetStringAt(_DBData.data, _PLC_Byte)
-            Case DataType.UINT
+            Case DataType.USINT
                 txt = ViSnap7.S7.GetUIntAt(_DBData.data, _PLC_Byte)
             Case Else
                 txt = ""

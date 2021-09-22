@@ -206,7 +206,7 @@ Public Class VS7_VScrollBar
                 ViSnap7.S7.SetStringAt(Buffer, 0, _Length, _Text)
                 plc(_PLC_Number).client.DBWrite(_DB, _Byte, _Length + 2, Buffer)
 
-            Case DataType.UINT
+            Case DataType.USINT
 
             Case Else
 
@@ -228,9 +228,8 @@ Public Class VS7_VScrollBar
                 txt = ViSnap7.S7.GetRealAt(_DBData.data, _PLC_Byte)
             Case DataType.SINT
                 txt = ViSnap7.S7.GetSIntAt(_DBData.data, _PLC_Byte)
-
-            Case DataType.UINT
-                txt = ViSnap7.S7.GetUIntAt(_DBData.data, _PLC_Byte)
+            Case DataType.USINT
+                txt = ViSnap7.S7.GetUSIntAt(_DBData.data, _PLC_Byte)
             Case Else
                 txt = ""
         End Select

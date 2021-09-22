@@ -33,7 +33,7 @@ Public Module General
     ''' </summary>
     Public Enum DataType
         BOOL = 1
-        UINT = 2
+        USINT = 2
         SINT = 3
         INT = 4
         DINT = 5

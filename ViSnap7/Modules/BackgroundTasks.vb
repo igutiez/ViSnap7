@@ -137,7 +137,7 @@
             plcNum = .PLC_Number
             plcDataArea = .PLC_DataArea
             Select Case .PLC_DataType
-                Case DataType.BOOL, DataType.CHR, DataType.SINT, DataType.UINT
+                Case DataType.BOOL, DataType.CHR, DataType.SINT, DataType.USINT
                     byteAmount = 1
                 Case DataType.INT
                     byteAmount = 2

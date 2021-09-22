@@ -260,7 +260,7 @@ Public Class VS7_Register
                 Catch ex As Exception
                 End Try
 
-            Case DataType.UINT, DataType.SINT, DataType.INT, DataType.DINT, DataType.REAL
+            Case DataType.USINT, DataType.SINT, DataType.INT, DataType.DINT, DataType.REAL
                 Try
                     If CDec(valueReal) = CDec(valueSP) Then
                         result = True
@@ -291,7 +291,7 @@ Public Class VS7_Register
                 Catch ex As Exception
                 End Try
 
-            Case DataType.UINT, DataType.SINT, DataType.INT, DataType.DINT, DataType.REAL
+            Case DataType.USINT, DataType.SINT, DataType.INT, DataType.DINT, DataType.REAL
                 Try
                     If CDec(valueReal) > CDec(valueSP) Then
                         result = True
@@ -322,7 +322,7 @@ Public Class VS7_Register
                 Catch ex As Exception
                 End Try
 
-            Case DataType.UINT, DataType.SINT, DataType.INT, DataType.DINT, DataType.REAL
+            Case DataType.USINT, DataType.SINT, DataType.INT, DataType.DINT, DataType.REAL
                 Try
                     If CDec(valueReal) < CDec(valueSP) Then
                         result = True
@@ -359,8 +359,8 @@ Public Class VS7_Register
                 txt = ViSnap7.S7.GetSIntAt(_DBData.data, _PLC_Byte)
             Case DataType.STR
                 txt = ViSnap7.S7.GetStringAt(_DBData.data, _PLC_Byte)
-            Case DataType.UINT
-                txt = ViSnap7.S7.GetUIntAt(_DBData.data, _PLC_Byte)
+            Case DataType.USINT
+                txt = ViSnap7.S7.GetUSIntAt(_DBData.data, _PLC_Byte)
             Case Else
                 txt = ""
         End Select

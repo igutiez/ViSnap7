@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ViSnap7",
+    "\\ViSnap7\\Controls",
+    "\\ViSnap7\\Controls\\Keyboards"
   ],
-  "SelectedNode": "\\Proyecto_ViSnap7.sln",
+  "SelectedNode": "\\ViSnap7\\Controls\\Keyboards\\VS7 AlphanumericKeyboard.vb",
   "PreviewInSolutionExplorer": false
 }

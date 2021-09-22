@@ -6,7 +6,7 @@ Imports System.Windows.Forms.Design
 ''' PLC Textbox user control 
 ''' </summary>
 <System.ComponentModel.Designer(GetType(PLCTextBoxDesigner))>
-Class VS7_Textbox
+Public Class VS7_Textbox
     Inherits TextBox
     Public pLC_Value As String = ""
     Public controlFocused As Boolean
@@ -29,6 +29,7 @@ Class VS7_Textbox
     Private _txt As String
     Private _formNumber As Integer
     Private _formActive As Boolean
+    Private _keyboard As Boolean = True
 
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcNumberLabel)>
     Public Property PLC_Number As Integer
@@ -112,6 +113,15 @@ Class VS7_Textbox
             _formNumber = value
         End Set
     End Property
+    <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcKeyboard)>
+    Public Property PLC_keyboard As Boolean
+        Get
+            Return _keyboard
+        End Get
+        Set(value As Boolean)
+            _keyboard = value
+        End Set
+    End Property
 #End Region
 #Region "Control Events"
     Public Sub New()
@@ -125,12 +135,36 @@ Class VS7_Textbox
         End If
 
     End Sub
+    Private Sub MadeClick(sender As Object, e As EventArgs) Handles Me.Click
+        If Me.PLC_keyboard Then
+
+            Select Case Me.PLC_DataType
+                Case DataType.INT, DataType.DINT, DataType.REAL, DataType.USINT, DataType.SINT
+                    Dim keyboard As New VS7_NumericKeyboard(Me)
+                    keyboard.Show()
+                    keyboard.Location = New Point(Me.Parent.Location.X + Me.Location.X + Me.Width, Me.Parent.Location.Y + Me.Location.Y)
+                    keyboard.BringToFront()
+                    Me.controlFocused = True
+                Case DataType.STR, DataType.CHR
+                    Dim keyboard As New VS7_AlphanumericKeyboard(Me)
+                    keyboard.Show()
+                    keyboard.Show()
+                    keyboard.Location = New Point(Me.Parent.Location.X + Me.Location.X + Me.Width, Me.Parent.Location.Y + Me.Location.Y)
+                    keyboard.BringToFront()
+
+
+                Case Else
+
+            End Select
+        End If
+
+    End Sub
     Public Sub ControlGotFocus(ByVal sender As Object, ByVal e As EventArgs) Handles Me.GotFocus
         Me.controlFocused = True
 
     End Sub
     Public Sub ControlLostFocus(ByVal sender As Object, ByVal e As EventArgs) Handles Me.LostFocus
-        Me.ControlFocused = False
+        Me.controlFocused = False
     End Sub
     Private Sub ControlIsCreated(sender As Object, e As EventArgs) Handles Me.HandleCreated
         Me.Text = ""
@@ -213,7 +247,7 @@ Class VS7_Textbox
                     e.Handled = True
                 End If
 
-            Case DataType.UINT
+            Case DataType.USINT
                 If Char.IsDigit(e.KeyChar) Or e.KeyChar = "-" Or Char.IsControl(e.KeyChar) Or e.KeyChar = Chr(9) Then
                     e.Handled = False
                     If IsNumeric(sender.text) Then
@@ -243,6 +277,7 @@ Class VS7_Textbox
 #End Region
 #Region "Plc reading and writing"
     Public Sub UpdateControl(ByRef _PLC As PlcClient)
+        Dim _valueOk As Boolean
 
         'Reading if control is no pending and not write pending.
         If (PLC_FormActive And updateForm) Or (Not PLC_FormActive And (firstExecution Or (Not controlFocused And Not pendingWrite))) Then
@@ -263,6 +298,45 @@ Class VS7_Textbox
                     Me.pLC_Value = Me.Text
                 Case Else
             End Select
+        End If
+        'Check the value
+        _valueOk = True
+        If pendingWrite Then
+
+
+            Select Case Me.PLC_DataType
+                Case DataType.USINT
+                    If (Me.Text > Byte.MaxValue) Or (Me.Text < Byte.MinValue) Or (Not IsNumeric(Me.Text)) Then
+                        _valueOk = False
+                    End If
+                Case DataType.SINT
+                    If (Me.Text > SByte.MaxValue) Or (Me.Text < SByte.MinValue) Or (Not IsNumeric(Me.Text)) Then
+                        _valueOk = False
+                    End If
+                Case DataType.INT
+                    If (Me.Text > Int16.MaxValue) Or (Me.Text < Int16.MinValue) Or (Not IsNumeric(Me.Text)) Then
+                        _valueOk = False
+                    End If
+                Case DataType.DINT
+                    If (Me.Text > Int32.MaxValue) Or (Me.Text < Int32.MinValue) Or (Not IsNumeric(Me.Text)) Then
+                        _valueOk = False
+                    End If
+                Case DataType.REAL
+                    If (Me.Text > Double.MaxValue) Or (Me.Text < Double.MinValue) Or (Not IsNumeric(Me.Text)) Then
+                        _valueOk = False
+                    End If
+                Case DataType.CHR
+                    If (Me.Text > Char.MaxValue) Or (Me.Text < Char.MinValue) Then
+                        _valueOk = False
+                    End If
+
+                Case Else
+
+            End Select
+        End If
+        If Not _valueOk Then
+            pendingWrite = False
+            MsgBox(KErrorIntroducingValue)
         End If
         'Write in case of pendind write
         If pendingWrite Then
@@ -293,16 +367,16 @@ Class VS7_Textbox
         Select Case Me.PLC_DataArea
             Case DataArea.DB
                 WriteOnPlc(_Text, _PLC_Number, ViSnap7.S7AreaDB, _DataType, _DB, _Byte, _Bit, _Length)
-                Me.PLC_Value = Me.Text
+                Me.pLC_Value = Me.Text
             Case DataArea.INPUT
                 WriteOnPlc(_Text, _PLC_Number, ViSnap7.S7AreaPE, _DataType, 0, _Byte, _Bit, _Length)
-                Me.PLC_Value = Me.Text
+                Me.pLC_Value = Me.Text
             Case DataArea.MARK
                 WriteOnPlc(_Text, _PLC_Number, ViSnap7.S7AreaMK, _DataType, 0, _Byte, _Bit, _Length)
-                Me.PLC_Value = Me.Text
+                Me.pLC_Value = Me.Text
             Case DataArea.OUTPUT
                 WriteOnPlc(_Text, _PLC_Number, ViSnap7.S7AreaPA, _DataType, 0, _Byte, _Bit, _Length)
-                Me.PLC_Value = Me.Text
+                Me.pLC_Value = Me.Text
             Case Else
         End Select
 
@@ -313,39 +387,38 @@ Class VS7_Textbox
             Case DataType.BOOL
                 Dim Buffer(0) As Byte
                 Buffer(0) = CByte(_Text)
-                PLC(_PLC_Number).Client.WriteArea(_DataArea, _DB, _Byte * 8 + _Bit, 1, ViSnap7.S7Consts.S7WLBit, Buffer)
+                plc(_PLC_Number).client.WriteArea(_DataArea, _DB, _Byte * 8 + _Bit, 1, ViSnap7.S7Consts.S7WLBit, Buffer)
 
             Case DataType.CHR
                 Dim Buffer(0) As Byte
                 ViSnap7.S7.SetCharsAt(Buffer, 0, _Text)
-                PLC(_PLC_Number).Client.WriteArea(_DataArea, _DB, _Byte, 1, ViSnap7.S7Consts.S7WLChar, Buffer)
+                plc(_PLC_Number).client.WriteArea(_DataArea, _DB, _Byte, 1, ViSnap7.S7Consts.S7WLChar, Buffer)
 
             Case DataType.DINT
                 Dim Buffer(3) As Byte
                 ViSnap7.S7.SetDIntAt(Buffer, 0, _Text)
-                PLC(_PLC_Number).Client.WriteArea(_DataArea, _DB, _Byte, 1, ViSnap7.S7Consts.S7WLDInt, Buffer)
+                plc(_PLC_Number).client.WriteArea(_DataArea, _DB, _Byte, 1, ViSnap7.S7Consts.S7WLDInt, Buffer)
 
             Case DataType.INT
                 Dim Buffer(1) As Byte
                 ViSnap7.S7.SetIntAt(Buffer, 0, _Text)
-                PLC(_PLC_Number).Client.WriteArea(_DataArea, _DB, _Byte, 1, ViSnap7.S7Consts.S7WLInt, Buffer)
+                plc(_PLC_Number).client.WriteArea(_DataArea, _DB, _Byte, 1, ViSnap7.S7Consts.S7WLInt, Buffer)
 
             Case DataType.REAL
                 Dim Buffer(3) As Byte
                 ViSnap7.S7.SetRealAt(Buffer, 0, _Text)
-                PLC(_PLC_Number).Client.WriteArea(_DataArea, _DB, _Byte, 1, ViSnap7.S7Consts.S7WLReal, Buffer)
+                plc(_PLC_Number).client.WriteArea(_DataArea, _DB, _Byte, 1, ViSnap7.S7Consts.S7WLReal, Buffer)
 
-            Case DataType.SINT
+            Case DataType.SINT, DataType.USINT
                 Dim Buffer(0) As Byte
                 ViSnap7.S7.SetSIntAt(Buffer, 0, _Text)
-                PLC(_PLC_Number).Client.WriteArea(_DataArea, _DB, _Byte, 1, ViSnap7.S7Consts.S7WLByte, Buffer)
+                plc(_PLC_Number).client.WriteArea(_DataArea, _DB, _Byte, 1, ViSnap7.S7Consts.S7WLByte, Buffer)
 
             Case DataType.STR
                 Dim Buffer(_Length + 1) As Byte
                 ViSnap7.S7.SetStringAt(Buffer, 0, _Length, _Text)
-                PLC(_PLC_Number).Client.DBWrite(_DB, _Byte, _Length + 2, Buffer)
+                plc(_PLC_Number).client.DBWrite(_DB, _Byte, _Length + 2, Buffer)
 
-            Case DataType.UINT
 
             Case Else
 
@@ -356,26 +429,28 @@ Class VS7_Textbox
         Dim txt As String = ""
         Select Case _PLC_DataType
             Case DataType.BOOL
-                txt = ViSnap7.S7.GetBitAt(_DBData.Data, _PLC_Byte, _PLC_Bit)
+                txt = ViSnap7.S7.GetBitAt(_DBData.data, _PLC_Byte, _PLC_Bit)
             Case DataType.CHR
                 txt = ViSnap7.S7.GetCharsAt(_DBData.data, _PLC_Byte, 1)
             Case DataType.DINT
-                txt = ViSnap7.S7.GetDIntAt(_DBData.Data, _PLC_Byte)
+                txt = ViSnap7.S7.GetDIntAt(_DBData.data, _PLC_Byte)
             Case DataType.INT
-                txt = ViSnap7.S7.GetIntAt(_DBData.Data, _PLC_Byte)
+                txt = ViSnap7.S7.GetIntAt(_DBData.data, _PLC_Byte)
             Case DataType.REAL
-                txt = ViSnap7.S7.GetRealAt(_DBData.Data, _PLC_Byte)
+                txt = ViSnap7.S7.GetRealAt(_DBData.data, _PLC_Byte)
             Case DataType.SINT
-                txt = ViSnap7.S7.GetSIntAt(_DBData.Data, _PLC_Byte)
+                txt = ViSnap7.S7.GetSIntAt(_DBData.data, _PLC_Byte)
             Case DataType.STR
-                txt = ViSnap7.S7.GetStringAt(_DBData.Data, _PLC_Byte)
-            Case DataType.UINT
-                txt = ViSnap7.S7.GetUIntAt(_DBData.Data, _PLC_Byte)
+                txt = ViSnap7.S7.GetStringAt(_DBData.data, _PLC_Byte)
+            Case DataType.USINT
+                txt = ViSnap7.S7.GetUSIntAt(_DBData.data, _PLC_Byte)
             Case Else
                 txt = ""
         End Select
         Return txt
     End Function
+
+
 #End Region
 
 
@@ -533,7 +608,16 @@ Friend Class PLCTextBoxActionList
 
         End Set
     End Property
+    Public Property PLC_keyboard() As Boolean
+        Get
+            Return ctr.PLC_keyboard
+        End Get
+        Set(ByVal value As Boolean)
+            GetPropertyByName(ctr, "PLC_keyboard").SetValue(ctr, value)
+            designerActionSvc.Refresh(ctr)
 
+        End Set
+    End Property
 
 #End Region
 
@@ -596,6 +680,8 @@ Friend Class PLCTextBoxActionList
         If PLC_DataType = DataType.STR Then
             items.Add(New DesignerActionPropertyItem("PLC_Length", KPlcLengthLabel, KPlcAdressingCategory, KPlcTipStrLength))
         End If
+        items.Add(New DesignerActionPropertyItem("PLC_keyboard", KPlcKeyboard, KPlcFormCategory, KPlcKeyboard))
+
         items.Add(New DesignerActionPropertyItem("PLC_FormActive", KPlcFormActive, KPlcFormCategory, KPlcTipPlcFormActive))
         If PLC_FormActive Then
             items.Add(New DesignerActionPropertyItem("PLC_FormNumber", KPlcFormNumber, KPlcFormCategory, KPlcTipPlcFormNumber))

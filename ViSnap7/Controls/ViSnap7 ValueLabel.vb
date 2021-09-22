@@ -137,8 +137,8 @@ Class VS7_ValueLabel
                 txt = ViSnap7.S7.GetSIntAt(_DBData.Data, _PLC_Byte)
             Case DataType.STR
                 txt = ViSnap7.S7.GetStringAt(_DBData.Data, _PLC_Byte)
-            Case DataType.UINT
-                txt = ViSnap7.S7.GetUIntAt(_DBData.Data, _PLC_Byte)
+            Case DataType.USINT
+                txt = ViSnap7.S7.GetUSIntAt(_DBData.data, _PLC_Byte)
             Case Else
                 txt = ""
         End Select

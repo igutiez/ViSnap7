@@ -70,6 +70,7 @@
     Public Const KPlcReferenceValueLabel = "Define the value to be compared to"
     Public Const KPlcFormActive = "This contros is used in a form"
     Public Const KPlcFormNumber = "Form N#"
+    Public Const KPlcKeyboard = "Use screen keyboard"
     Public Const KPlcLoadForm = "Loading Form"
     Public Const KPlcShapeType = "Shape type"
     Public Const KPlcColorTrue = "Color True"

@@ -172,7 +172,7 @@ Public Class VS7_RWVariable
                 ViSnap7.S7.SetRealAt(Buffer, 0, _Text)
                 plc(_PLC_Number).client.WriteArea(_DataArea, _DB, _Byte, 1, ViSnap7.S7Consts.S7WLReal, Buffer)
 
-            Case DataType.SINT
+            Case DataType.SINT, DataType.USINT
                 Dim Buffer(0) As Byte
                 ViSnap7.S7.SetSIntAt(Buffer, 0, _Text)
                 plc(_PLC_Number).client.WriteArea(_DataArea, _DB, _Byte, 1, ViSnap7.S7Consts.S7WLByte, Buffer)
@@ -182,7 +182,7 @@ Public Class VS7_RWVariable
                 ViSnap7.S7.SetStringAt(Buffer, 0, _Length, _Text)
                 plc(_PLC_Number).client.DBWrite(_DB, _Byte, _Length + 2, Buffer)
 
-            Case DataType.UINT
+
 
             Case Else
 
@@ -207,8 +207,8 @@ Public Class VS7_RWVariable
                 txt = ViSnap7.S7.GetSIntAt(_DBData.data, _PLC_Byte)
             Case DataType.STR
                 txt = ViSnap7.S7.GetStringAt(_DBData.data, _PLC_Byte)
-            Case DataType.UINT
-                txt = ViSnap7.S7.GetUIntAt(_DBData.data, _PLC_Byte)
+            Case DataType.USINT
+                txt = ViSnap7.S7.GetUSIntAt(_DBData.data, _PLC_Byte)
             Case Else
                 txt = ""
         End Select

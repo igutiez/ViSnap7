@@ -32,6 +32,36 @@ Proyecto_ViSnap7
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Proyecto_ViSnap7.My.Resources.Resources.alt">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Proyecto_ViSnap7.My.Resources.Resources.backspace_icon">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Proyecto_ViSnap7.My.Resources.Resources.caps_lock">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Proyecto_ViSnap7.My.Resources.Resources.clear">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Proyecto_ViSnap7.My.Resources.Resources.enter">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Proyecto_ViSnap7.My.Resources.Resources.icons8_shift_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="T:Proyecto_ViSnap7.VS7_ListBox">
  <summary>
  PLC ListBox user control 
