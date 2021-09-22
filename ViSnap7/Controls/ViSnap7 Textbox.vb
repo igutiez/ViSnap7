@@ -135,9 +135,9 @@ Public Class VS7_Textbox
         End If
 
     End Sub
-    Private Sub MadeClick(sender As Object, e As EventArgs) Handles Me.Click
+    Private Sub CtrClick(sender As Object, e As EventArgs) Handles Me.Click
         If Me.PLC_keyboard Then
-
+            Me.controlFocused = True
             Select Case Me.PLC_DataType
                 Case DataType.INT, DataType.DINT, DataType.REAL, DataType.USINT, DataType.SINT
                     Dim keyboard As New VS7_NumericKeyboard(Me)
@@ -160,11 +160,16 @@ Public Class VS7_Textbox
 
     End Sub
     Public Sub ControlGotFocus(ByVal sender As Object, ByVal e As EventArgs) Handles Me.GotFocus
-        Me.controlFocused = True
+        If Not Me.PLC_keyboard Then
+            Me.controlFocused = True
+        End If
 
     End Sub
     Public Sub ControlLostFocus(ByVal sender As Object, ByVal e As EventArgs) Handles Me.LostFocus
-        Me.controlFocused = False
+        If Not Me.PLC_keyboard Then
+            Me.controlFocused = False
+        End If
+
     End Sub
     Private Sub ControlIsCreated(sender As Object, e As EventArgs) Handles Me.HandleCreated
         Me.Text = ""

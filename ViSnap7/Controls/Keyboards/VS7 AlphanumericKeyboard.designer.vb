@@ -78,7 +78,7 @@ Partial Class VS7_AlphanumericKeyboard
         '
         Me.Button10.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button10.Location = New System.Drawing.Point(556, 55)
-        Me.Button10.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button10.Margin = New System.Windows.Forms.Padding(2)
         Me.Button10.Name = "Button10"
         Me.Button10.Size = New System.Drawing.Size(56, 41)
         Me.Button10.TabIndex = 29
@@ -89,7 +89,7 @@ Partial Class VS7_AlphanumericKeyboard
         '
         Me.Button11.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button11.Location = New System.Drawing.Point(495, 55)
-        Me.Button11.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button11.Margin = New System.Windows.Forms.Padding(2)
         Me.Button11.Name = "Button11"
         Me.Button11.Size = New System.Drawing.Size(56, 41)
         Me.Button11.TabIndex = 28
@@ -100,7 +100,7 @@ Partial Class VS7_AlphanumericKeyboard
         '
         Me.Button12.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button12.Location = New System.Drawing.Point(434, 55)
-        Me.Button12.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button12.Margin = New System.Windows.Forms.Padding(2)
         Me.Button12.Name = "Button12"
         Me.Button12.Size = New System.Drawing.Size(56, 41)
         Me.Button12.TabIndex = 27
@@ -111,7 +111,7 @@ Partial Class VS7_AlphanumericKeyboard
         '
         Me.Button13.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button13.Location = New System.Drawing.Point(374, 55)
-        Me.Button13.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button13.Margin = New System.Windows.Forms.Padding(2)
         Me.Button13.Name = "Button13"
         Me.Button13.Size = New System.Drawing.Size(56, 41)
         Me.Button13.TabIndex = 26
@@ -122,7 +122,7 @@ Partial Class VS7_AlphanumericKeyboard
         '
         Me.Button14.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button14.Location = New System.Drawing.Point(313, 55)
-        Me.Button14.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button14.Margin = New System.Windows.Forms.Padding(2)
         Me.Button14.Name = "Button14"
         Me.Button14.Size = New System.Drawing.Size(56, 41)
         Me.Button14.TabIndex = 25
@@ -133,7 +133,7 @@ Partial Class VS7_AlphanumericKeyboard
         '
         Me.Button15.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button15.Location = New System.Drawing.Point(252, 55)
-        Me.Button15.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button15.Margin = New System.Windows.Forms.Padding(2)
         Me.Button15.Name = "Button15"
         Me.Button15.Size = New System.Drawing.Size(56, 41)
         Me.Button15.TabIndex = 24
@@ -144,7 +144,7 @@ Partial Class VS7_AlphanumericKeyboard
         '
         Me.Button16.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button16.Location = New System.Drawing.Point(191, 55)
-        Me.Button16.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button16.Margin = New System.Windows.Forms.Padding(2)
         Me.Button16.Name = "Button16"
         Me.Button16.Size = New System.Drawing.Size(56, 41)
         Me.Button16.TabIndex = 23
@@ -155,7 +155,7 @@ Partial Class VS7_AlphanumericKeyboard
         '
         Me.Button17.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button17.Location = New System.Drawing.Point(130, 55)
-        Me.Button17.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button17.Margin = New System.Windows.Forms.Padding(2)
         Me.Button17.Name = "Button17"
         Me.Button17.Size = New System.Drawing.Size(56, 41)
         Me.Button17.TabIndex = 21
@@ -166,18 +166,18 @@ Partial Class VS7_AlphanumericKeyboard
         '
         Me.Button18.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button18.Location = New System.Drawing.Point(70, 55)
-        Me.Button18.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button18.Margin = New System.Windows.Forms.Padding(2)
         Me.Button18.Name = "Button18"
         Me.Button18.Size = New System.Drawing.Size(56, 41)
         Me.Button18.TabIndex = 22
-        Me.Button18.Text = "u"
+        Me.Button18.Text = "w"
         Me.Button18.UseVisualStyleBackColor = True
         '
         'Button19
         '
         Me.Button19.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button19.Location = New System.Drawing.Point(9, 55)
-        Me.Button19.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button19.Margin = New System.Windows.Forms.Padding(2)
         Me.Button19.Name = "Button19"
         Me.Button19.Size = New System.Drawing.Size(56, 41)
         Me.Button19.TabIndex = 20
@@ -188,7 +188,7 @@ Partial Class VS7_AlphanumericKeyboard
         '
         Me.Button20.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button20.Location = New System.Drawing.Point(434, 100)
-        Me.Button20.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button20.Margin = New System.Windows.Forms.Padding(2)
         Me.Button20.Name = "Button20"
         Me.Button20.Size = New System.Drawing.Size(56, 41)
         Me.Button20.TabIndex = 37
@@ -199,7 +199,7 @@ Partial Class VS7_AlphanumericKeyboard
         '
         Me.Button21.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button21.Location = New System.Drawing.Point(374, 100)
-        Me.Button21.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button21.Margin = New System.Windows.Forms.Padding(2)
         Me.Button21.Name = "Button21"
         Me.Button21.Size = New System.Drawing.Size(56, 41)
         Me.Button21.TabIndex = 36
@@ -210,7 +210,7 @@ Partial Class VS7_AlphanumericKeyboard
         '
         Me.Button22.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button22.Location = New System.Drawing.Point(313, 100)
-        Me.Button22.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button22.Margin = New System.Windows.Forms.Padding(2)
         Me.Button22.Name = "Button22"
         Me.Button22.Size = New System.Drawing.Size(56, 41)
         Me.Button22.TabIndex = 35
@@ -221,7 +221,7 @@ Partial Class VS7_AlphanumericKeyboard
         '
         Me.Button23.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button23.Location = New System.Drawing.Point(252, 100)
-        Me.Button23.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button23.Margin = New System.Windows.Forms.Padding(2)
         Me.Button23.Name = "Button23"
         Me.Button23.Size = New System.Drawing.Size(56, 41)
         Me.Button23.TabIndex = 34
@@ -232,7 +232,7 @@ Partial Class VS7_AlphanumericKeyboard
         '
         Me.Button24.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button24.Location = New System.Drawing.Point(191, 100)
-        Me.Button24.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button24.Margin = New System.Windows.Forms.Padding(2)
         Me.Button24.Name = "Button24"
         Me.Button24.Size = New System.Drawing.Size(56, 41)
         Me.Button24.TabIndex = 33
@@ -243,7 +243,7 @@ Partial Class VS7_AlphanumericKeyboard
         '
         Me.Button25.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button25.Location = New System.Drawing.Point(130, 100)
-        Me.Button25.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button25.Margin = New System.Windows.Forms.Padding(2)
         Me.Button25.Name = "Button25"
         Me.Button25.Size = New System.Drawing.Size(56, 41)
         Me.Button25.TabIndex = 31
@@ -254,7 +254,7 @@ Partial Class VS7_AlphanumericKeyboard
         '
         Me.Button26.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button26.Location = New System.Drawing.Point(70, 100)
-        Me.Button26.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button26.Margin = New System.Windows.Forms.Padding(2)
         Me.Button26.Name = "Button26"
         Me.Button26.Size = New System.Drawing.Size(56, 41)
         Me.Button26.TabIndex = 32
@@ -265,7 +265,7 @@ Partial Class VS7_AlphanumericKeyboard
         '
         Me.Button27.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button27.Location = New System.Drawing.Point(9, 100)
-        Me.Button27.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button27.Margin = New System.Windows.Forms.Padding(2)
         Me.Button27.Name = "Button27"
         Me.Button27.Size = New System.Drawing.Size(56, 41)
         Me.Button27.TabIndex = 30
@@ -276,7 +276,7 @@ Partial Class VS7_AlphanumericKeyboard
         '
         Me.Button28.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button28.Location = New System.Drawing.Point(495, 100)
-        Me.Button28.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button28.Margin = New System.Windows.Forms.Padding(2)
         Me.Button28.Name = "Button28"
         Me.Button28.Size = New System.Drawing.Size(56, 41)
         Me.Button28.TabIndex = 38
@@ -287,7 +287,7 @@ Partial Class VS7_AlphanumericKeyboard
         '
         Me.Button30.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button30.Location = New System.Drawing.Point(434, 145)
-        Me.Button30.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button30.Margin = New System.Windows.Forms.Padding(2)
         Me.Button30.Name = "Button30"
         Me.Button30.Size = New System.Drawing.Size(56, 41)
         Me.Button30.TabIndex = 45
@@ -298,7 +298,7 @@ Partial Class VS7_AlphanumericKeyboard
         '
         Me.Button31.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button31.Location = New System.Drawing.Point(374, 145)
-        Me.Button31.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button31.Margin = New System.Windows.Forms.Padding(2)
         Me.Button31.Name = "Button31"
         Me.Button31.Size = New System.Drawing.Size(56, 41)
         Me.Button31.TabIndex = 44
@@ -309,7 +309,7 @@ Partial Class VS7_AlphanumericKeyboard
         '
         Me.Button32.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button32.Location = New System.Drawing.Point(313, 145)
-        Me.Button32.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button32.Margin = New System.Windows.Forms.Padding(2)
         Me.Button32.Name = "Button32"
         Me.Button32.Size = New System.Drawing.Size(56, 41)
         Me.Button32.TabIndex = 43
@@ -320,7 +320,7 @@ Partial Class VS7_AlphanumericKeyboard
         '
         Me.Button33.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button33.Location = New System.Drawing.Point(252, 145)
-        Me.Button33.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button33.Margin = New System.Windows.Forms.Padding(2)
         Me.Button33.Name = "Button33"
         Me.Button33.Size = New System.Drawing.Size(56, 41)
         Me.Button33.TabIndex = 42
@@ -331,7 +331,7 @@ Partial Class VS7_AlphanumericKeyboard
         '
         Me.Button34.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button34.Location = New System.Drawing.Point(191, 145)
-        Me.Button34.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button34.Margin = New System.Windows.Forms.Padding(2)
         Me.Button34.Name = "Button34"
         Me.Button34.Size = New System.Drawing.Size(56, 41)
         Me.Button34.TabIndex = 40
@@ -342,7 +342,7 @@ Partial Class VS7_AlphanumericKeyboard
         '
         Me.Button35.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button35.Location = New System.Drawing.Point(131, 145)
-        Me.Button35.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button35.Margin = New System.Windows.Forms.Padding(2)
         Me.Button35.Name = "Button35"
         Me.Button35.Size = New System.Drawing.Size(56, 41)
         Me.Button35.TabIndex = 41
@@ -353,7 +353,7 @@ Partial Class VS7_AlphanumericKeyboard
         '
         Me.Button36.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button36.Location = New System.Drawing.Point(70, 145)
-        Me.Button36.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button36.Margin = New System.Windows.Forms.Padding(2)
         Me.Button36.Name = "Button36"
         Me.Button36.Size = New System.Drawing.Size(56, 41)
         Me.Button36.TabIndex = 39
@@ -364,7 +364,7 @@ Partial Class VS7_AlphanumericKeyboard
         '
         Me.Button38.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button38.Location = New System.Drawing.Point(131, 188)
-        Me.Button38.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button38.Margin = New System.Windows.Forms.Padding(2)
         Me.Button38.Name = "Button38"
         Me.Button38.Size = New System.Drawing.Size(299, 41)
         Me.Button38.TabIndex = 48
@@ -379,7 +379,7 @@ Partial Class VS7_AlphanumericKeyboard
         Me.Button42.Name = "Button42"
         Me.Button42.Size = New System.Drawing.Size(56, 41)
         Me.Button42.TabIndex = 52
-        Me.Button42.Text = "m"
+        Me.Button42.Text = ";"
         Me.Button42.UseVisualStyleBackColor = True
         '
         'Button43
@@ -401,7 +401,7 @@ Partial Class VS7_AlphanumericKeyboard
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(56, 41)
         Me.Button1.TabIndex = 54
-        Me.Button1.Text = ","
+        Me.Button1.Text = ":"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Button2
@@ -445,7 +445,7 @@ Partial Class VS7_AlphanumericKeyboard
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(56, 41)
         Me.Button5.TabIndex = 58
-        Me.Button5.Text = "%"
+        Me.Button5.Text = "/"
         Me.Button5.UseVisualStyleBackColor = True
         '
         'Button6
@@ -572,12 +572,12 @@ Partial Class VS7_AlphanumericKeyboard
         'Button41
         '
         Me.Button41.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button41.Image = Global.Proyecto_ViSnap7.My.Resources.Resources.alt
         Me.Button41.Location = New System.Drawing.Point(10, 188)
         Me.Button41.Margin = New System.Windows.Forms.Padding(2)
         Me.Button41.Name = "Button41"
         Me.Button41.Size = New System.Drawing.Size(56, 41)
         Me.Button41.TabIndex = 51
+        Me.Button41.Text = "?"
         Me.Button41.UseVisualStyleBackColor = True
         '
         'Button40
@@ -680,12 +680,12 @@ Partial Class VS7_AlphanumericKeyboard
         Me.Controls.Add(Me.Button17)
         Me.Controls.Add(Me.Button18)
         Me.Controls.Add(Me.Button19)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "VS7_AlphanumericKeyboard"
         Me.ShowIcon = False
-        Me.Text = "VS7_AlphanumericKeyboard"
+        Me.Text = "Keyboard"
         Me.ResumeLayout(False)
 
     End Sub
