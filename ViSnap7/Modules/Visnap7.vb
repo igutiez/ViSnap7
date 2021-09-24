@@ -458,7 +458,12 @@ Namespace ViSnap7
         Public Sub SetSIntAt(ByVal Buffer As Byte(), ByVal Pos As Integer, ByVal Value As Integer)
             If Value < -128 Then Value = -128
             If Value > 127 Then Value = 127
-            Buffer(Pos) = CByte(Value)
+            If Value >= 0 Then
+                Buffer(Pos) = CByte(Value)
+            Else
+                Buffer(Pos) = CByte(256 + Value)
+            End If
+
         End Sub
 #End Region
 

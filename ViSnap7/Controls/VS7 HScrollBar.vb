@@ -196,9 +196,9 @@ Public Class VS7_HScrollBar
                 ViSnap7.S7.SetRealAt(Buffer, 0, _Text)
                 plc(_PLC_Number).client.WriteArea(_DataArea, _DB, _Byte, 1, ViSnap7.S7Consts.S7WLReal, Buffer)
 
-            Case DataType.SINT, DataType.USINT
+            Case DataType.USINT
                 Dim Buffer(0) As Byte
-                ViSnap7.S7.SetSIntAt(Buffer, 0, _Text)
+                ViSnap7.S7.SetUSIntAt(Buffer, 0, _Text)
                 plc(_PLC_Number).client.WriteArea(_DataArea, _DB, _Byte, 1, ViSnap7.S7Consts.S7WLByte, Buffer)
 
             Case DataType.STR
@@ -206,6 +206,10 @@ Public Class VS7_HScrollBar
                 ViSnap7.S7.SetStringAt(Buffer, 0, _Length, _Text)
                 plc(_PLC_Number).client.DBWrite(_DB, _Byte, _Length + 2, Buffer)
 
+            Case DataType.SINT
+                Dim Buffer(0) As Byte
+                ViSnap7.S7.SetSIntAt(Buffer, 0, _Text)
+                plc(_PLC_Number).client.WriteArea(_DataArea, _DB, _Byte, 1, ViSnap7.S7Consts.S7WLByte, Buffer)
 
 
             Case Else
