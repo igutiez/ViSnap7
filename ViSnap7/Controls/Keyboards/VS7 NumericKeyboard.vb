@@ -110,6 +110,7 @@
         End With
 
         Me.Close()
+
     End Sub
 
     Private Sub VS7_NumericKeyboard_Deactivate(sender As Object, e As EventArgs) Handles Me.Deactivate
@@ -143,6 +144,11 @@
 
     Private Sub ButtonMinus10_Click(sender As Object, e As EventArgs) Handles ButtonMinus10.Click
         Aritmethic(-10)
+
+    End Sub
+
+    Private Sub VS7_NumericKeyboard_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        BackgroundTasks.InibitUpdateControls = True
 
     End Sub
 End Class

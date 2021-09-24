@@ -138,6 +138,7 @@ Public Class VS7_Textbox
     Private Sub CtrClick(sender As Object, e As EventArgs) Handles Me.Click
         If Me.PLC_keyboard Then
             Me.controlFocused = True
+            BackgroundTasks.InibitUpdateControls = True
             Select Case Me.PLC_DataType
                 Case DataType.INT, DataType.DINT, DataType.REAL, DataType.USINT, DataType.SINT
                     Dim keyboard As New VS7_NumericKeyboard(Me)

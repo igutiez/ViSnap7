@@ -274,6 +274,7 @@
         End With
 
         Me.Close()
+
     End Sub
 
     Private Sub Button29_Click(sender As Object, e As EventArgs) Handles Button29.Click
@@ -284,5 +285,9 @@
 
     Private Sub Button41_Click(sender As Object, e As EventArgs) Handles Button41.Click
         WriteOnForm("?")
+    End Sub
+
+    Private Sub VS7_AlphanumericKeyboard_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        BackgroundTasks.InibitUpdateControls = True
     End Sub
 End Class

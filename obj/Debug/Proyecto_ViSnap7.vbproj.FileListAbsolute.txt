@@ -139,3 +139,4 @@ C:\Users\iguti\OneDrive\Documentos\GitHUb\obj\Debug\Proyecto_ViSnap7.exe
 C:\Users\iguti\OneDrive\Documentos\GitHUb\obj\Debug\Proyecto_ViSnap7.xml
 C:\Users\iguti\OneDrive\Documentos\GitHUb\obj\Debug\Proyecto_ViSnap7.pdb
 C:\Users\iguti\OneDrive\Documentos\GITHUB\obj\Debug\Proyecto_ViSnap7.Main.resources
+C:\Users\iguti\OneDrive\Documentos\GitHUb\obj\Debug\Proyecto_ViSnap7.vbproj.AssemblyReference.cache
