@@ -156,15 +156,12 @@ Public Class VS7_Textbox
                     Dim keyboard As New VS7_NumericKeyboard(Me)
                     keyboard.Show()
                     keyboard.Location = New Point(Me.Parent.Location.X + Me.Location.X + Me.Width, Me.Parent.Location.Y + Me.Location.Y)
-                    keyboard.BringToFront()
                     Me.controlFocused = True
                 Case DataType.STR, DataType.CHR
                     Dim keyboard As New VS7_AlphanumericKeyboard(Me)
                     keyboard.Show()
-                    keyboard.Show()
                     keyboard.Location = New Point(Me.Parent.Location.X + Me.Location.X + Me.Width, Me.Parent.Location.Y + Me.Location.Y)
-                    keyboard.BringToFront()
-
+                    Me.controlFocused = True
 
                 Case Else
 

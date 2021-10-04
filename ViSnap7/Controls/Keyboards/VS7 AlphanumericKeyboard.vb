@@ -49,14 +49,6 @@
         VS7textbox.Text = ""
     End Sub
 
-    Private Sub VS7_AlphanumericKeyboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
-
-
-
-
     Sub WriteOnForm(ByVal value As String)
         VS7textbox.controlFocused = True
 
@@ -290,4 +282,6 @@
     Private Sub VS7_AlphanumericKeyboard_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         BackgroundTasks.InhibitUpdateControls = True
     End Sub
+
+
 End Class
