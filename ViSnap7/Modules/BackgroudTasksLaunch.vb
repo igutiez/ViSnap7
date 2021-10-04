@@ -29,7 +29,7 @@ Module BackgroudTasksLaunch
             udateControls = True
         End If
         'Read all active controls
-        UpdateFormsTasks.ReadControls(udateControls)
+        UpdateFormsTasks.UpdateControls(udateControls)
         'Terminated the first execution
         firstExecution = False
         

@@ -32,4 +32,9 @@
 
 
 
+    REM User Management
+    Public UserFolder As String = Application.StartupPath & "\usuarios"
+    Public SuperAdminNombre = "admin"
+    Public SuperAdminPwd = "admin"
+
 End Module

@@ -195,7 +195,7 @@ Proyecto_ViSnap7
  Array data of bytes
  </summary>
 </member>
-<member name="M:Proyecto_ViSnap7.UpdateFormsTasks.ReadControls(System.Boolean)">
+<member name="M:Proyecto_ViSnap7.UpdateFormsTasks.UpdateControls(System.Boolean)">
  <summary>
  It is used for reading/writing the control. 
  </summary>

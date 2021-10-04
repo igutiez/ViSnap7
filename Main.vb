@@ -3,4 +3,5 @@
         'DO NOT CHANGE THIS LINE
         General.LaunchCommunications()
     End Sub
+
 End Class

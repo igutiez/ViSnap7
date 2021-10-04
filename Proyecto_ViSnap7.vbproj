@@ -146,6 +146,24 @@
     <Compile Include="ViSnap7\Controls\Keyboards\VS7 NumericKeyboard.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ViSnap7\Controls\UserLevels\UserEditorForm.designer.vb">
+      <DependentUpon>UserEditorForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ViSnap7\Controls\UserLevels\UserEditorForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViSnap7\Controls\UserLevels\SimpleLogin.designer.vb">
+      <DependentUpon>SimpleLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ViSnap7\Controls\UserLevels\SimpleLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViSnap7\Controls\UserLevels\PLC_UserManagement.designer.vb">
+      <DependentUpon>PLC_UserManagement.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ViSnap7\Controls\UserLevels\PLC_UserManagement.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="ViSnap7\Controls\ViSnap7 ListBox.vb">
       <SubType>Component</SubType>
     </Compile>
@@ -272,6 +290,15 @@
     <EmbeddedResource Include="ViSnap7\Controls\Keyboards\VS7 NumericKeyboard.resx">
       <DependentUpon>VS7 NumericKeyboard.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ViSnap7\Controls\UserLevels\UserEditorForm.resx">
+      <DependentUpon>UserEditorForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViSnap7\Controls\UserLevels\SimpleLogin.resx">
+      <DependentUpon>SimpleLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViSnap7\Controls\UserLevels\PLC_UserManagement.resx">
+      <DependentUpon>PLC_UserManagement.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViSnap7\Controls\ViSnap7 LoadSaveForm\LoadDialog.resx">
       <DependentUpon>LoadDialog.vb</DependentUpon>
     </EmbeddedResource>
@@ -319,5 +346,6 @@
     <Content Include="ViSnap7.ico" />
     <Content Include="ViSnap7\Controls\Alarms\alarmas.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

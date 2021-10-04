@@ -15,6 +15,8 @@
     Public Const KPlcLedCategory = "Led characteristics"
     Public Const KPlcButtonCategory = "Button characteristics"
     Public Const KPlcNumberLabel = "PLC N#"
+    Public Const KPlcUserLevel = "User Level"
+    Public Const KPlcSecLevel = "Required Level"
     Public Const KPlcMaximumValue = "Maximum Value"
     Public Const KPlcMinimumValue = "Minimum Value"
     Public Const KPlcOrientation = "Orientation"
@@ -123,4 +125,14 @@
     Public Const KRequestRetry = ". Retry the connection?"
     Public Const KErrorConnectionTitle = "Connection error"
     Public Const KErrorIntroducingValue = "Error introducing value."
+
+    Public Const KLogin = "LOGIN"
+    Public Const KLogout = "EXIT"
+    Public Const KAreSureDeleteUser = "Are you sure you want to delete this user?"
+    Public Const KUserNotExist = "This user does not exist. Delete not possible."
+    Public Const KUser = "User"
+    Public Const KDeleted = "deleted"
+    Public Const KUserNameError = "User name error"
+    Public Const KUserPassDontMach = "User/Pass does not match. Try again"
+    Public Const KUserAdminError = "The admin name is not available. Try another one."
 End Module

@@ -288,6 +288,6 @@
     End Sub
 
     Private Sub VS7_AlphanumericKeyboard_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
-        BackgroundTasks.InibitUpdateControls = True
+        BackgroundTasks.InhibitUpdateControls = True
     End Sub
 End Class

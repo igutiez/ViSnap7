@@ -3,7 +3,8 @@
     "",
     "\\ViSnap7",
     "\\ViSnap7\\Controls",
-    "\\ViSnap7\\Controls\\Keyboards"
+    "\\ViSnap7\\Controls\\Keyboards",
+    "\\ViSnap7\\Modules"
   ],
   "SelectedNode": "\\Main.vb",
   "PreviewInSolutionExplorer": false

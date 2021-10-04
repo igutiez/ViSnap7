@@ -2,7 +2,7 @@
     Public openFormsLastIteration As Integer
     Public totalPlcNumber As Integer = 0
     Public UpdateNumberOfControlsActive As Boolean
-    Public InibitUpdateControls As Boolean
+    Public InhibitUpdateControls As Boolean
 
     Private minReference As Integer = 9999
     Private maxReferece As Integer = -1
@@ -28,10 +28,10 @@
         'Update controls when Open/close forms 
         'Only if number of openforms changes this is performed.
         'This can be set externally to force a new update
-        If (My.Application.OpenForms.Count <> openFormsLastIteration) And (Not InibitUpdateControls) Then
+        If (My.Application.OpenForms.Count <> openFormsLastIteration) And (Not InhibitUpdateControls) Then
             UpdateNumberOfControlsActive = True
         End If
-        InibitUpdateControls = False
+        InhibitUpdateControls = False
 
         If UpdateNumberOfControlsActive Then
             UpdateNumberOfControlsActive = False
@@ -268,9 +268,9 @@
                 If .Connected Then
 
                     'Read DB data
-                    For DbIndex = 0 To .DBData.GetUpperBound(0)
-                        If .DBData(DbIndex).Data IsNot Nothing And (DbIndex > 0) Then
-                            FillDb(c, DbIndex, .DBData(DbIndex).MinByte, .DBData(DbIndex).MaxByte)
+                    For DbIndex = 0 To .dbData.GetUpperBound(0)
+                        If .dbData(DbIndex).data IsNot Nothing And (DbIndex > 0) Then
+                            FillDb(c, DbIndex, .dbData(DbIndex).minByte, .dbData(DbIndex).maxByte)
                         End If
 
                     Next

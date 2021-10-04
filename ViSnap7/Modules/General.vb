@@ -3,7 +3,26 @@
 ''' General module of communication
 ''' </summary>
 Public Module General
+    'Users management
+    Public Hash As String
+    Public ActiveUserName As String
+    Public ActiveUserLevel As Integer
+    Public ActiveUserLogin As Boolean
+    Public Const KShowProperties As Boolean = True
 
+
+    Public Enum UserLevels
+        [None] = 0
+        [Level_1] = 1
+        [Level_2] = 2
+        [Level_3] = 3
+        [Level_4] = 4
+        [Level_5] = 5
+        [Level_6] = 6
+        [Level_7] = 7
+        [Level_8] = 8
+        [Level_9] = 9
+    End Enum
     'Used for tasks that only should be executed at the loading of the main form.
     Public firstExecution As Boolean
 
