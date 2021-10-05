@@ -130,11 +130,9 @@ C:\Users\iguti\OneDrive\Documentos\GitHUb\obj\Debug\Proyecto_ViSnap7.VS7_Alphanu
 C:\Users\iguti\OneDrive\Documentos\GitHUb\obj\Debug\Proyecto_ViSnap7.VS7_NumericKeyboard.resources
 C:\Users\iguti\OneDrive\Documentos\GitHUb\obj\Debug\Proyecto_ViSnap7.UserEditorForm.resources
 C:\Users\iguti\OneDrive\Documentos\GitHUb\obj\Debug\Proyecto_ViSnap7.SimpleLogin.resources
-C:\Users\iguti\OneDrive\Documentos\GitHUb\obj\Debug\Proyecto_ViSnap7.PLC_UserManagement.resources
 C:\Users\iguti\OneDrive\Documentos\GitHUb\obj\Debug\Proyecto_ViSnap7.LoadDialog.resources
 C:\Users\iguti\OneDrive\Documentos\GitHUb\obj\Debug\Proyecto_ViSnap7.SaveDialog.resources
 C:\Users\iguti\OneDrive\Documentos\GitHUb\obj\Debug\Proyecto_ViSnap7.VS7_IOByte.resources
-C:\Users\iguti\OneDrive\Documentos\GitHUb\obj\Debug\Proyecto_ViSnap7.ViSnap7_DynamicLabel.resources
 C:\Users\iguti\OneDrive\Documentos\GitHUb\obj\Debug\Proyecto_ViSnap7.VS7_IncreaseDecrease.resources
 C:\Users\iguti\OneDrive\Documentos\GitHUb\obj\Debug\Proyecto_ViSnap7.VS7_Trends.resources
 C:\Users\iguti\OneDrive\Documentos\GitHUb\obj\Debug\Proyecto_ViSnap7.vbproj.GenerateResource.cache
@@ -142,4 +140,5 @@ C:\Users\iguti\OneDrive\Documentos\GitHUb\obj\Debug\Proyecto_ViSnap7.vbproj.Core
 C:\Users\iguti\OneDrive\Documentos\GitHUb\obj\Debug\Proyecto_ViSnap7.exe
 C:\Users\iguti\OneDrive\Documentos\GitHUb\obj\Debug\Proyecto_ViSnap7.xml
 C:\Users\iguti\OneDrive\Documentos\GitHUb\obj\Debug\Proyecto_ViSnap7.pdb
-C:\Users\iguti\OneDrive\Documentos\GitHUb\obj\Debug\Proyecto_ViSnap7.vbproj.AssemblyReference.cache
+C:\Users\iguti\OneDrive\Documentos\GitHUb\obj\Debug\Proyecto_ViSnap7.VS7_UserManagement.resources
+C:\Users\iguti\OneDrive\Documentos\GitHUb\obj\Debug\Proyecto_ViSnap7.VS7_DynamicLabel.resources

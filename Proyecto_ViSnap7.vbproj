@@ -158,10 +158,10 @@
     <Compile Include="ViSnap7\Controls\UserLevels\SimpleLogin.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ViSnap7\Controls\UserLevels\PLC_UserManagement.designer.vb">
-      <DependentUpon>PLC_UserManagement.vb</DependentUpon>
+    <Compile Include="ViSnap7\Controls\UserLevels\VS7 UserManagement.designer.vb">
+      <DependentUpon>VS7 UserManagement.vb</DependentUpon>
     </Compile>
-    <Compile Include="ViSnap7\Controls\UserLevels\PLC_UserManagement.vb">
+    <Compile Include="ViSnap7\Controls\UserLevels\VS7 UserManagement.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ViSnap7\Controls\ViSnap7 ListBox.vb">
@@ -227,28 +227,28 @@
     <Compile Include="ViSnap7\Controls\ViSnap7 ValueLabel.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ViSnap7\Controls\VS7 Gauge.vb">
+    <Compile Include="ViSnap7\Controls\ViSnap7 Gauge.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ViSnap7\Controls\VS7 IncreaseDecrease.Designer.vb">
-      <DependentUpon>VS7 IncreaseDecrease.vb</DependentUpon>
+    <Compile Include="ViSnap7\Controls\ViSnap7 IncreaseDecrease.Designer.vb">
+      <DependentUpon>ViSnap7 IncreaseDecrease.vb</DependentUpon>
     </Compile>
-    <Compile Include="ViSnap7\Controls\VS7 IncreaseDecrease.vb">
+    <Compile Include="ViSnap7\Controls\ViSnap7 IncreaseDecrease.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ViSnap7\Controls\VS7 VScrollBar.vb">
+    <Compile Include="ViSnap7\Controls\ViSnap7 VScrollBar.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ViSnap7\Controls\VS7 HScrollBar.vb">
+    <Compile Include="ViSnap7\Controls\ViSnap7 HScrollBar.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ViSnap7\Controls\VS7 Slider.vb">
+    <Compile Include="ViSnap7\Controls\ViSnap7 Slider.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ViSnap7\Controls\VS7 Trends.Designer.vb">
-      <DependentUpon>VS7 Trends.vb</DependentUpon>
+    <Compile Include="ViSnap7\Controls\ViSnap7 Trends.Designer.vb">
+      <DependentUpon>ViSnap7 Trends.vb</DependentUpon>
     </Compile>
-    <Compile Include="ViSnap7\Controls\VS7 Trends.vb">
+    <Compile Include="ViSnap7\Controls\ViSnap7 Trends.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ViSnap7\Modules\BackgroudTasksLaunch.vb" />
@@ -296,8 +296,8 @@
     <EmbeddedResource Include="ViSnap7\Controls\UserLevels\SimpleLogin.resx">
       <DependentUpon>SimpleLogin.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ViSnap7\Controls\UserLevels\PLC_UserManagement.resx">
-      <DependentUpon>PLC_UserManagement.vb</DependentUpon>
+    <EmbeddedResource Include="ViSnap7\Controls\UserLevels\VS7 UserManagement.resx">
+      <DependentUpon>VS7 UserManagement.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViSnap7\Controls\ViSnap7 LoadSaveForm\LoadDialog.resx">
       <DependentUpon>LoadDialog.vb</DependentUpon>
@@ -311,11 +311,11 @@
     <EmbeddedResource Include="ViSnap7\Controls\ViSnap7 DynamicLabel.resx">
       <DependentUpon>ViSnap7 DynamicLabel.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ViSnap7\Controls\VS7 IncreaseDecrease.resx">
-      <DependentUpon>VS7 IncreaseDecrease.vb</DependentUpon>
+    <EmbeddedResource Include="ViSnap7\Controls\ViSnap7 IncreaseDecrease.resx">
+      <DependentUpon>ViSnap7 IncreaseDecrease.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ViSnap7\Controls\VS7 Trends.resx">
-      <DependentUpon>VS7 Trends.vb</DependentUpon>
+    <EmbeddedResource Include="ViSnap7\Controls\ViSnap7 Trends.resx">
+      <DependentUpon>ViSnap7 Trends.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

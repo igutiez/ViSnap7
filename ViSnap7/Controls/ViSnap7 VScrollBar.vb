@@ -16,7 +16,17 @@ Public Class VS7_VScrollBar
     Private controlFocused As Boolean
     Private _orientation As Orientation
     Private _readonly As Boolean
+    Private _userLever As UserLevels = UserLevels.None
 
+    <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcUserLevel)>
+    Public Property PLC_UserLevel As UserLevels
+        Get
+            Return _userLever
+        End Get
+        Set(value As UserLevels)
+            _userLever = value
+        End Set
+    End Property
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcMaximumValue)>
     Public Property PLC_Maximum As Integer
         Get
@@ -98,7 +108,11 @@ Public Class VS7_VScrollBar
 
 #Region "Plc reading and writing"
     Public Sub UpdateControl(ByRef _PLC As PlcClient)
-
+        If ActiveUserLevel < Me.PLC_UserLevel Then
+            Me.Enabled = False
+        Else
+            Me.Enabled = True
+        End If
         'Reading if control is no pending and not write pending.
         If (PLC_FormActive And updateForm) Or (Not PLC_FormActive And (firstExecution Or (Not controlFocused And Not pendingWrite))) Then
             updateForm = False
@@ -361,7 +375,16 @@ Friend Class VScrollActionList
     End Sub
 
 #Region " Properties to display in the Smart-Tag panel "
+    Public Property PLC_UserLevel() As General.UserLevels
+        Get
+            Return ctr.PLC_UserLevel
+        End Get
+        Set(ByVal value As General.UserLevels)
+            GetPropertyByName(ctr, "PLC_UserLevel").SetValue(ctr, value)
+            designerActionSvc.Refresh(ctr)
 
+        End Set
+    End Property
     Public Property PLC_DataArea As General.DataArea
         Get
             Return ctr.PLC_DataArea
@@ -532,6 +555,7 @@ Friend Class VScrollActionList
         items.Add(New DesignerActionHeaderItem(KSliderCategory))
 
         'Add the properties
+        items.Add(New DesignerActionPropertyItem("PLC_UserLevel", KPlcSecLevel, KPlcAdressingCategory, KPlcSecLevel))
         items.Add(New DesignerActionPropertyItem("PLC_DataArea", KPlcValueTypeLabel, KPlcAdressingCategory, KPlcTipDataArea))
         items.Add(New DesignerActionPropertyItem("PLC_DataType", KPlcValueTypeLabel, KPlcAdressingCategory, KPlcTipDataType))
         items.Add(New DesignerActionPropertyItem("PLC_Number", KPlcNumberLabel, KPlcAdressingCategory, KPlcTipPlcNumber))

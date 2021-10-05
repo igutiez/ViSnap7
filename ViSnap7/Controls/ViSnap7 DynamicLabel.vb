@@ -6,7 +6,7 @@ Imports System.Windows.Forms.Design
 ''' PLC Value Label user control 
 ''' </summary>
 <System.ComponentModel.Designer(GetType(DynamicLabelDesigner))>
-Class ViSnap7_DynamicLabel
+Class VS7_DynamicLabel
     Inherits UserControl
 #Region "PLC Properties"
     Public pLC_Value As String
@@ -287,13 +287,13 @@ End Class
 Friend Class DynamicLabellActionList
     Inherits DesignerActionList
 
-    Private ctr As ViSnap7_DynamicLabel
+    Private ctr As VS7_DynamicLabel
     Private designerActionSvc As DesignerActionUIService
 
     Public Sub New(ByVal component As IComponent)
         MyBase.New(component)
 
-        ctr = DirectCast(component, ViSnap7_DynamicLabel)
+        ctr = DirectCast(component, VS7_DynamicLabel)
         designerActionSvc = CType(GetService(GetType(DesignerActionUIService)), DesignerActionUIService)
     End Sub
 

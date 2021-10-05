@@ -11,6 +11,17 @@ Class VS7_SubmitForm
     Inherits Button
 #Region "PLC Properties"
     Private _formNumber As Integer
+    Private _userLever As UserLevels = UserLevels.None
+
+    <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcUserLevel)>
+    Public Property PLC_UserLevel As UserLevels
+        Get
+            Return _userLever
+        End Get
+        Set(value As UserLevels)
+            _userLever = value
+        End Set
+    End Property
     Public Property PLC_FormNumber As Integer
         Get
             Return _formNumber
@@ -23,7 +34,11 @@ Class VS7_SubmitForm
 
 #Region "Control Events"
     Public Sub ButtonClick(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Click
-        SubmitForm(Me.PLC_FormNumber)
+        If ActiveUserLevel < Me.PLC_UserLevel Then
+        Else
+            SubmitForm(Me.PLC_FormNumber)
+        End If
+
     End Sub
 
 #End Region
@@ -61,6 +76,16 @@ Friend Class SubmitFormActionList
     End Sub
 
 #Region " Properties to display in the Smart-Tag panel "
+    Public Property PLC_UserLevel() As General.UserLevels
+        Get
+            Return ctr.PLC_UserLevel
+        End Get
+        Set(ByVal value As General.UserLevels)
+            GetPropertyByName(ctr, "PLC_UserLevel").SetValue(ctr, value)
+            designerActionSvc.Refresh(ctr)
+
+        End Set
+    End Property
     Public Property PLC_FormNumber() As Integer
         Get
             Return ctr.PLC_FormNumber
@@ -102,6 +127,7 @@ Friend Class SubmitFormActionList
         items.Add(New DesignerActionHeaderItem(KPlcFormCategory))
 
         'Add the properties
+        items.Add(New DesignerActionPropertyItem("PLC_UserLevel", KPlcSecLevel, KPlcAdressingCategory, KPlcSecLevel))
         items.Add(New DesignerActionPropertyItem("PLC_FormNumber", KPlcFormNumber, KPlcAdressingCategory, KPlcTipPlcFormNumber))
 
         'Return the ActionItemCollection

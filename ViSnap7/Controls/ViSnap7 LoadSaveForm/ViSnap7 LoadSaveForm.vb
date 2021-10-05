@@ -3,8 +3,8 @@ Imports System.ComponentModel.Design
 Imports System.Windows.Forms.Design
 
 
-<System.ComponentModel.Designer(GetType(ViSnap7_LoadSaveForm.SaveFormDesigner))>
-Class ViSnap7_LoadSaveForm
+<System.ComponentModel.Designer(GetType(VS7_LoadSaveForm.SaveFormDesigner))>
+Class VS7_LoadSaveForm
     Inherits Button
     Private _folderExplorer As String
     Private _formNumber As Integer = 1
@@ -103,13 +103,13 @@ Class ViSnap7_LoadSaveForm
     Friend Class SaveFormActionList
         Inherits DesignerActionList
 
-        Private ctr As ViSnap7_LoadSaveForm
+        Private ctr As VS7_LoadSaveForm
         Private designerActionSvc As DesignerActionUIService
 
         Public Sub New(ByVal component As IComponent)
             MyBase.New(component)
 
-            ctr = DirectCast(component, ViSnap7_LoadSaveForm)
+            ctr = DirectCast(component, VS7_LoadSaveForm)
             designerActionSvc = CType(GetService(GetType(DesignerActionUIService)), DesignerActionUIService)
         End Sub
 

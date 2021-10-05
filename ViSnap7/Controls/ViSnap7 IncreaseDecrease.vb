@@ -14,7 +14,17 @@ Public Class VS7_IncreaseDecrease
     Private _DataArea As LocalDataArea = LocalDataArea.MARK
     Private _DB As Integer
     Private _Byte As Integer
+    Private _userLever As UserLevels = UserLevels.None
 
+    <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcUserLevel)>
+    Public Property PLC_UserLevel As UserLevels
+        Get
+            Return _userLever
+        End Get
+        Set(value As UserLevels)
+            _userLever = value
+        End Set
+    End Property
     <System.ComponentModel.Category(KPlcPropertiesCategory), System.ComponentModel.Description(KPlcNumberLabel)>
     Public Property PLC_Number As Integer
         Get
@@ -61,7 +71,11 @@ Public Class VS7_IncreaseDecrease
 
 #Region "Plc reading and writing"
     Public Sub UpdateControl(ByRef _PLC As PlcClient)
-
+        If ActiveUserLevel < Me.PLC_UserLevel Then
+            Me.Enabled = False
+        Else
+            Me.Enabled = True
+        End If
         'Reading if control is no pending and not write pending.
         If (Not firstExecution And Not pendingWrite) Then
 
@@ -168,7 +182,16 @@ Friend Class IncreaseDecreaseActionList
     End Sub
 
 #Region " Properties to display in the Smart-Tag panel "
+    Public Property PLC_UserLevel() As General.UserLevels
+        Get
+            Return ctr.PLC_UserLevel
+        End Get
+        Set(ByVal value As General.UserLevels)
+            GetPropertyByName(ctr, "PLC_UserLevel").SetValue(ctr, value)
+            designerActionSvc.Refresh(ctr)
 
+        End Set
+    End Property
     Public Property PLC_DataArea As VS7_IncreaseDecrease.LocalDataArea
         Get
             Return ctr.PLC_DataArea
@@ -250,6 +273,7 @@ Friend Class IncreaseDecreaseActionList
         items.Add(New DesignerActionHeaderItem(KPlcAdressingCategory))
 
         'Add the properties
+        items.Add(New DesignerActionPropertyItem("PLC_UserLevel", KPlcSecLevel, KPlcAdressingCategory, KPlcSecLevel))
         items.Add(New DesignerActionPropertyItem("PLC_DataArea", KPlcValueTypeLabel, KPlcAdressingCategory, KPlcTipDataArea))
         items.Add(New DesignerActionPropertyItem("PLC_Number", KPlcNumberLabel, KPlcAdressingCategory, KPlcTipPlcNumber))
         If PLC_DataArea = VS7_IncreaseDecrease.LocalDataArea.DB Then

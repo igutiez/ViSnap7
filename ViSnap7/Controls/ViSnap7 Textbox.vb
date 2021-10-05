@@ -12,6 +12,9 @@ Public Class VS7_Textbox
     Public controlFocused As Boolean
     Public pendingWrite As Boolean
     Public updateForm As Boolean
+    Private NumericKeyboard As VS7_NumericKeyboard
+    Private AlphanumericKeyboard As VS7_AlphanumericKeyboard
+
     Public Enum ButtonType
         SET_TRUE = 0
         RESET_FALSE = 1
@@ -138,6 +141,7 @@ Public Class VS7_Textbox
     Public Sub New()
         Me.Text = ""
         Me.Enabled = False
+
     End Sub
     Public Sub ControlLeave(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Leave
         'If the control is not used in a form. 
@@ -153,14 +157,14 @@ Public Class VS7_Textbox
             BackgroundTasks.InhibitUpdateControls = True
             Select Case Me.PLC_DataType
                 Case DataType.INT, DataType.DINT, DataType.REAL, DataType.USINT, DataType.SINT
-                    Dim keyboard As New VS7_NumericKeyboard(Me)
-                    keyboard.Show()
-                    keyboard.Location = New Point(Me.Parent.Location.X + Me.Location.X + Me.Width, Me.Parent.Location.Y + Me.Location.Y)
+                    NumericKeyboard = New VS7_NumericKeyboard(Me)
+                    NumericKeyboard.Show()
+                    NumericKeyboard.Location = New Point(Me.Parent.Location.X + Me.Location.X + Me.Width, Me.Parent.Location.Y + Me.Location.Y)
                     Me.controlFocused = True
                 Case DataType.STR, DataType.CHR
-                    Dim keyboard As New VS7_AlphanumericKeyboard(Me)
-                    keyboard.Show()
-                    keyboard.Location = New Point(Me.Parent.Location.X + Me.Location.X + Me.Width, Me.Parent.Location.Y + Me.Location.Y)
+                    AlphanumericKeyboard = New VS7_AlphanumericKeyboard(Me)
+                    AlphanumericKeyboard.Show()
+                    AlphanumericKeyboard.Location = New Point(Me.Parent.Location.X + Me.Location.X + Me.Width, Me.Parent.Location.Y + Me.Location.Y)
                     Me.controlFocused = True
 
                 Case Else
@@ -476,6 +480,8 @@ Public Class VS7_Textbox
     End Function
 
 
+
+
 #End Region
 
 
@@ -522,6 +528,7 @@ Friend Class PLCTextBoxActionList
     End Sub
 
 #Region " Properties to display in the Smart-Tag panel "
+
     Public Property PLC_UserLevel() As General.UserLevels
         Get
             Return ctr.PLC_UserLevel

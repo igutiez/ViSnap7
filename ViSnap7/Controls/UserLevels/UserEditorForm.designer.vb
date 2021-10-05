@@ -23,7 +23,7 @@ Partial Class UserEditorForm
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(UserEditorForm))
-        Me.UserManagement1 = New Proyecto_ViSnap7.PLC_UserManagement()
+        Me.UserManagement1 = New Proyecto_ViSnap7.VS7_UserManagement()
         Me.SuspendLayout()
         '
         'UserManagement1
@@ -54,5 +54,5 @@ Partial Class UserEditorForm
 
     End Sub
 
-    Friend WithEvents UserManagement1 As PLC_UserManagement
+    Friend WithEvents UserManagement1 As VS7_UserManagement
 End Class

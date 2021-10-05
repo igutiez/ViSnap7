@@ -1,7 +1,7 @@
 ﻿Imports System.IO
 Imports System.Reflection
 
-Public Class PLC_UserManagement
+Public Class VS7_UserManagement
     Public ShowEditor As Boolean
     Sub New()
 
@@ -473,7 +473,7 @@ Public Class PLC_UserManagement
 End Class
 
 
-Public Class PLC_Login
+Public Class VS7_Login
     Inherits Button
 
     Private _timer1 As New Timer
@@ -532,7 +532,7 @@ Public Class PLC_Login
 
 End Class
 
-Public Class PLC_AutomaticLogout
+Public Class VS7_AutomaticLogout
     Inherits Windows.Forms.Timer
     Private XAnterior, YAnterior As Integer
     Sub New()

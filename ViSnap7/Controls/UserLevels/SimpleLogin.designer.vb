@@ -24,7 +24,7 @@ Partial Class SimpleLogin
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SimpleLogin))
-        Me.PlC_GestorUsuarios1 = New PLC_UserManagement
+        Me.PlC_GestorUsuarios1 = New VS7_UserManagement
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.SuspendLayout()
         '
@@ -53,6 +53,6 @@ Partial Class SimpleLogin
 
     End Sub
 
-    Friend WithEvents PlC_GestorUsuarios1 As PLC_UserManagement
+    Friend WithEvents PlC_GestorUsuarios1 As VS7_UserManagement
     Friend WithEvents Timer1 As Timer
 End Class

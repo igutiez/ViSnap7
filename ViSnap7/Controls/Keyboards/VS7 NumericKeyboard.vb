@@ -9,11 +9,12 @@
 
         ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
         VS7textbox = txtbox
-        Me.ButtonDot.Enabled = False
-        Me.ButtonDot.Text = culture.NumberFormat.NumberDecimalSeparator
 
     End Sub
     Private Sub VS7_NumericKeyboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.ButtonDot.Enabled = False
+        Me.ButtonDot.Text = culture.NumberFormat.NumberDecimalSeparator
+
         With DirectCast(VS7textbox, VS7_Textbox)
             .controlFocused = True
             If .PLC_DataType = DataType.REAL Then
