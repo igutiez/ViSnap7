@@ -108,7 +108,7 @@ Public Class VS7_HScrollBar
 
 #Region "Plc reading and writing"
     Public Sub UpdateControl(ByRef _PLC As PlcClient)
-        If ActiveUserLevel < Me.PLC_UserLevel Then
+        If (ActiveUserLevel < Me.PLC_UserLevel) And (Not Me.PLC_ReadOnly) Then
             Me.Enabled = False
         Else
             Me.Enabled = True
