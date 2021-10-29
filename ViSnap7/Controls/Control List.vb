@@ -12,7 +12,7 @@
         VS7_IOByte
         VS7_Register
         VS7_RWVariable
-        ViSnap7_DynamicLabel
+        VS7_DynamicLabel
         VS7_Trends
         VS7_Gauge
         VS7_Slider
