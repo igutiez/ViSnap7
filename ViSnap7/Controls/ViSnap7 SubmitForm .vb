@@ -36,7 +36,12 @@ Class VS7_SubmitForm
     Public Sub ButtonClick(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Click
         If ActiveUserLevel < Me.PLC_UserLevel Then
         Else
-            SubmitForm(Me.PLC_FormNumber)
+            Dim result As Boolean = CheckElements(Me.PLC_FormNumber)
+            If result Then
+                SubmitForm(Me.PLC_FormNumber)
+            Else
+                MsgBox(KDataFormNotOk)
+            End If
         End If
 
     End Sub

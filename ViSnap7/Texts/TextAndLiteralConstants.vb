@@ -135,4 +135,5 @@
     Public Const KUserNameError = "User name error"
     Public Const KUserPassDontMach = "User/Pass does not match. Try again"
     Public Const KUserAdminError = "The admin name is not available. Try another one."
+    Public Const KDataFormNotOk = "Data form are not Ok. Check the form."
 End Module

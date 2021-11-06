@@ -207,6 +207,13 @@ Proyecto_ViSnap7
  </summary>
  <param name="FormNumber"></param>
 </member>
+<member name="M:Proyecto_ViSnap7.UpdateFormsTasks.CheckElements(System.Int32)">
+ <summary>
+ Check the elements if are empty
+ </summary>
+ <param name="FormNumber"></param>
+ <returns></returns>
+</member>
 <member name="M:Proyecto_ViSnap7.ViSnap7.S7Client.ReadDrvArea(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Byte[])">
  <summary>
  Data I/O main function: Read Drive Area
