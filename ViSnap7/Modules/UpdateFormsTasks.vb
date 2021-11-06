@@ -45,14 +45,11 @@
             For Each ctr As Object In plc(c).controlsCollection
                 If [Enum].IsDefined(GetType(Control_List.PlcCrtCanBeForms), ctr.GetType.Name) Then
                     If ctr.PLC_FormNumber <> 0 And ctr.PLC_FormNumber = FormNumber Then
-
                         If Not (ctr.PLC_DataType = DataType.CHR) And Not (ctr.PLC_DataType = DataType.STR) Then
                             If ctr.PLC_Value = "" Then
                                 AllOk = False
                             End If
                         End If
-
-
                     End If
                 End If
             Next

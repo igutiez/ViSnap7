@@ -157,7 +157,7 @@ Public Class VS7_Slider
         End If
         'Write in case of pendind write
         If pendingWrite Then
-            If (Me.PLC_DataType = DataType.STR) Or (Me.PLC_DataType = DataType.CHR) Or IsNumeric(Me.Text) Then
+            If IsNumeric(Me.pLC_Value) Then
                 pendingWrite = False
                 If plc(PLC_Number).connected And KGlobalConnectionEnabled Then
                     WriteValue(Me.pLC_Value, Me.PLC_Number, Me.PLC_DataArea, Me.PLC_DataType, Me.PLC_DB, Me.PLC_Byte, Me.PLC_Bit, Me.PLC_Length)
