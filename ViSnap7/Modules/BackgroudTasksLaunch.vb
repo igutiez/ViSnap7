@@ -1,6 +1,10 @@
 ﻿Imports System.ComponentModel
 
 Module BackgroudTasksLaunch
+    Public thisLoop As Date
+    Public timeBetweenLoops As Integer
+    Public timeLastLoop As Integer
+    Public loopError As Integer
     ''' <summary>
     ''' Object that makes all communication task in the background
     ''' </summary>
@@ -23,6 +27,7 @@ Module BackgroudTasksLaunch
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub CyclicLoop_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles CyclicLoop.RunWorkerCompleted
+        Dim sleepTime As Double
         'Task in the background for updating the controls
         'It is made just at the firts loop
         If firstExecution Then
@@ -32,9 +37,18 @@ Module BackgroudTasksLaunch
         UpdateFormsTasks.UpdateControls(udateControls)
         'Terminated the first execution
         firstExecution = False
-        
+
+        timeBetweenLoops = CInt(Now.TimeOfDay.TotalMilliseconds - thisLoop.TimeOfDay.TotalMilliseconds)
+        sleepTime = KReadingIntervalMiliseconds - timeBetweenLoops - loopError
+        If sleepTime < 0 Then
+            sleepTime = 0
+        End If
         'Delay the reading the desired interval
-        Threading.Thread.Sleep(KReadingIntervalMiliseconds)
+        Threading.Thread.Sleep(sleepTime)
+        timeLastLoop = CInt(Now.TimeOfDay.TotalMilliseconds - thisLoop.TimeOfDay.TotalMilliseconds)
+        loopError = Math.Abs(timeLastLoop - KReadingIntervalMiliseconds)
+        thisLoop = Now
+
         'Next loop launch
         CyclicLoop.RunWorkerAsync()
 

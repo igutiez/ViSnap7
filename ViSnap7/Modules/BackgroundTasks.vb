@@ -3,7 +3,6 @@
     Public totalPlcNumber As Integer = 0
     Public UpdateNumberOfControlsActive As Boolean
     Public InhibitUpdateControls As Boolean
-
     Private minReference As Integer = 9999
     Private maxReferece As Integer = -1
     Public Sub AccomodatePlcData()

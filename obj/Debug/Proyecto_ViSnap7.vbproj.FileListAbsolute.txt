@@ -168,7 +168,6 @@ C:\Users\igutiez.AUTOGLASS\Documents\ViSnap7\obj\Debug\Proyecto_ViSnap7.vbproj.C
 C:\Users\igutiez.AUTOGLASS\Documents\ViSnap7\obj\Debug\Proyecto_ViSnap7.exe
 C:\Users\igutiez.AUTOGLASS\Documents\ViSnap7\obj\Debug\Proyecto_ViSnap7.xml
 C:\Users\igutiez.AUTOGLASS\Documents\ViSnap7\obj\Debug\Proyecto_ViSnap7.pdb
-D:\GitHub\obj\Debug\Proyecto_ViSnap7.vbproj.AssemblyReference.cache
 D:\GitHub\obj\Debug\Proyecto_ViSnap7.Main.resources
 D:\GitHub\obj\Debug\Proyecto_ViSnap7.Resources.resources
 D:\GitHub\obj\Debug\Proyecto_ViSnap7.VS7_Historical.resources
