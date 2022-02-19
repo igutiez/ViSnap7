@@ -1,6 +1,6 @@
 ﻿Public Class Main
     Private Home As New FrmHome
-    Private Page2 As New FrmPage2
+    Private Page1 As New FrmPage1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'DO NOT CHANGE THIS LINE
@@ -11,10 +11,10 @@
         'Home 
         ChildConfig(Home)
         'Page2
-        ChildConfig(Page2)
+        ChildConfig(Page1)
 
         'SHOW FORMS
-        Page2.Show()
+        Page1.Show()
         Home.Show()
 
         'SHOW FIRST FORM
