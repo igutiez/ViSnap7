@@ -32,4 +32,13 @@
         frm.Dock = DockStyle.Fill
 
     End Sub
+
+    Private Sub GoHome_Click(sender As Object, e As EventArgs) Handles GoHome.Click
+        Me.Home.BringToFront()
+    End Sub
+
+    Private Sub Page1ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Page1ToolStripMenuItem.Click
+        Me.Page1.BringToFront()
+
+    End Sub
 End Class

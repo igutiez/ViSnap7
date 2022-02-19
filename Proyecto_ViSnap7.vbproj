@@ -91,10 +91,10 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChildForms\FrmPage2.Designer.vb">
-      <DependentUpon>FrmPage2.vb</DependentUpon>
+    <Compile Include="ChildForms\FrmPage1.Designer.vb">
+      <DependentUpon>FrmPage1.vb</DependentUpon>
     </Compile>
-    <Compile Include="ChildForms\FrmPage2.vb">
+    <Compile Include="ChildForms\FrmPage1.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Main.vb">
@@ -280,6 +280,9 @@
   <ItemGroup>
     <EmbeddedResource Include="ChildForms\FrmHome.resx">
       <DependentUpon>FrmHome.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChildForms\FrmPage1.resx">
+      <DependentUpon>FrmPage1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.vb</DependentUpon>

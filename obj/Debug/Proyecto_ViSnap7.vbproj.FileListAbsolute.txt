@@ -221,3 +221,4 @@ C:\Users\iguti\Source\Repos\ViSnap7\obj\Debug\Proyecto_ViSnap7.exe
 C:\Users\iguti\Source\Repos\ViSnap7\obj\Debug\Proyecto_ViSnap7.xml
 C:\Users\iguti\Source\Repos\ViSnap7\obj\Debug\Proyecto_ViSnap7.pdb
 C:\Users\iguti\Source\Repos\ViSnap7\obj\Debug\Proyecto_ViSnap7.FrmHome.resources
+C:\Users\iguti\Source\Repos\ViSnap7\obj\Debug\Proyecto_ViSnap7.FrmPage1.resources
