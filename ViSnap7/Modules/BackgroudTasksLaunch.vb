@@ -31,15 +31,15 @@ Module BackgroudTasksLaunch
         'Task in the background for updating the controls
         'It is made just at the firts loop
         If firstExecution Then
-            udateControls = True
+            General.updateControls = True
         End If
         'Read all active controls
-        UpdateFormsTasks.UpdateControls(udateControls)
-        'Terminated the first execution
-        firstExecution = False
+        UpdateFormsTasks.UpdateControls(General.updateControls)
 
         timeBetweenLoops = CInt(Now.TimeOfDay.TotalMilliseconds - thisLoop.TimeOfDay.TotalMilliseconds)
+
         sleepTime = KReadingIntervalMiliseconds - timeBetweenLoops - loopError
+
         If sleepTime < 0 Then
             sleepTime = 0
         End If
@@ -49,7 +49,11 @@ Module BackgroudTasksLaunch
         loopError = Math.Abs(timeLastLoop - KReadingIntervalMiliseconds)
         thisLoop = Now
 
+        'Terminated the first execution
+        firstExecution = False
+
         'Next loop launch
+        System.Windows.Forms.Application.DoEvents()
         CyclicLoop.RunWorkerAsync()
 
     End Sub

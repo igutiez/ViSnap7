@@ -27,7 +27,7 @@ Public Module General
     Public firstExecution As Boolean
 
     'Enable the controls updating
-    Public udateControls As Boolean
+    Public updateControls As Boolean
     'Clients that connect to the PLC. See ViSnap7Setup
     Public plc(KMaxNumberOfPLC) As PlcClient
 

@@ -91,6 +91,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChildForms\FrmPage2.Designer.vb">
+      <DependentUpon>FrmPage2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ChildForms\FrmPage2.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Main.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +119,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ChildForms\FrmHome.Designer.vb">
+      <DependentUpon>FrmHome.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ChildForms\FrmHome.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="ViSnap7Setup.vb" />
     <Compile Include="ViSnap7\Controls\Alarms\VS7 Historical.Designer.vb">
@@ -266,6 +278,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ChildForms\FrmHome.resx">
+      <DependentUpon>FrmHome.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.vb</DependentUpon>
     </EmbeddedResource>

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Main
+Partial Class FrmHome
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -22,26 +22,30 @@ Partial Class Main
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
-        'Main
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(320, 97)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(48, 16)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Label1"
+        '
+        'FrmHome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1540, 770)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.IsMdiContainer = True
-        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Name = "Main"
-        Me.Text = "https://visnap7.org"
+        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Label1)
+        Me.Name = "FrmHome"
+        Me.Text = "Page1"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
-    Friend WithEvents VS7_ValueLabel1 As VS7_ValueLabel
-    Friend WithEvents VS7_Button1 As VS7_Button
-    Friend WithEvents VS7_Textbox1 As VS7_Textbox
-    Friend WithEvents VS7_Textbox2 As VS7_Textbox
-    Friend WithEvents VS7_Textbox3 As VS7_Textbox
+
+    Friend WithEvents Label1 As Label
 End Class
