@@ -32,14 +32,14 @@ Partial Class VS7_Trends
         '
         'MyChart
         '
-        Me.MyChart.Anchor = System.Windows.Forms.AnchorStyles.None
         ChartArea1.Name = "ChartArea1"
         Me.MyChart.ChartAreas.Add(ChartArea1)
         Legend1.Name = "Legend1"
         Me.MyChart.Legends.Add(Legend1)
-        Me.MyChart.Location = New System.Drawing.Point(18, 17)
+        Me.MyChart.Location = New System.Drawing.Point(24, 21)
+        Me.MyChart.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.MyChart.Name = "MyChart"
-        Me.MyChart.Size = New System.Drawing.Size(737, 400)
+        Me.MyChart.Size = New System.Drawing.Size(983, 492)
         Me.MyChart.TabIndex = 0
         Me.MyChart.Text = "Chart1"
         '
@@ -49,12 +49,13 @@ Partial Class VS7_Trends
         '
         'VS7_Trends
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.Controls.Add(Me.MyChart)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "VS7_Trends"
-        Me.Size = New System.Drawing.Size(779, 438)
+        Me.Size = New System.Drawing.Size(1039, 539)
         CType(Me.MyChart, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 

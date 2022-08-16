@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ChildForms"
   ],
-  "SelectedNode": "\\Main.vb",
+  "SelectedNode": "\\ChildForms\\FrmPage1.vb",
   "PreviewInSolutionExplorer": false
 }

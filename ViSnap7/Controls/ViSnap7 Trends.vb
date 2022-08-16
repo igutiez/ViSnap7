@@ -499,7 +499,7 @@ Public Class VS7_Trends
                     .AxisX.Interval = PLC_AxisXStep
                     .AxisY.Title = PLC_YAxis
                     .AxisY.MajorGrid.LineColor = Color.LightGray
-                    .AxisY.Minimum = 0
+                    '.AxisY.Minimum = 0
                     .BackColor = Color.FloralWhite
                     .BackSecondaryColor = Color.White
                     .BackGradientStyle = GradientStyle.HorizontalCenter
@@ -539,6 +539,8 @@ Public Class VS7_Trends
         Next
         Timer1.Start()
     End Sub
+
+
 #End Region
 
 End Class

@@ -6,6 +6,7 @@
 
     'Time interval (miliseconds) between readings
     Public Const KReadingIntervalMiliseconds As Integer = 250
+
     'Just setup the PLC addresses
     Public Sub SetupPlc()
         'Setup PLC

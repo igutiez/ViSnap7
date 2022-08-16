@@ -28,17 +28,17 @@ Partial Class FrmHome
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(315, 216)
+        Me.Label1.Location = New System.Drawing.Point(350, 250)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(138, 16)
-        Me.Label1.TabIndex = 0
+        Me.Label1.TabIndex = 3
         Me.Label1.Text = "THIS IS HOME FORM"
         '
         'FrmHome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(1096, 587)
         Me.Controls.Add(Me.Label1)
         Me.Name = "FrmHome"
         Me.Text = "Page1"
