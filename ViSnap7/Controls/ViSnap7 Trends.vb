@@ -446,7 +446,6 @@ Public Class VS7_Trends
             ConfigureTrend()
             UpdateNumberOfControlsActive = True
 
-
         End If
         If Not UpdateNumberOfControlsActive Then
             Timer1.Start()
@@ -477,6 +476,13 @@ Public Class VS7_Trends
                     MyArray(c, x).Y = 0 'Normally will be CDbl(Me.Values(c).pLC_Value)
                     MyChart.Series(0).Points.AddXY(Format(MyArray(c, x).X, "HH:mm:ss"), MyArray(c, x).Y)
                 Next
+            Else
+                Try
+                    MyChart.Series(PLCs_SerieName(c)).Points.Clear()
+                Catch ex As Exception
+
+                End Try
+
             End If
         Next
 
@@ -535,10 +541,83 @@ Public Class VS7_Trends
                 For x As Integer = 0 To PLC_RegisterNumbers - 1
                     MyChart.Series(PLCs_SerieName(index)).Points.AddXY(Format(MyArray(index, x).X, "HH:mm:ss"), MyArray(index, x).Y)
                 Next
+            Else
+                Try
+                    MyChart.Series(PLCs_SerieName(index)).Points.Clear()
+                Catch ex As Exception
+
+                End Try
+
             End If
         Next
         Timer1.Start()
     End Sub
+
+    Private Sub VS7_Trends_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.CheckSerie1.Visible = PLCs_SerieActive(0)
+        Me.CheckSerie2.Visible = PLCs_SerieActive(1)
+        Me.CheckSerie3.Visible = PLCs_SerieActive(2)
+        Me.CheckSerie4.Visible = PLCs_SerieActive(3)
+        Me.CheckSerie5.Visible = PLCs_SerieActive(4)
+        Me.CheckSerie6.Visible = PLCs_SerieActive(5)
+        Me.CheckSerie7.Visible = PLCs_SerieActive(6)
+        Me.CheckSerie8.Visible = PLCs_SerieActive(7)
+        Me.CheckSerie9.Visible = PLCs_SerieActive(8)
+        Me.CheckSerie10.Visible = PLCs_SerieActive(9)
+        Me.CheckSerie1.Checked = PLCs_SerieActive(0)
+        Me.CheckSerie2.Checked = PLCs_SerieActive(1)
+        Me.CheckSerie3.Checked = PLCs_SerieActive(2)
+        Me.CheckSerie4.Checked = PLCs_SerieActive(3)
+        Me.CheckSerie5.Checked = PLCs_SerieActive(4)
+        Me.CheckSerie6.Checked = PLCs_SerieActive(5)
+        Me.CheckSerie7.Checked = PLCs_SerieActive(6)
+        Me.CheckSerie8.Checked = PLCs_SerieActive(7)
+        Me.CheckSerie9.Checked = PLCs_SerieActive(8)
+        Me.CheckSerie10.Checked = PLCs_SerieActive(9)
+
+    End Sub
+
+    Private Sub CheckSerie1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckSerie1.CheckedChanged
+        Me.PLCs_SerieActive(0) = CheckSerie1.Checked
+    End Sub
+
+    Private Sub CheckSerie2_CheckedChanged(sender As Object, e As EventArgs) Handles CheckSerie2.CheckedChanged
+        Me.PLCs_SerieActive(1) = CheckSerie2.Checked
+    End Sub
+
+    Private Sub CheckSerie3_CheckedChanged(sender As Object, e As EventArgs) Handles CheckSerie3.CheckedChanged
+        Me.PLCs_SerieActive(2) = CheckSerie3.Checked
+    End Sub
+
+    Private Sub CheckSerie4_CheckedChanged(sender As Object, e As EventArgs) Handles CheckSerie4.CheckedChanged
+        Me.PLCs_SerieActive(3) = CheckSerie4.Checked
+    End Sub
+
+    Private Sub CheckSerie5_CheckedChanged(sender As Object, e As EventArgs) Handles CheckSerie5.CheckedChanged
+        Me.PLCs_SerieActive(4) = CheckSerie5.Checked
+    End Sub
+
+    Private Sub CheckSerie6_CheckedChanged(sender As Object, e As EventArgs) Handles CheckSerie6.CheckedChanged
+        Me.PLCs_SerieActive(5) = CheckSerie6.Checked
+    End Sub
+
+    Private Sub CheckSerie7_CheckedChanged(sender As Object, e As EventArgs) Handles CheckSerie7.CheckedChanged
+        Me.PLCs_SerieActive(6) = CheckSerie7.Checked
+    End Sub
+
+    Private Sub CheckSerie8_CheckedChanged(sender As Object, e As EventArgs) Handles CheckSerie8.CheckedChanged
+        Me.PLCs_SerieActive(7) = CheckSerie8.Checked
+    End Sub
+
+    Private Sub CheckSerie9_CheckedChanged(sender As Object, e As EventArgs) Handles CheckSerie9.CheckedChanged
+        Me.PLCs_SerieActive(8) = CheckSerie9.Checked
+    End Sub
+
+    Private Sub CheckSerie10_CheckedChanged(sender As Object, e As EventArgs) Handles CheckSerie10.CheckedChanged
+        Me.PLCs_SerieActive(9) = CheckSerie10.Checked
+    End Sub
+
+
 
 
 #End Region
