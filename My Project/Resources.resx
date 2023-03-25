@@ -143,7 +143,5 @@
   <data name="false" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\false.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Visnap7_github" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>D:\OneDrive\Programacion Siemens\ViSnap7\Visnap7_github.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
+
 </root>
